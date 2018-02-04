@@ -58,10 +58,12 @@
 }
 
 #sticky_sitenav li:first-child, #home-menu li:first-child {
+	font: {
+		size: 17px;
+		weight: $font-semi-bold;
+	}
 	float: left;
 	display: block;
-	font-size: 17px;
-	font-weight: $font-semi-bold;
 	line-height: 40px;
 	text-transform: uppercase;
 	letter-spacing: .03em;
@@ -77,65 +79,82 @@ footer {
 	padding: 30px 10% 0;
 	margin-top: 80px;
 	background-color: #eee;
-	bottom: 0;
+
+	.portfolio-contact {
+	  display: flex;
+		flex-flow: row nowrap;
+		margin: 0 calc(-1 * (#{$global-padding}));
+
+		.footer-section {
+			margin: 0 $global-padding;
+		  width: 50%;
+
+			h3 {
+				font: {
+					size: 12px;
+					weight: $font-light;
+				}
+				color: $brand-color;
+				display: block;
+				margin-bottom: 10px;
+				text-transform: uppercase;
+			  letter-spacing: 0.07em;
+				line-height: 11px;
+			}
+
+			ul {
+				column-count: 2;
+
+				li {
+					color: #666;
+					line-height: 20px;
+				  margin-bottom: 12px;
+				}
+			}
+
+			input, textarea {
+				font-size: 12px;
+			}
+
+			textarea {
+				height: 60px;
+			}
+
+			a {
+				color: #666;
+			  transition-duration: 0.5s;
+
+				&:hover {
+					color: $brand-color;
+				  transition-duration: 0.1s;
+				}
+			}
+		}
+	}
+
+	.copyright-row {
+		font-size: 13px;
+	  line-height: 13px;
+		padding: 20px 0 10px;
+
+		a {
+			font-weight: $font-semi-bold;
+		}
+
+		p {
+			color: rgba(160, 160, 160, 1);
+		}
+	}
 }
 
-.portfolio-contact {
-  display: flex;
-	flex-flow: row nowrap;
-	margin: 0 calc(-1 * (#{$global-padding}));
-}
 
-#portfolio-footer, #contact-footer {
-	margin: 0 $global-padding;
-  width: 50%;
-}
+
+
 
 #sticky-footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-}
-
-footer h3 {
-	color: $brand-color;
-	display: block;
-	margin-bottom: 10px;
-	letter-spacing: 0;
-  font-weight: $font-light;
-	text-transform: uppercase;
-  letter-spacing: 0.07em;
-	font-size: 12px;
-	line-height: 11px;
-}
-
-footer li {
-	color: #666;
-	line-height: 20px;
-  margin-bottom: 12px
-}
-
-footer a {
-	color: #666;
-  transition-duration: 0.5s
-}
-
-footer a:hover {
-	color: $brand-color;
-  transition-duration: 0.1s
-}
-
-#portfolio-footer ul {
-	column-count: 2;
-}
-
-#contact-footer input,
-#contact-footer textarea {
-	font-size: 12px;
-}
-
-#contact-footer textarea {
-	height: 60px;
 }
 
 #contact-footer .contact-form {
@@ -177,24 +196,14 @@ footer a:hover {
 }
 
 .contact-form-success p {
+	font: {
+		size: 16px;
+		weight: $font-semi-bold;
+	}
 	color: #666;
-	font-weight: $font-semi-bold;
-	font-size: 16px;
 }
 
-.copyright-row {
-	font-size: 13px;
-  line-height: 13px;
-	padding: 20px 0 10px;
 
-	a {
-		font-weight: $font-semi-bold;
-	}
-
-	p {
-		color: rgba(160, 160, 160, 1);
-	}
-}
 
 
 /*
@@ -226,8 +235,10 @@ footer a:hover {
 				color: $brand-color;
 
 				.grey-out {
-					font-size: 1em;
-					font-weight: $font-extra-light;
+					font: {
+						size: 1em;
+						weight: $font-extra-light;
+					}
 					color: rgba(255, 255, 255, 0.7)
 				}
 
@@ -242,8 +253,10 @@ footer a:hover {
 					margin-bottom: -1px;
 
 					.tooltiptext {
-						font-size: 17px;
-						font-weight: $font-regular;
+						font: {
+							size: 17px;
+							weight: $font-regular;
+						}
 						width: 120px;
 					  color: #fff;
 					  text-align: center;
@@ -262,10 +275,12 @@ footer a:hover {
 							top: 65%;
 						  left: 50%;
 						  margin-left: -5px;
-						  border-width: 5px;
-						  border-style: solid;
-						  border-color: $brand-color transparent transparent transparent;
 							opacity: 0.8;
+						  border: {
+								width: 5px;
+						  	style: solid;
+							  color: $brand-color transparent transparent transparent;
+							}
 						}
 					}
 
@@ -283,8 +298,10 @@ footer a:hover {
 
 		.hello-bio {
 			p {
-			  font-size: 20px;
-			  font-weight: $font-extra-light;
+			  font: {
+					size: 20px;
+			  	weight: $font-extra-light;
+				}
 			  line-height: 33px;
 			  letter-spacing: 0.04em;
 				color: rgba(255, 255, 255, 0.8);
@@ -296,7 +313,7 @@ footer a:hover {
 			}
 
 			a {
-				color: $brand-color;
+				color: $brand-color-light;
 				transition-duration: 0.5s;
 				border-bottom: 1px dotted #555;
 
@@ -351,11 +368,13 @@ footer a:hover {
 	#beta .project-image { background-image: url('/assets/images/thumbnails/beta-thumb-bg.jpg'); }
 
 	h3 {
+		font: {
+			size: 30px;
+			weight: $font-extra-light;
+		}
 		color: #555;
 		display: inline-block;
 		margin-bottom: 80px;
-		font-size: 30px;
-		font-weight: $font-extra-light;
 		line-height: 30px;
 		padding-top: 5px;
 		border-top: 5px solid $brand-color;
@@ -367,8 +386,7 @@ footer a:hover {
 		flex-flow: row wrap;
 
 		.project {
-		  margin: 0 $global-padding;
-		  padding-bottom: $global-padding;
+		  margin: $global-padding;
 			width: calc(33.33333333333% - (2 * #{$global-padding}));
 			min-width: 230px;
 
@@ -428,28 +446,26 @@ footer a:hover {
 			}
 
 			.project-title {
-				p {
-				  margin: 0;
+				a {
+					font-size: 18px;
+					display: block;
+					color: $brand-color;
+					line-height: 1.2em;
+					padding-top: 10px;
+				}
 
-					a {
-						font-size: 18px;
-						display: block;
-						color: $brand-color;
-						line-height: 1.2em;
-						padding-top: 10px;
-					}
-
-					a:hover {
-						color: $grey-color-light;
-					}
+				a:hover {
+					color: $grey-color-light;
 				}
 			}
 
 			.project-category {
+				font: {
+					size: 0.85em;
+				  weight: $font-extra-light;
+				}
 				margin-top: 2px;
 				color: $grey-color-light;
-				font-size: 0.85em;
-			  font-weight: $font-extra-light;
 				line-height: 1.5em;
 			  padding: 0;
 
@@ -468,21 +484,25 @@ footer a:hover {
 .intro-container {
 	padding-bottom: 60px;
 	margin-bottom: 50px;
-	background-color: $brand-color;
-	background-image: url('/assets/images/bg1.png');
-  background-attachment: fixed;
-  background-position: center center;
-	background-blend-mode: multiply;
+	background: {
+		color: $brand-color;
+		image: url('/assets/images/bg1.png');
+  	attachment: fixed;
+  	position: center center;
+		blend-mode: multiply;
+		size: cover;
+	}
 	mix-blend-mode: multiply;
-  background-size: cover;
+
 
 	.project-name {
 		@include project-sizer;
-		padding-top: 140px;
-		padding-bottom: 20px;
+		font: {
+			size: 40px;
+			weight: $font-light;
+		}
+		padding: 140px 0 20px;
 		line-height: 45px;
-		font-size: 40px;
-		font-weight: $font-light;
 		color: $brand-color;
 		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
 		letter-spacing: 0.4px;
@@ -491,9 +511,11 @@ footer a:hover {
 	.info-stats {
 		@include project-sizer;
 		@extend %flex-default;
+		font: {
+			size: 19px;
+			weight: $font-extra-light;
+		}
 		color: rgba(255, 255, 255, 0.8);
-		font-size: 19px;
-		font-weight: $font-extra-light;
 		line-height: 30px;
 		letter-spacing: 0.05em;
 	  -ms-flex-wrap: nowrap;
@@ -518,10 +540,13 @@ footer a:hover {
 			}
 
 			.stat-title {
+				font: {
+					size: 13px;
+					weight: $font-semi-bold;
+				}
+				line-height: 15px;
 				color: $brand-color;
 				text-transform: uppercase;
-				font-size: 13px;
-				font-weight: $font-semi-bold;
 				letter-spacing: 0.06em;
 			}
 
@@ -609,18 +634,23 @@ footer a:hover {
 	}
 
 	.caption-number {
+	 font: {
+		 size: 12px;
+		 weight: $font-semi-bold;
+	 }
+	 text: {
+		 align: center;
+		 shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+	 }
 	 margin: $global-padding 0 0 $global-padding;
-	 font-size: 12px;
-	 font-weight: $font-semi-bold;
 	 display: inline-block;
 	 width: 22px;
 	 height: 22px;
 	 border-radius: 50%;
 	 color: #fff;
-	 text-align: center;
 	 line-height: 22px;
-	 background-color: $brand-color;
-	 border: 1px solid $brand-color;
+	 background-color: $brand-color-bright;
+	 border: 3px solid $brand-color;
 	 opacity: 0.8;
 	}
 
@@ -647,6 +677,7 @@ footer a:hover {
 			font-weight: $font-regular;
 
 			.caption-number {
+				text-shadow: none;
 				margin: 0 11px 0 -8px;
 				color: #666;
 				background-color: rgba(255, 255, 255, 0.8);
@@ -661,11 +692,19 @@ footer a:hover {
 	}
 
 	.section-intro {
-		margin-bottom: 30px;
+		margin: 60px 0 30px;
+
+		h3 {
+			color: $brand-color;
+			margin-bottom: 0;
+			font-weight: $font-regular;
+		}
 
 		p {
-			font-size: 21px;
-			font-weight: $font-light;
+			font: {
+				size: 21px;
+				weight: $font-light;
+			}
 			color: #666;
 			line-height: 30px;
 		}
@@ -692,6 +731,25 @@ footer a:hover {
 		}
 	}
 }
+
+/*
+ Fancybox
+*/
+.fancybox-container {
+	svg {
+		color: $brand-color;
+		background-color: #fff;
+	}
+
+	.fancybox-toolbar button {
+		background-color: #fff;
+	}
+
+	.fancybox-caption {
+		border: none !important;
+	}
+}
+
 
 /*
  1200px Media Queries
