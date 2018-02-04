@@ -26,7 +26,7 @@ $grey-color-dark:  darken($grey-color, 25%) !default;
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    100% !default;
+$content-width:    940px !default;
 
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
@@ -52,6 +52,12 @@ $transition-time:  0.3s !default;
 
 @mixin relative-font-size($ratio) {
   font-size: $base-font-size * $ratio;
+}
+
+@mixin project-sizer {
+  max-width: $content-width;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @mixin opacity-transition {
