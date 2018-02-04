@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+        <main class="project-wrapper">
+          <div class="intro-container">
+            <h3 class="project-name">{{ page.projectname }}</h3>
+            <div class="info-stats">
+              <div class="project-info">
+                {% include project_descriptions/{{page.shortcode}}_desc.html %}
+              </div>
+              <div class="project-metadata">
+                <div class="stats">
+                  <div class="stat">
+                    <div class="stat-title">Client</div>
+                    <div class="stat-value">{{ page.client }}</div>
+                  </div>
+                  <div class="stat">
+                    <div class="stat-title">Role</div>
+                    <div class="stat-value">{{ page.role }}</div>
+                  </div>
+                  <div class="stat">
+                    <div class="stat-title">Dates</div>
+                    <div class="stat-value">{{ page.dates }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {{ content }}
+
+        </main>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
