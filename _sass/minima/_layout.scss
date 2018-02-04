@@ -265,7 +265,7 @@ footer a:hover {
 	margin: 40px 0;
 }
 
-.name-title p {
+.name-title {
 	margin-top: 80px;
 	font-weight: $font-extra-light;
 	line-height: 1.1em;
@@ -418,7 +418,6 @@ footer a:hover {
 	height: 100%;
 	width: 100%;
 	display: flex;
-  justify-content: left;
   align-items: center;
 }
 
@@ -454,7 +453,7 @@ footer a:hover {
 	color: $grey-color-light;
 }
 
-.project-category p {
+.project-category {
 	margin-top: 2px;
 	color: $grey-color-light;
 	font-size: 0.85em;
@@ -527,7 +526,6 @@ footer a:hover {
 	color: $brand-color;
 	text-transform: uppercase;
 	font-size: 13px;
-	line-height: 1.5em;
 	font-weight: $font-semi-bold;
 	letter-spacing: 0.06em;
 }
@@ -537,12 +535,11 @@ footer a:hover {
 	margin-bottom: 6px;
 }
 
-.image-grid-full, .image-row, .info-block {
+.image-grid-full, .image-row, .info-block, .image-grid-left, .info-pane-row {
 	@extend %flex-default;
 }
 
 .image-grid-left {
-	@extend %flex-default;
 	width: calc(66.6666666666% - #{$global-padding});
 }
 
@@ -590,8 +587,7 @@ footer a:hover {
 
 .info-pane-title .caption-number {
 	margin: 0 0 0 -10px;
-	color: #333;
-	color: $brand-color;
+	color: #666;
 	background-color: rgba(255, 255, 255, 0.8);
 	border: 1px solid $brand-color;
 	opacity: 1;
@@ -603,7 +599,6 @@ footer a:hover {
 }
 
 .info-pane-row {
-	@extend .info-block;
 	margin: $global-padding 0;
 }
 
@@ -624,15 +619,6 @@ footer a:hover {
 .info-pane-content {
 	margin-left: 21px;
 }
-
-
-
-
-
-
-
-
-
 
 .section-intro {
 	margin-bottom: 30px;

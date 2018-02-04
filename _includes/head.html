@@ -4,7 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700" rel="stylesheet">
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   {% if page.layout == "project" %}
     <title>Dela A. Kumahor  |  {{ page.projectname }}</title>
   {% else %}
@@ -14,4 +13,6 @@
   {% if jekyll.environment == 'production' and site.google_analytics %}
     {% include google-analytics.html %}
   {% endif %}
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css">
 </head>
