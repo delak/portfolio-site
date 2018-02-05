@@ -3,16 +3,14 @@
 
   {% include head.html %}
 
-  <body>
-
+  <body class="homepage">
     <main>
       <div class="hello-section">
         <div class="hello-intro-bio">
-          <ul id="home-menu">
-            <li>
-              <a href="http://delakumahor.com/" target="_self">{{ site.title }}</a>
-            </li>
-          </ul>
+          <div class="site-header">
+            <a href="http://delakumahor.com/">Dela A. Kumahor</a>
+            <div class="header-bg"></div>
+          </div>
           <div class="hello-intro">
             <div class="name-title">
                Product<span class="grey-out slash-space">/</span><span class="tooltip">UX<span class="tooltiptext">User Experience</span></span><span class="grey-out slash-space">/</span><span class="tooltip">UI<span class="tooltiptext">User Interface</span></span><br />
@@ -128,5 +126,4 @@
         {% include footer.html %}
 
   </body>
-
 </html>
