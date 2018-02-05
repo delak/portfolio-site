@@ -9,4 +9,8 @@ $(document).ready(function(){
       $('.site-header').removeClass('orangeify');
     }
   });
+
+  $('.menu-toggle').click(function() {
+    $('.project-thumbnails').slideToggle(200);
+  });
 });

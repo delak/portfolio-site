@@ -1,0 +1,21 @@
+{% for p in site.pages %}
+  {% if p.layout == 'project' %}
+    <div id="{{ p.shortcode }}" class="project" style="order: {{ p.order }}">
+      <div class="project-image-box">
+        <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')">
+          <div class="project-desc-box">
+            <p>
+              <a href="/{{ p.shortcode }}.html"><br>
+                <span class="proj-desc">{{ p.question }}</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="project-title">
+        <a href="/{{ p.shortcode }}.html">{{ p.projectname }}</a>
+      </div>
+      <div class="project-category">{{ p.categories }}</div>
+    </div>
+  {% endif %}
+{% endfor %}
