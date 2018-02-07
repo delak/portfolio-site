@@ -1,7 +1,14 @@
 {% for p in site.pages %}
   {% if p.layout == 'project' %}
+    {% if p.shortcode == page.shortcode %}
+    <div id="{{ p.shortcode }}" class="project current" style="order: {{ p.order }}">
+    {% else %}
     <div id="{{ p.shortcode }}" class="project" style="order: {{ p.order }}">
+    {% endif %}
       <div class="project-image-box">
+        {% if page.layout == 'project' %}
+        <a href="/{{ p.shortcode }}.html"><img class="project-image" src="{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg" /></a>
+        {% else %}
         <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')">
           <div class="project-desc-box">
             <p>
@@ -11,6 +18,7 @@
             </p>
           </div>
         </div>
+        {% endif %}
       </div>
       <div class="project-title">
         <a href="/{{ p.shortcode }}.html">{{ p.projectname }}</a>

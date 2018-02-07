@@ -260,7 +260,7 @@ table {
  	width: 100%;
  	height: 0;
  	margin: $global-padding 0;
- 	@include opacity-transition;
+ 	@include opacity-transition($transition-time);
  }
 
  %image-default:hover {

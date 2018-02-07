@@ -20,7 +20,7 @@ $background-color: #fdfdfd !default;
 $brand-color:      #C85628 !default;
 $brand-color-bright:saturate($brand-color, 20%) !default;
 $brand-color-light:lighten($brand-color, 10%) !default;
-$brand-color-dark: darken($brand-color, 10%) !default;
+$brand-color-dark: darken($brand-color, 30%) !default;
 
 $grey-color:       #333333 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
@@ -63,12 +63,12 @@ $transition-time:  0.3s !default;
   margin-right: auto;
 }
 
-@mixin opacity-transition {
-  -webkit-transition: $transition-time ease;
-  -moz-transition: $transition-time ease;
-  -ms-transition: $transition-time ease;
-  -o-transition: $transition-time ease;
-  transition: $transition-time ease;
+@mixin opacity-transition($interval) {
+  -webkit-transition: $interval ease;
+  -moz-transition: $interval ease;
+  -ms-transition: $interval ease;
+  -o-transition: $interval ease;
+  transition: $interval ease;
 }
 
 @mixin transform-transition {
