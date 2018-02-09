@@ -7,7 +7,9 @@
     {% endif %}
       <div class="project-image-box">
         {% if page.layout == 'project' %}
-        <a href="/{{ p.shortcode }}.html"><img class="project-image" src="{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg" /></a>
+        <a href="/{{ p.shortcode }}.html">
+          <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')"></div>
+        </a>
         {% else %}
         <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')">
           <div class="project-desc-box">
