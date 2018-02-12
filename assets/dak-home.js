@@ -3,7 +3,6 @@ $(document).ready(function() {
   var m = $('.masthead')
   var hb = $('.hello-bio');
   var hs = $('.hello-section');
-  var offset = sh.offset().top;
   var showTitle = false;
 
   var toggleMenu = function() {
@@ -29,12 +28,6 @@ $(document).ready(function() {
     var y_scroll_pos = window.pageYOffset;
     var scroll_pos_title = hb.position().top + hb.outerHeight(true) - 30;
     var scroll_pos_test = hs.height();
-
-    if(y_scroll_pos > offset) {
-      sh.addClass('fixed-header');
-    } else {
-      sh.removeClass('fixed-header');
-    }
 
     if(y_scroll_pos > scroll_pos_title) {
       showTitle = true;

@@ -13,29 +13,29 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
 
 <div class="case-study">
   <div class="info-block">
-    <div class="main-image" style="background-image: url({{ site.imagepath }}B01-7.jpg)">
-        <p>
-          <a data-fancybox="lightbox-{{ page.shortcode }}" data-caption="1. Field research" href="{{ site.imagepath }}B01-7.jpg">
-            <span class="caption-number">1</span>
-          </a>
-        </p>
+    <div id="image1" class="main-image" style="background-image: url({{ site.imagepath }}B01-7.jpg)">
+      <p>
+        <a data-fancybox="lightbox-{{ page.shortcode }}" data-caption="1. Field research" href="{{ site.imagepath }}B01-7.jpg">
+          <span class="caption-number">1</span>
+        </a>
+      </p>
     </div>
     <div class="image-grid-left">
-      <div class="wide-image" style="background-image: url({{ site.imagepath }}image12.jpg)">
+      <div id="image2" class="wide-image" style="background-image: url({{ site.imagepath }}image12.jpg)">
         <p>
           <a data-caption="2. Initial research synthesis" href="{{ site.imagepath }}image12.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
             <span class="caption-number">2</span>
           </a>
         </p>
       </div>
-      <div class="half-image" style="background-image: url({{ site.imagepath }}calendar.jpg)">
+      <div id="image3" class="half-image" style="background-image: url({{ site.imagepath }}calendar.jpg)">
         <p>
           <a data-caption="3. Spend calendar" href="{{ site.imagepath }}calendar.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
             <span class="caption-number">3</span>
           </a>
         </p>
       </div>
-      <div class="half-image" style="background-image: url({{ site.imagepath }}IMG_2071.jpg)">
+      <div id="image4" class="half-image" style="background-image: url({{ site.imagepath }}IMG_2071.jpg)">
         <p>
           <a data-caption="4. Content testing" href="{{ site.imagepath }}IMG_2071.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
             <span class="caption-number">4</span>
@@ -44,7 +44,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
   		</div>
     </div>
     <div class="info-pane-list">
-      <div class="info-pane">
+      <div class="info-pane" data-image="1">
         <div class="info-pane-title">
   			  <span class="caption-number">1</span>Field Research
         </div>
@@ -52,7 +52,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
           Over the course of the project we conducted 1-on-1 interviews and focus groups with farmers in 6 out of the 10 regions of Ghana. Some of the stories we heard centered around a lack of pride, lack of negotiation power with traders; low literacy and heavy post-harvest losses.
         </div>
   		</div>
-      <div class="info-pane">
+      <div class="info-pane" data-image="2">
         <div class="info-pane-title">
   			  <span class="caption-number">2</span>Initial research synthesis
         </div>
@@ -60,7 +60,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
           Based on an initial 6-weeks of research and stakeholder engagement, we developed archetypes and a Minimum Viable Product for further testing.
         </div>
   		</div>
-      <div class="info-pane">
+      <div class="info-pane" data-image="3">
         <div class="info-pane-title">
   			  <span class="caption-number">3</span>Spend calendar
         </div>
@@ -68,7 +68,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
           A fun and interactive tool to visualize and discuss farmers’ spending on phone credit.
         </div>
   		</div>
-      <div class="info-pane">
+      <div class="info-pane" data-image="4">
         <div class="info-pane-title">
   			  <span class="caption-number">4</span>Content testing
         </div>
@@ -86,7 +86,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
     <p>We devised a number of interventions to address the issues and opportunities that we observed around delivering information to farmers in a way they could understand.</p>
   </div>
   <div class="info-block">
-    <div class="main-image" style="background-image: url({{ site.imagepath }}phone-charm.jpeg)">
+    <div id="image5" class="main-image" style="background-image: url({{ site.imagepath }}phone-charm.jpeg)">
         <p>
           <a data-caption="5. Field research" href="{{ site.imagepath }}phone-charm.jpeg" data-fancybox="lightbox-{{ page.shortcode }}">
             <span class="caption-number">5</span>
@@ -94,7 +94,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
         </p>
     </div>
     <div class="image-grid-left">
-      <div class="wide-image" style="background-image: url({{ site.imagepath }}W01.jpg)">
+      <div id="image6" class="wide-image" style="background-image: url({{ site.imagepath }}W01.jpg)">
         <p>
           <a data-caption="6. Initial research synthesis" href="{{ site.imagepath }}W01.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
             <span class="caption-number">6</span>
@@ -103,7 +103,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
       </div>
     </div>
     <div class="info-pane-list">
-      <div class="info-pane">
+      <div class="info-pane" data-image="5">
         <div class="info-pane-title">
   			  <span class="caption-number">5</span>Phone charm
         </div>
@@ -111,7 +111,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
           The phone charm served to: increase the brand visibility of Farmers’ Club; improve farmer pride; and provide a convenient place for farmers to reference their own phone numbers easily — a major pain point.
         </div>
   		</div>
-      <div class="info-pane">
+      <div class="info-pane" data-image="6">
         <div class="info-pane-title">
   			  <span class="caption-number">6</span>SMS prefixes
         </div>
@@ -124,7 +124,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
   <div class="section-intro">
     <p>In addition to addressing the needs of the farmers themselves, we also had to address the difficult challenge of how to distribute the product to rural communities all around Ghana. We helped to implement a Sales Agent and Ambassador model, which included specially-designed tools and training.</p>
   </div>
-  <div class="ui-image" style="background-image: url({{ site.imagepath }}sales-agent-app.jpg)">
+  <div id="image7" class="ui-image" style="background-image: url({{ site.imagepath }}sales-agent-app.jpg)">
     <p>
       <a data-caption="7. Field research" href="{{ site.imagepath }}sales-agent-app.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
         <span class="caption-number">7</span>
@@ -133,21 +133,21 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
   </div>
   <div class="info-block">
     <div class="image-grid-left">
-      <div class="wide-image" style="background-image: url({{ site.imagepath }}IMG_2931.jpg)">
+      <div id="image8" class="wide-image" style="background-image: url({{ site.imagepath }}IMG_2931.jpg)">
         <p>
           <a data-caption="8. Initial research synthesis" href="{{ site.imagepath }}IMG_2931.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
             <span class="caption-number">8</span>
           </a>
         </p>
       </div>
-      <div class="half-image" style="background-image: url({{ site.imagepath }}P7219279.jpg)">
+      <div id="image9" class="half-image" style="background-image: url({{ site.imagepath }}P7219279.jpg)">
         <p>
           <a data-caption="9. Spend calendar" href="{{ site.imagepath }}P7219279.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
             <span class="caption-number">9</span>
           </a>
         </p>
       </div>
-      <div class="half-image" style="background-image: url({{ site.imagepath }}P7178936.jpg)">
+      <div id="image10" class="half-image" style="background-image: url({{ site.imagepath }}P7178936.jpg)">
         <p>
           <a data-caption="10. Content testing" href="{{ site.imagepath }}P7178936.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
             <span class="caption-number">10</span>
@@ -156,7 +156,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
   		</div>
     </div>
     <div class="info-pane-list">
-      <div class="info-pane">
+      <div class="info-pane" data-image="7">
         <div class="info-pane-title">
   			  <span class="caption-number">7</span>Sales agent app
         </div>
@@ -164,7 +164,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
           Devised as a way of giving agents a set of digital tools to help onboard users and to streamline the registration process for new customers.
         </div>
   		</div>
-      <div class="info-pane">
+      <div class="info-pane" data-image="8">
         <div class="info-pane-title">
   			  <span class="caption-number">8</span>Role playing
         </div>
@@ -172,7 +172,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
           Agricultural extension agents practice how to explain the service to farmers by role playing.
         </div>
   		</div>
-      <div class="info-pane">
+      <div class="info-pane" data-image="9">
         <div class="info-pane-title">
   			  <span class="caption-number">9</span>Cheat sheet
         </div>
@@ -180,7 +180,7 @@ description: <p>Vodafone Farmers’ Club was launched to deliver critical inform
           We found that technological illiteracy was underpinned by one dominant factor: a lack of confidence. People didn't want to “play’ with their phones for fear of spoiling them. We designed the cheat sheet — a strip of paper imprinted with the function keys of a typical feature phone — to empower farmers to check and delete messages.
         </div>
   		</div>
-      <div class="info-pane">
+      <div class="info-pane"  data-image="10">
         <div class="info-pane-title">
   			  <span class="caption-number">10</span>Voice SMS
         </div>

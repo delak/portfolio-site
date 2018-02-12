@@ -22,14 +22,20 @@ description: <p>Fido is a micro-loan company based in Ghana. Their unique model 
     <p>The key components of the app are the loan calculator, where users select the size and duration of the loan that they are applying for, the lengthy loan request form and the dashboard for returning users.</p>
   </div>
   <div class="image-row">
-    <div class="tall-image" style="background-image: url({{ site.imagepath }}next4.jpg)">
+    <div id="image1" class="tall-image">
       <p>
-        <a data-caption="3. ’Next’ button" href="{{ site.imagepath }}next4.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
+        <a data-caption="3. ’Next’ button" href="{{ site.imagepath }}fido-poster-frame.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
           <span class="caption-number">1</span><span class="caption-number">2</span>
+          <video width="100%" poster="{{ site.imagepath }}fido-poster-frame.jpg" muted autoplay loop>
+            <source src="/assets/videos/fido-video.m4v" />
+            <source src="/assets/videos/fido-video.webm" />
+            <source src="/assets/videos/fido-video.ogg" />
+            Sorry, your browser does not support video.
+          </video>
         </a>
       </p>
     </div>
-    <div class="wide-image" style="background-image: url({{ site.imagepath }}next4.jpg)">
+    <div id="image3" class="wide-image" style="background-image: url({{ site.imagepath }}next4.jpg)">
       <p>
         <a data-caption="3. ’Next’ button" href="{{ site.imagepath }}next4.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
           <span class="caption-number">3</span>
@@ -38,7 +44,7 @@ description: <p>Fido is a micro-loan company based in Ghana. Their unique model 
     </div>
   </div>
   <div class="info-pane-row">
-    <div class="info-pane">
+    <div class="info-pane" data-image="1">
       <div class="info-pane-title">
         <span class="caption-number">1</span>Error handling
       </div>
@@ -46,7 +52,7 @@ description: <p>Fido is a micro-loan company based in Ghana. Their unique model 
         Reviewing and correcting errors proved to be major pain points. We broke the form into logical chunks and provided a review panel to allow users to review and correct their entries before proceeding to the next screen. Errors were clearly marked, and hyperlinked back to the relevant field to make it easier for users to find and correct it.
       </div>
     </div>
-    <div class="info-pane">
+    <div class="info-pane" data-image="1">
       <div class="info-pane-title">
         <span class="caption-number">2</span>Loan request form
       </div>
@@ -54,7 +60,7 @@ description: <p>Fido is a micro-loan company based in Ghana. Their unique model 
         Our interventions were both semantic — in the wording of the questions — and in the interaction design. For example, users had difficulty using dropdown menus which for gave little usability cues and hid the possible responses. They were replaced with radio button lists, which displayed the options upfront.
       </div>
     </div>
-    <div class="info-pane">
+    <div class="info-pane" data-image="3">
       <div class="info-pane-title">
         <span class="caption-number">3</span>‘Next’ button
       </div>
@@ -64,7 +70,7 @@ description: <p>Fido is a micro-loan company based in Ghana. Their unique model 
     </div>
   </div>
   <div class="info-block">
-    <div class="main-image" style="background-image: url({{ site.imagepath }}fido-testing.jpg)">
+    <div id="image4" class="main-image" style="background-image: url({{ site.imagepath }}fido-testing.jpg)">
         <p>
           <a data-caption="4. Usability testing" href="{{ site.imagepath }}fido-testing.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
             <span class="caption-number">4</span>
@@ -72,7 +78,7 @@ description: <p>Fido is a micro-loan company based in Ghana. Their unique model 
         </p>
     </div>
     <div class="image-grid-left">
-      <div class="wide-image" style="background-image: url({{ site.imagepath }}fido3.jpg)">
+      <div id="image5" class="wide-image" style="background-image: url({{ site.imagepath }}fido3.jpg)">
         <p>
           <a data-caption="5. Early paper prototype" href="{{ site.imagepath }}fido3.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
             <span class="caption-number">5</span>
@@ -81,7 +87,7 @@ description: <p>Fido is a micro-loan company based in Ghana. Their unique model 
       </div>
     </div>
     <div class="info-pane-list">
-      <div class="info-pane">
+      <div class="info-pane" data-image="4">
         <div class="info-pane-title">
   			  <span class="caption-number">4</span>Usability testing
         </div>
@@ -89,7 +95,7 @@ description: <p>Fido is a micro-loan company based in Ghana. Their unique model 
           We watched new and old Fido users interact with the existing app to identify pain points and re-map the user flows. Usability tests were also conducted at each phase of design.
         </div>
   		</div>
-      <div class="info-pane">
+      <div class="info-pane" data-image="5">
         <div class="info-pane-title">
   			  <span class="caption-number">5</span>Early paper prototype
         </div>

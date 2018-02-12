@@ -19,7 +19,7 @@ description: <p>A mobile app designed to give Community Health Nurses within the
         </a>
       </p>
   </div>
-  <div class="main-image" style="background-image: url({{ site.imagepath }}chn_hierarchy.png)">
+  <div id="image1" class="main-image" style="background-image: url({{ site.imagepath }}chn_hierarchy.png)">
       <p>
         <a data-caption="1. Information flow and architecture" href="{{ site.imagepath }}chn_hierarchy.png" data-fancybox="lightbox-{{ page.shortcode }}">
           <span class="caption-number">1
@@ -28,14 +28,14 @@ description: <p>A mobile app designed to give Community Health Nurses within the
       </p>
   </div>
   <div class="image-row">
-    <div class="half-image" style="background-image: url({{ site.imagepath }}chn-before-after1.jpg)">
+    <div id="image2" class="half-image" style="background-image: url({{ site.imagepath }}chn-before-after1.jpg)">
       <p>
         <a data-caption="2. Discoverability of information" href="{{ site.imagepath }}chn-before-after1.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
           <span class="caption-number">2</span>
         </a>
       </p>
     </div>
-    <div class="half-image" style="background-image: url({{ site.imagepath }}chn-before-after2.jpg)">
+    <div id="image3" class="half-image" style="background-image: url({{ site.imagepath }}chn-before-after2.jpg)">
       <p>
         <a data-caption="3. Contextuality" href="{{ site.imagepath }}chn-before-after2.jpg" data-fancybox="lightbox-{{ page.shortcode }}">
           <span class="caption-number">3</span>
@@ -44,7 +44,7 @@ description: <p>A mobile app designed to give Community Health Nurses within the
     </div>
   </div>
   <div class="info-pane-row">
-    <div class="info-pane">
+    <div class="info-pane" data-image="1">
       <div class="info-pane-title">
         <span class="caption-number">1</span>Information flow and architecture
       </div>
@@ -52,7 +52,7 @@ description: <p>A mobile app designed to give Community Health Nurses within the
         The existing design made it difficult for users to tell how deep they were within the app's content structure. I identified four discrete levels of information that users could navigate to, and normalized all of the content, layout and navigation to fit this structure across all screens.
       </div>
     </div>
-    <div class="info-pane">
+    <div class="info-pane" data-image="2">
       <div class="info-pane-title">
         <span class="caption-number">2</span>Discoverability of information
       </div>
@@ -60,7 +60,7 @@ description: <p>A mobile app designed to give Community Health Nurses within the
         In addition to providing a menu structure that was clearer and more hierarchical, I also implemented a way for users to discover useful information while using the app.
       </div>
     </div>
-    <div class="info-pane">
+    <div class="info-pane" data-image="3">
       <div class="info-pane-title">
         <span class="caption-number">3</span>Contextuality
       </div>

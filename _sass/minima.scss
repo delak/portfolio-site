@@ -16,13 +16,13 @@ $base-line-height: 1.5 !default;
 $spacing-unit:     30px !default;
 
 $text-color:       #666 !default;
-$background-color: #fdfdfd !default;
+$background-color: #fff !default;
 $brand-color:      #C85628 !default;
 $brand-color-bright:saturate($brand-color, 20%) !default;
 $brand-color-light:lighten($brand-color, 10%) !default;
 $brand-color-dark: darken($brand-color, 30%) !default;
 
-$grey-color:       #333333 !default;
+$grey-color:       #333 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
 
@@ -31,8 +31,9 @@ $table-text-align: left !default;
 // Width of the content area
 $content-width:    940px !default;
 
-$on-palm:          780px !default;
-$on-laptop:        1200px !default;
+$on-phone:         640px !default;
+$on-tablet:        780px !default;
+$on-desktop:       1200px !default;
 
 // Global padding
 $global-padding:   15px !default;
@@ -63,7 +64,7 @@ $transition-time:  0.3s !default;
   margin-right: auto;
 }
 
-@mixin opacity-transition($interval) {
+@mixin all-transition($interval) {
   -webkit-transition: $interval ease;
   -moz-transition: $interval ease;
   -ms-transition: $interval ease;
@@ -81,7 +82,7 @@ $transition-time:  0.3s !default;
 
 // Import partials.
 @import
-  "minima/base",
-  "minima/layout",
-  "minima/syntax-highlighting"
+  "base",
+  "layout",
+  "media-queries"
 ;

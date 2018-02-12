@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {% include head.html %}
+
+  <body class="errorpage">
+
+    {% include header.html %}
+
+    <main>
+      <div class="hello-section">
+        <div class="sorry-container">
+          <p class="shrug">¯\_(<span class="shrug-light">ツ</span>)_/¯</p>
+          <p>Sorry, I couldn't find the page you were looking for.<p>
+          <p class="call-to-action">Please choose another page from the <a class="menu-toggle" style="cursor: pointer">menu</a>, or just go back to the <a href="http://delakumahor.com/">home page</a>.</p>
+        </div>
+        <p class="copyright">©2018 &nbsp;<a href="mailto:{{ site.email }}">{{ site.title }}</a></p>
+      </div>
+    </main>
+
+  </body>
+</html>

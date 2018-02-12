@@ -10,11 +10,16 @@ $(document).ready(function() {
     toggleMenu();
   });
 
-  $(".click-blocker").on("click", function() {
+  $('.click-blocker').on('click', function() {
     if($('.site-header').hasClass('active-menu')) {
       toggleMenu();
     };
   });
+
+  $('.info-pane').hover(function() {
+    var hoverImage = $(this).attr('data-image');
+    $('#image'+hoverImage).toggleClass('hover');
+  })
 
   $(window).on('scroll', function() {
     var y_scroll_pos = window.pageYOffset;
