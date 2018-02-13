@@ -1,19 +1,7 @@
 $(document).ready(function() {
 
-  var toggleMenu = function() {
-    $('.site-header').toggleClass('active-menu');
-    $('main').toggleClass('fader');
-    $('footer').toggleClass('fader');
-  };
-
   $('.menu-toggle').click(function() {
     toggleMenu();
-  });
-
-  $('.click-blocker').on('click', function() {
-    if($('.site-header').hasClass('active-menu')) {
-      toggleMenu();
-    };
   });
 
   $('.info-pane').hover(function() {
@@ -29,10 +17,6 @@ $(document).ready(function() {
       $('.site-header').addClass('orangeify');
     } else {
       $('.site-header').removeClass('orangeify');
-    }
-
-    if($('.site-header').hasClass('active-menu')) {
-      toggleMenu();
     }
   });
 });

@@ -1,4 +1,9 @@
 <footer>
+  {% if page.layout != 'home' %}
+  <div class="project-thumbnails">
+    {% include project-grid.html %}
+  </div>
+  {% endif %}
   <div class="copyright-row">
     <p class="copyright">©2018 &nbsp;<a href="mailto:{{ site.email }}">{{ site.title }}</a></p>
   </div>

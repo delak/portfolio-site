@@ -1,28 +1,9 @@
 $(document).ready(function() {
   var sh = $('.site-header');
-  var m = $('.masthead')
   var hb = $('.hello-bio');
   var hs = $('.hello-section');
+  var mt = $('.masthead-title');
   var showTitle = false;
-
-  var toggleMenu = function() {
-    $('.site-header').toggleClass('active-menu');
-    $('main').toggleClass('fader');
-    $('footer').toggleClass('fader');
-    if (showTitle == false) {
-      sh.toggleClass('show-title');
-    }
-  };
-
-  $('.menu-toggle').click(function() {
-    toggleMenu();
-  });
-
-  $(".click-blocker").on("click", function() {
-    if($('.site-header').hasClass('active-menu')) {
-      toggleMenu();
-    };
-  });
 
   $(window).on('scroll', function() {
     var y_scroll_pos = window.pageYOffset;
@@ -31,20 +12,16 @@ $(document).ready(function() {
 
     if(y_scroll_pos > scroll_pos_title) {
       showTitle = true;
-      sh.addClass('show-title');
+      mt.addClass('show-title');
     } else {
       showTitle = false;
-      sh.removeClass('show-title');
+      mt.removeClass('show-title');
     }
 
     if(y_scroll_pos > scroll_pos_test) {
       sh.addClass('orangeify');
     } else {
       sh.removeClass('orangeify');
-    }
-
-    if($('.site-header').hasClass('active-menu')) {
-      toggleMenu();
     }
   });
 });

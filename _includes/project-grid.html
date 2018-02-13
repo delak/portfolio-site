@@ -7,9 +7,6 @@
     {% endif %}
       <div class="project-image-box">
         <a href="/{{ p.shortcode }}.html">
-          {% if page.layout == 'project' %}
-          <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')"></div>
-          {% else %}
           <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')">
             <div class="project-desc-box">
               <p>
@@ -17,7 +14,6 @@
               </p>
             </div>
           </div>
-          {% endif %}
         </a>
       </div>
       <div class="project-title">
