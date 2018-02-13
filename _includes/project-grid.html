@@ -13,7 +13,7 @@
           <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')">
             <div class="project-desc-box">
               <p>
-                <span class="proj-desc">{{ p.question }}</span>
+                <span class="proj-desc">{{ p.projectname }}</span>
               </p>
             </div>
           </div>
@@ -21,9 +21,13 @@
         </a>
       </div>
       <div class="project-title">
-        <a href="/{{ p.shortcode }}.html">{{ p.projectname }}</a>
+        <a href="/{{ p.shortcode }}.html">{{ p.question }}</a>
       </div>
       <div class="project-category">{{ p.categories }}</div>
     </div>
   {% endif %}
 {% endfor %}
+    <div class="project fill-empty-space" style="order: 100"></div>
+    <div class="project fill-empty-space" style="order: 101"></div>
+    <div class="project fill-empty-space" style="order: 102"></div>
+    <div class="project fill-empty-space" style="order: 103"></div>

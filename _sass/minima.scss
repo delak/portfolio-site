@@ -33,6 +33,7 @@ $content-width:    940px !default;
 
 $on-phone:         640px !default;
 $on-tablet:        780px !default;
+$on-1100:          1100px !default;
 $on-desktop:       1200px !default;
 
 // Global padding
@@ -83,6 +84,5 @@ $transition-time:  0.3s !default;
 // Import partials.
 @import
   "base",
-  "layout",
-  "media-queries"
+  "layout"
 ;
