@@ -7,7 +7,15 @@ $(document).ready(function() {
   $('.info-pane').hover(function() {
     var hoverImage = $(this).attr('data-image');
     $('#image'+hoverImage).toggleClass('hover');
-  })
+
+    $(this).click(function() {
+      $('html, body').animate({
+          scrollTop: $('#image'+hoverImage).offset().top - 100
+      }, 300);
+    });
+  });
+
+
 
   $(window).on('scroll', function() {
     var y_scroll_pos = window.pageYOffset;
