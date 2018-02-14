@@ -171,6 +171,7 @@
 
 			.project {
 				margin: $global-padding;
+				margin-bottom: $spacing-unit;
 				width: calc(33.33333333333% - (2 * #{$global-padding}));
 				min-width: 230px;
 				@include media-query($on-desktop) {
@@ -235,13 +236,13 @@
 				.project-title {
 					a {
 						font: {
-							size: 18px;
+							size: 20px;
 							weight: $font-regular;
 						}
 						display: block;
 						color: $brand-color;
-						line-height: 22px;
-						padding-top: 10px;
+						line-height: 25px;
+						padding-top: 8px;
 					}
 
 					a:hover {
@@ -251,15 +252,15 @@
 
 				.project-category {
 					font: {
-						size: 14px;
+						size: 15px;
 						weight: $font-light;
 					}
-					margin-top: 2px;
+					margin-top: 4px;
 					line-height: 1.5em;
 					padding: 0;
 
 					.type-divider {
-						opacity: 0.5;
+						opacity: 0.3;
 						padding: 0 3px;
 					}
 				}
