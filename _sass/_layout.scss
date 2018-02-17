@@ -472,6 +472,12 @@
 		}
 	}
 
+	.summary-box {
+		margin: $global-padding 0;
+		width: calc(66.6666666666% - #{$global-padding});
+		background-color: #eee;
+	}
+
 	.ui-image {
 		@extend %image-default;
 		height: 550px;
@@ -787,6 +793,10 @@ footer {
 							}
 						}
 					}
+				}
+
+				& a:visited {
+					border-color: #000;
 				}
 			}
 

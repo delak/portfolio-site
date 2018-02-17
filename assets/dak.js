@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   $('.menu-toggle').click(function() {
     toggleMenu();
   });
@@ -13,7 +12,7 @@ $(document).ready(function() {
     var scrollToImage = $(this).attr('data-image');
     $('html, body').animate({
         scrollTop: $('#image'+scrollToImage).offset().top - 100
-    }, 300);
+    }, 200);
   });
 
   $(window).on('scroll', function() {
