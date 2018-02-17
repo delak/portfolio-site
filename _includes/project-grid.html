@@ -5,21 +5,22 @@
     {% else %}
     <div id="{{ p.shortcode }}" class="project" style="order: {{ p.order }}">
     {% endif %}
-      <div class="project-image-box">
-        <a href="/{{ p.shortcode }}.html">
+      <a href="/{{ p.shortcode }}.html">
+        <div class="project-image-box">
           <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')">
-            <div class="project-desc-box">
-              <p>
-                <span class="proj-desc">{{ p.projectname }}</span>
-              </p>
-            </div>
+            <div class="project-title">{{ p.projectname }}</div>
           </div>
-        </a>
-      </div>
-      <div class="project-title">
-        <a href="/{{ p.shortcode }}.html">{{ p.question }}</a>
-      </div>
-      <div class="project-category">{{ p.categories }}</div>
+        </div>
+        <div class="project-label-box">
+          {% if page.layout == 'project' %}
+          <div class="project-question">{{ p.question }}</div>
+          <div class="project-category">{{ p.categories }}</div>
+          {% else %}
+          <div class="project-category">{{ p.categories }}</div>
+          <div class="project-question">{{ p.question }}</div>
+          {% endif %}
+        </div>
+      </a>
     </div>
   {% endif %}
 {% endfor %}

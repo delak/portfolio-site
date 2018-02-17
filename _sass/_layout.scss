@@ -171,9 +171,10 @@
 
 			.project {
 				margin: $global-padding;
-				margin-bottom: $spacing-unit;
 				width: calc(33.33333333333% - (2 * #{$global-padding}));
 				min-width: 230px;
+				background-color: #333;
+				box-sizing: border-box;
 				@include media-query($on-desktop) {
 					width: calc(50% - (2 * #{$global-padding}));
 				}
@@ -181,88 +182,82 @@
 					width: 100%;
 				}
 
-				.project-image-box {
-					overflow: hidden;
-					border: 1px solid $brand-color;
+				a {
+					display: block;
+					width: 100%;
+					height: 100%;
 
-					.project-image {
-						height: 100%;
-						width: 101%;
-						display: table;
-						background-position: center center;
-						background-size: cover;
-						@include transform-transition;
+					.project-image-box {
+						overflow: hidden;
 
-						&:hover {
-							-webkit-transform: scale(1.1);
-							transform: scale(1.1);
-						}
-					}
+						.project-image {
+							height: 220px;
+							width: 101%;
+							display: table;
+							background-position: center center;
+							background-size: cover;
+							@include transform-transition;
 
-					.project-desc-box {
-						opacity: 0;
-						height: 220px;
-						width: 100%;
-						background: rgba(200, 86, 40, 0.95);
-						@include all-transition($transition-time);
-						display: table-cell;
-
-						&:hover {
-							opacity: 1;
-							@include all-transition($transition-time);
-						}
-
-						p {
-							height: 100%;
-							width: 100%;
-							color: #f6f6f6;
-							font-size: 16px;
-							font-weight: $font-regular;
-							line-height: 22px;
-							height: 100%;
-							width: 100%;
-							display: flex;
-							align-items: center;
-
-							.proj-desc {
-								width: 100%;
-								text-align: center;
-								padding: 0 60px;
+							.project-title {
+								opacity: 0;
+								display: table-cell;
+								vertical-align: middle;
+								padding: 0 43px;
+								color: #f6f6f6;
+								line-height: 22px;
+								background: rgba(200, 86, 40, 0.95);
+								font: {
+									size: 16px;
+									weight: $font-regular;
+								}
+								@include all-transition($transition-time);
 							}
 						}
 					}
-				}
 
-				.project-title {
-					a {
-						font: {
-							size: 20px;
-							weight: $font-regular;
+					.project-label-box {
+						padding: 15px 25px;
+
+						.project-question {
+							font: {
+								size: 18px;
+								weight: $font-regular;
+							}
+							display: block;
+							color: rgba(255, 255, 255, 0.8);
+							line-height: 25px;
 						}
-						display: block;
-						color: $brand-color;
-						line-height: 25px;
-						padding-top: 8px;
+
+						.project-category {
+							font: {
+								size: 15px;
+								weight: $font-light;
+							}
+							color: $brand-color-light;
+							line-height: 1.5em;
+							padding: 0;
+
+							.type-divider {
+								color: #fff;
+								opacity: 0.3;
+								padding: 0 3px;
+							}
+						}
 					}
 
-					a:hover {
-						color: $grey-color-light;
+					&:hover .project-image-box .project-image {
+						-webkit-transform: scale(1.1);
+						transform: scale(1.1);
+					}
+
+					&:hover .project-image-box .project-image .project-title{
+						opacity: 1;
 					}
 				}
 
-				.project-category {
-					font: {
-						size: 15px;
-						weight: $font-light;
-					}
-					margin-top: 4px;
-					line-height: 1.5em;
-					padding: 0;
-
-					.type-divider {
-						opacity: 0.3;
-						padding: 0 3px;
-					}
+				&.fill-empty-space {
+					border: none;
+					background: none;
 				}
 			}
 		}
@@ -772,53 +767,49 @@ footer {
 			width: calc(20% - (2 * #{$global-padding}));
 			min-width: 180px;
 			flex-grow: 1;
+			border: none;
+			background: none;
 
 			.project-image-box {
-				border-color: $brand-color;
+				border: 1px solid $brand-color;
 				margin-bottom: 5px;
 
 				.project-image {
 					width: 101%;
 					height: 120px;
 
-					.project-desc-box {
-						height: 120px;
-
-						p {
-							font-size: 14px;
-							line-height: 20px;
-
-							.proj-desc {
-								padding: 0 30px;
-							}
-						}
+					.project-title {
+						font-size: 14px;
+						line-height: 20px;
+						padding: 0 30px;
 					}
 				}
-
-				& a:visited {
-					border-color: #000;
-				}
 			}
 
-			.project-title a {
-				font: {
-					size: 17px;
-					weight: $font-regular;
+			.project-label-box {
+				padding: 8px 0 0;
+
+				.project-question {
+					font: {
+						size: 17px;
+						weight: $font-regular;
+					}
+					color: $brand-color;
+					line-height: 23px;
 				}
-				color: $brand-color;
-			}
 
-			.project-category {
-				color: $grey-color-dark;
-				margin-top: 8px;
+				.project-category {
+					color: $grey-color-dark;
+					margin-top: 8px;
 
-				.type-divider {
-					display: block;
-					height: 2px;
-					opacity: 0;
-					@include media-query($on-tablet) {
-						display: inline;
-				    opacity: 0.4;
+					.type-divider {
+						display: block;
+						height: 2px;
+						opacity: 0;
+						@include media-query($on-tablet) {
+							display: inline;
+					    opacity: 0.4;
+						}
 					}
 				}
 			}
