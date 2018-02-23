@@ -4,23 +4,23 @@
 
 $base-font-family: 'Cairo', sans-serif !default;
 $base-font-size:   16px !default;
-$font-extra-light: 200 !default;
-$font-light:       300 !default;
-$font-regular:     400 !default;
-$font-semi-bold:   600 !default;
-$font-bold:        700 !default;
-$base-font-weight: $font-light !default;
+$cairo-lightest:   200 !default;
+$cairo-light:      300 !default;
+$cairo-regular:    400 !default;
+$cairo-semi-bold:  600 !default;
+$cairo-bold:       700 !default;
+$base-font-weight: $cairo-light !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 
 $spacing-unit:     30px !default;
 
-$text-color:       #333 !default;
 $background-color: #fff !default;
-$brand-color:      #C85628 !default;
-$brand-color-bright:saturate($brand-color, 20%) !default;
-$brand-color-light:lighten($brand-color, 10%) !default;
-$brand-color-dark: darken($brand-color, 30%) !default;
+$brand-color:      #D85C2B !default;
+$brand-color2:     #2D3142 !default;
+$brand-color3:     #F1F5F7 !default;
+$brand-color4:     #4F5D75 !default;
+$text-color:       #000 !default;
 
 $grey-color:       #333 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;

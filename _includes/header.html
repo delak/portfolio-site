@@ -1,6 +1,15 @@
+{% if page.layout != 'project' %}
+<header class="site-header outerpage">
+  <a class="masthead" href="/index.html">
+{% else %}
 <header class="site-header">
   <a class="masthead" href="/index.html">
+{% endif %}
     Dela A. Kumahor<br>
+    {% if page.layout == 'error' %}
+    <span class="masthead-title show-title">Designer + Researcher</span>
+    {% else %}
     <span class="masthead-title">Designer + Researcher</span>
+    {% endif %}
   </a>
 </header>

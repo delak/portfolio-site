@@ -83,7 +83,7 @@ li {
  * Links
  */
 a {
-  color: $brand-color;
+  color: $brand-color;;
   text-decoration: none;
 
   &:visited {
@@ -109,7 +109,7 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: $brand-color;
+  color: $brand-color;;
   @include relative-font-size(1.125);
 
   > :last-child {
@@ -207,12 +207,12 @@ table {
  */
 ::-moz-selection {
 	color: #fff;
-  background: $brand-color;
+  background: $brand-color;;
 }
 
 ::selection {
   color: #fff;
-  background: $brand-color;
+  background: $brand-color;;
 }
 
 /**

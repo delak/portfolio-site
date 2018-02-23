@@ -11,10 +11,9 @@
             <div class="project-title">{{ p.projectname }}</div>
           </div>
         </div>
-        <div class="project-label-box">
-          {% if page.layout == 'project' %}
+        <div class="project-label">
+          {% if page.layout != 'home' %}
           <div class="project-question">{{ p.question }}</div>
-          <div class="project-category">{{ p.categories }}</div>
           {% else %}
           <div class="project-category">{{ p.categories }}</div>
           <div class="project-question">{{ p.question }}</div>
