@@ -158,20 +158,20 @@
 	border-top: 1px solid $brand-color;
 	background-color: $brand-color3;
 
-	@at-root {
-		h3.section-title {
-			font: {
-				size: 26px;
-				weight: $cairo-light;
-			}
-			color: $brand-color2;
-			display: inline-block;
-			margin-bottom: 80px;
-			line-height: 30px;
-			padding-top: 5px;
-			border-top: 5px solid $brand-color;
+	h3.section-title {
+		font: {
+			size: 26px;
+			weight: $cairo-light;
 		}
+		color: $brand-color2;
+		display: inline-block;
+		margin-bottom: 80px;
+		line-height: 30px;
+		padding-top: 5px;
+		border-top: 5px solid $brand-color;
+	}
 
+	@at-root {
 		.project-thumbnails {
 			margin: 0 calc(-1 * (#{$global-padding}));
 			display: flex;
@@ -779,7 +779,18 @@ footer {
 	background-color: $brand-color3;
 
 	h3.section-title {
-		margin-bottom: 20px;
+		font: {
+			size: 16px;
+			weight: $cairo-semi-bold;
+		}
+		text: {
+			align: center;
+			transform: uppercase;
+		}
+		width: auto;
+		letter-spacing: 1px;
+		color: rgba(45, 49, 66, 0.7);
+		padding: 20px 15px 0;
 	}
 
 	.project-thumbnails {
@@ -796,6 +807,7 @@ footer {
 
 				.project-image {
 					width: 101%;
+					height: 180px;
 				}
 			}
 
