@@ -158,20 +158,20 @@
 	border-top: 1px solid $brand-color;
 	background-color: $brand-color3;
 
-	h3 {
-		font: {
-			size: 30px;
-			weight: $cairo-light;
-		}
-		color: #555;
-		display: inline-block;
-		margin-bottom: 80px;
-		line-height: 30px;
-		padding-top: 5px;
-		border-top: 5px solid $brand-color;
-	}
-
 	@at-root {
+		h3.section-title {
+			font: {
+				size: 26px;
+				weight: $cairo-light;
+			}
+			color: $brand-color2;
+			display: inline-block;
+			margin-bottom: 80px;
+			line-height: 30px;
+			padding-top: 5px;
+			border-top: 5px solid $brand-color;
+		}
+
 		.project-thumbnails {
 			margin: 0 calc(-1 * (#{$global-padding}));
 			display: flex;
@@ -713,7 +713,6 @@
 		display: inline-block;
 		padding-top: 9px;
 		margin-left: 10vw;
-		height: 40px;
 		font-weight: $cairo-semi-bold;
 		font-size: 18px;
 		text-transform: uppercase;
@@ -749,10 +748,14 @@
 				color: $grey-color-light;
 				opacity: 0;
 				visibility: hidden;
+				position: relative;
+				height: 0;
+				top: -20px;
 
 				&.show-title {
 					opacity: 1;
 					visibility: visible;
+					top: 0;
 				}
 			}
 		}
@@ -771,80 +774,35 @@
 
 /* FOOTER */
 footer {
-	padding: 10px 10% 0;
+	padding: 0 10%;
 	margin-top: 80px;
 	background-color: $brand-color3;
+
+	h3.section-title {
+		margin-bottom: 20px;
+	}
 
 	.project-thumbnails {
 		margin-top: 20px;
 
 		.project {
 			margin: $global-padding;
-			width: calc(20% - (2 * #{$global-padding}));
 			min-width: 180px;
 			flex-grow: 1;
-			border: none;
-			background: none;
 
 			.project-image-box {
-				border: 1px solid $brand-color;
 				margin-bottom: 5px;
+				height: 180px;
 
 				.project-image {
 					width: 101%;
-					height: 120px;
-
-					.project-title {
-						font-size: 14px;
-						line-height: 20px;
-						padding: 0 30px;
-					}
-				}
-			}
-
-			.project-label {
-				padding: 8px 0 0;
-
-				.project-question {
-					font: {
-						size: 15px;
-						weight: $cairo-regular;
-					}
-					color: $brand-color2;
-					line-height: 20px;
-				}
-
-				.project-category {
-					color: $grey-color-dark;
-					margin-top: 8px;
-
-					.type-divider {
-						display: block;
-						height: 2px;
-						opacity: 0;
-						@include media-query($on-tablet) {
-							display: inline;
-					    opacity: 0.4;
-						}
-					}
 				}
 			}
 
 			&.current {
-				.project-image-box {
-					margin-top: -4px;
-					border-width: 5px;
+				border-color: rgba(216, 92, 43, 0.7);
 
-					&::after {
-						content: "";
-						position: absolute;
-						margin-top: 5px;
-					  border: {
-							width: 7px;
-					  	style: solid;
-						  color: $brand-color transparent transparent transparent;
-						}
-					}
+				.project-image-box {
 				}
 
 				.project-title {
