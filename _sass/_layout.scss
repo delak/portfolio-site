@@ -248,8 +248,11 @@
 							padding: 0;
 
 							.type-divider {
+								color: $grey-color;
 								opacity: 0.3;
 								padding: 0 3px;
+								position: relative;
+								top: -1px;
 							}
 						}
 					}
@@ -587,24 +590,21 @@
 	.caption-number {
 	 font: {
 		 size: 12px;
-		 weight: $cairo-regular;
+		 weight: $cairo-bold;
 	 }
 	 text: {
 		 align: center;
 	 }
 	 border: {
 		 radius: 20%;
-		 color: #ccc;
-		 width: 1px;
-		 style: dotted;
 	 }
 	 margin: $global-padding 0 0 $global-padding;
 	 display: inline-block;
 	 min-width: 20px;
 	 height: 20px;
-	 color: $brand-color2;
+	 color: $brand-color3;
 	 line-height: 20px;
-	 background-color: rgba(255, 255, 255, 0.8);
+	 background-color: rgba(216, 92, 43, 0.7);
 	}
 
 	.info-pane {
@@ -620,10 +620,12 @@
 			font-weight: $cairo-regular;
 
 			.caption-number {
-				text-shadow: none;
+				color: $brand-color2;
+				font-weight: $cairo-semi-bold;
 				margin: 0 11px 0 -8px;
 				background-color: rgba(255, 255, 255, 0.8);
 				border: 1px solid $brand-color;
+				border-radius: 20%;
 				opacity: 1;
 			}
 		}
@@ -713,9 +715,9 @@
 		margin-left: 10vw;
 		height: 40px;
 		font-weight: $cairo-semi-bold;
-		font-size: 17px;
+		font-size: 18px;
 		text-transform: uppercase;
-		letter-spacing: .06em;
+		letter-spacing: .03em;
 		line-height: 20px;
 		z-index: 1002;
 		border-top: 4px solid $brand-color;
@@ -726,9 +728,9 @@
 
 		.masthead-title {
 			text-transform: none;
-			color: $brand-color2;
+			color: $brand-color4;
 			font-weight: $cairo-regular;
-			font-size: 16px;
+			font-size: 16.2px;
 			letter-spacing: 0;
 			@include all-transition($transition-time);
 			@include media-query($on-phone) {
@@ -760,7 +762,7 @@
 				color: $brand-color;
 
 				.masthead-title {
-					color: $grey-color-dark;
+					color: $brand-color4;
 				}
 			}
 		}
