@@ -121,6 +121,7 @@
 			p {
 			  font: {
 					size: 20px;
+					weight: $cairo-regular;
 				}
 			  line-height: 33px;
 				color: rgba(255, 255, 255, 0.8);
@@ -746,11 +747,6 @@
 
 			.masthead-title {
 				color: $grey-color-light;
-				opacity: 0;
-				visibility: hidden;
-				position: relative;
-				height: 0;
-				top: -20px;
 
 				&.show-title {
 					opacity: 1;
