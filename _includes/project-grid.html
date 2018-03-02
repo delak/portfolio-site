@@ -8,7 +8,13 @@
       <a href="/{{ p.shortcode }}.html">
         <div class="project-image-box">
           <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')">
-            <div class="project-title">{{ p.projectname }}</div>
+            <div class="project-title">
+              {% if p.logo %}
+              <img class="project-logo" src="{{ site.imagepath }}{{ p.shortcode }}_logo.svg" alt="Vodafone Farmers' Club"><br>
+              {% else %}
+              {{ p.projectname }}
+              {% endif %}
+            </div>
           </div>
         </div>
         <div class="project-label">
