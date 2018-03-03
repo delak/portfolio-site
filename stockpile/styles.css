@@ -1,0 +1,43 @@
+/*
+	Based on Coin Slider jQuery plugin CSS styles
+	http://workshop.rs/projects/coin-slider
+*/
+
+* { margin: 0; padding: 0; }
+
+html, body { font: 14px/20px 'Lato', verdana, arial, sans-serif; background-color: #ffff; height: 100%; background-image: url('img/pinstripes2.png'); }
+
+strong { font-weight: 700; }
+
+#wrapper { width: 900px; margin: 0 auto; background-color: #eee; }
+
+#masthead { width: 800px; height: 55px; margin: 10px auto 5px; background-image: url(img/stockpile-logo.png); background-repeat: no-repeat; }
+#status { float: right; }
+
+#content-area { background-color: #fff; padding: 10px 0; }
+
+#footer { width: 900px; height: 205px; color: #000; background-color: #eee; border-top: 3px dashed #fff; }
+
+#footer a { font-weight: bold; color: #D38300; text-decoration: none; }
+#footer a:hover { text-decoration: underline; }
+
+.horiz-rule { border-bottom: 1px solid #ddd; }
+
+.intro { width: 500px; margin: 20px 20px 15px 40px; float: left; }
+.contact { width: 280px; margin: 20px 40px 20px 20px; float: left ; }
+
+.coin-slider { overflow: hidden; zoom: 1; width: 900px; margin: 0 auto; }
+.coin-slider a{ text-decoration: none; outline: none; border: none; }
+
+.button-box { width: 12px; float: left; margin-left: 8px; text-align: center; color: #999; }
+.cs-buttons { font-size: 10px; height: 35px; padding-top: 5px; float: left; }
+.cs-buttons a { height: 12px; width: 12px; float: left; border: 1px solid #D38300; border-radius: 7px; color: #fff; text-indent: -5000px; }
+.cs-active { background-color: #D38300; color: #FFFFFF; }
+.selected { color: #D38300; font-weight: bold; }
+
+.cs-info { width: 20px; height: 20px; cursor: pointer; }
+
+.cs-title { width: 740px; padding: 10px 80px 20px; background-color: #fff; color: #000; font-weight: 300; }
+.img-title { font-weight: bold; color: #D38300; }
+
+.cs-prev, .cs-next { width: 320px; height: 486px; }
