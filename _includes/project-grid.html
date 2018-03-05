@@ -1,28 +1,41 @@
 {% for p in site.pages %}
   {% if p.layout == 'project' %}
-    {% if p.shortcode == page.shortcode %}
-    <div id="{{ p.shortcode }}" class="project current" style="order: {{ p.order }}">
-    {% else %}
-    <div id="{{ p.shortcode }}" class="project" style="order: {{ p.order }}">
-    {% endif %}
-      <a href="/{{ p.shortcode }}.html">
-        <div class="project-image-box">
-          <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')">
-            <div class="project-title">
-              {% if p.logo %}
-              <img class="project-logo" src="{{ site.imagepath }}{{ p.shortcode }}_logo.svg" alt="Vodafone Farmers' Club"><br>
-              {% else %}
-              {{ p.projectname }}
-              {% endif %}
+    {% assign printable = true %}
+
+    {% for t in p.path %}
+      {% if t contains 'private' %}
+        {% unless page.path contains 'private' %}
+          {% assign printable = false %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+
+    {% if printable == true %}
+      {% if p.shortcode == page.shortcode %}
+      <div id="{{ p.shortcode }}" class="project current" style="order: {{ p.order }}">
+      {% else %}
+      <div id="{{ p.shortcode }}" class="project" style="order: {{ p.order }}">
+      {% endif %}
+        <a href="{{ p.url }}">
+          <div class="project-image-box">
+            <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')">
+              <div class="project-title">
+                {% if p.logo %}
+                <img class="project-logo" src="{{ site.imagepath }}{{ p.shortcode }}_logo.svg" alt="Vodafone Farmers' Club"><br>
+                {% else %}
+                {{ p.projectname }}
+                {% endif %}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="project-label">
-          <div class="project-category">{{ p.categories }}</div>
-          <div class="project-question">{{ p.question }}</div>
-        </div>
-      </a>
-    </div>
+          <div class="project-label">
+            <div class="project-category">{{ p.categories }}</div>
+            <div class="project-question">{{ p.question }}</div>
+          </div>
+        </a>
+      </div>
+    {% endif %}
+
   {% endif %}
 {% endfor %}
     <div class="project fill-empty-space" style="order: 100"></div>

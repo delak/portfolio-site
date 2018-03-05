@@ -8,13 +8,6 @@ $(document).ready(function() {
     $('#image'+hoverImage).toggleClass('hover');
   });
 
-  $('.info-pane').click(function() {
-    var scrollToImage = $(this).attr('data-image');
-    $('html, body').animate({
-        scrollTop: $('#image'+scrollToImage).offset().top - 100
-    }, 200);
-  });
-
   $('video').on('ended', function () {
     this.load();
     this.play();

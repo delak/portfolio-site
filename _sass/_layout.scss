@@ -563,7 +563,6 @@
 	.info-pane {
 		margin-bottom: calc(1.5 * (#{$global-padding}));
 		line-height: 24px;
-		cursor: pointer;
 		@include media-query($on-tablet) {
 			width: 95%;
 		}
