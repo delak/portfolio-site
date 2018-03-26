@@ -2,29 +2,29 @@
 
 // Define defaults for each variable.
 
-$base-font-family: 'Cairo', sans-serif !default;
+$base-font-family: 'IBM Plex Sans', sans-serif !default;
+$display-font-family: 'Encode Sans', sans-serif !default;
 $base-font-size:   16px !default;
-$cairo-lightest:   200 !default;
-$cairo-light:      300 !default;
-$cairo-regular:    400 !default;
-$cairo-semi-bold:  600 !default;
-$cairo-bold:       700 !default;
-$base-font-weight: $cairo-light !default;
+$font-lightest:   200 !default;
+$font-light:      300 !default;
+$font-regular:    400 !default;
+$font-semi-bold:  600 !default;
+$font-bold:       700 !default;
+$base-font-weight: $font-light !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
+$grid-height:     8pt !default;
 
 $spacing-unit:     30px !default;
 
 $background-color: #fff !default;
-$brand-color:      #D85C2B !default;
+$brand-color:      #C55428 !default;
 $brand-color2:     #2D3142 !default;
 $brand-color3:     #F1F5F7 !default;
 $brand-color4:     #4F5D75 !default;
-$text-color:       #000 !default;
+$text-color:       $brand-color2 !default;
 
 $grey-color:       #333 !default;
-$grey-color-light: lighten($grey-color, 40%) !default;
-$grey-color-dark:  darken($grey-color, 25%) !default;
 
 $table-text-align: left !default;
 
@@ -66,11 +66,11 @@ $transition-time:  0.3s !default;
 }
 
 @mixin all-transition($interval) {
-  -webkit-transition: $interval ease;
-  -moz-transition: $interval ease;
-  -ms-transition: $interval ease;
-  -o-transition: $interval ease;
-  transition: $interval ease;
+  -webkit-transition: $interval ease-out;
+  -moz-transition: $interval ease-out;
+  -ms-transition: $interval ease-out;
+  -o-transition: $interval ease-out;
+  transition: $interval ease-out;
 }
 
 @mixin transform-transition {
