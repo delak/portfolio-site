@@ -1,5 +1,5 @@
 {% for p in site.pages %}
-  {% if p.layout == 'project' %}
+  {% if p.layout == 'project' and p.draft != true %}
     {% assign printable = true %}
 
     {% for t in p.path %}
@@ -12,27 +12,34 @@
 
     {% if printable == true %}
       {% if p.shortcode == page.shortcode %}
-      <div id="{{ p.shortcode }}" class="project current" style="order: {{ p.order }}">
+      <div class="{{ p.shortcode }} project current" style="order: {{ p.order }}">
       {% else %}
-      <div id="{{ p.shortcode }}" class="project" style="order: {{ p.order }}">
+      <div class="{{ p.shortcode }} project" style="order: {{ p.order }}">
       {% endif %}
-        <a href="{{ p.url }}">
+        <div class="project-wrapper">
           <div class="project-image-box">
-            <div class="project-image" style="background-image: url('{{ site.imagepath }}thumbnails/{{ p.shortcode }}-thumb-bg.jpg')">
-              <div class="project-title">
-                {% if p.logo %}
-                <img class="project-logo" src="{{ site.imagepath }}{{ p.shortcode }}_logo.svg" alt="Vodafone Farmers' Club"><br>
-                {% else %}
-                {{ p.projectname }}
-                {% endif %}
+            <div class="project-image">
+              <div class="project-type {{ p.projecttype }}"></div>
+              <div class="question-wrapper">
+                <span class="project-question">
+                  {{ p.question }}
+                </span>
               </div>
             </div>
           </div>
           <div class="project-label">
-            <div class="project-category">{{ p.categories }}</div>
-            <div class="project-question">{{ p.question }}</div>
+            <div class="project-label__title">{{ p.projectname }}</div>
+            <div class="project-label__intro">{{ p.intro }}</div>
+            {{ p.brief }}
+            {% if p.projecttype %}
+              {% if p.projecttype contains 'case-study' %}
+            <a class="project-type {{ p.projecttype }}" href="{{ p.url }}"></a>
+              {% else %}
+            <a class="project-type {{ p.projecttype }}" data-fancybox="lightbox-{{ p.shortcode }}" data-caption="1. Field research" href="{{ site.imagepath }}B01-7.jpg"></a>
+              {% endif %}
+            {% endif %}
           </div>
-        </a>
+        </div>
       </div>
     {% endif %}
 
@@ -40,5 +47,3 @@
 {% endfor %}
     <div class="project fill-empty-space" style="order: 100"></div>
     <div class="project fill-empty-space" style="order: 101"></div>
-    <div class="project fill-empty-space" style="order: 102"></div>
-    <div class="project fill-empty-space" style="order: 103"></div>

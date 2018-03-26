@@ -1,15 +1,35 @@
 {% if page.layout != 'project' %}
 <header class="site-header outerpage">
-  <a class="masthead" href="/index.html">
 {% else %}
 <header class="site-header">
-  <a class="masthead" href="/index.html">
 {% endif %}
+  <div class="toggle-container">
+    <div class="menu-toggle" /></div>
+  </div>
+  <a class="masthead" href="/index.html">
     Dela A. Kumahor<br>
-    {% if page.layout == 'error' %}
-    <span class="masthead-title show-title">Designer + Researcher</span>
-    {% else %}
     <span class="masthead-title">Designer + Researcher</span>
-    {% endif %}
   </a>
+  <a class="menu-link" href="/about.html">About me</a>
+
+  <div class="menu-header deactivate">
+    <div class="toggle-container">
+      <div class="menu-toggle" /></div>
+    </div>
+    <a class="masthead" href="/index.html">
+      Dela A. Kumahor<br>
+      <span class="masthead-title">Designer + Researcher</span>
+    </a>
+    <a class="menu-link" href="/about.html">About me</a>
+  </div>
+
+  <div class="menu-footer">
+  <!--  <h3 class="section-title">Project Work</h3> -->
+    <div class="project-thumbnails">
+      {% include project-grid.html %}
+    </div>
+  </div>
+
+  <div class="click-blocker"></div>
+
 </header>
