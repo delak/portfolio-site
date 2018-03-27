@@ -54,20 +54,6 @@ img {
 }
 
 
-
-/**
- * Figures
- */
-figure > img {
-  display: block;
-}
-
-figcaption {
-  font-size: $small-font-size;
-}
-
-
-
 /**
  * Lists
  */
@@ -107,13 +93,13 @@ ul {
 a {
   color: $brand-color;
   text-decoration: none;
+  font-weight: $font-regular;
+  transition-duration: 0.5s;
+  border-bottom: 1px dotted rgba(79, 93, 117, 0.3);
 
-  &:visited {
-
-  }
-
-  &:hover {
-    color: $text-color;
+  &:hover, &:active {
+    color: lighten($brand-color, 10%);
+    transition-duration: 0.1s;
   }
 
   .social-media-list &:hover {
@@ -121,6 +107,45 @@ a {
 
     .username {
       text-decoration: underline;
+    }
+  }
+}
+
+
+/**
+ * Social buttons
+ */
+figcaption {
+  margin-top: 10px;
+
+  li {
+    padding: 0;
+
+    .contact-button {
+      position: relative;
+      margin-left: 37px;
+
+      span {
+        border: {
+          width: 0;
+          color: $brand-color4;
+          radius: 20%;
+          style: solid;
+        }
+        font-size: 12px;
+        font-weight: 700;
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background-color: $brand-color3;
+        background-size: contain;
+
+        &.email { background-image: url('/assets/images/email.svg'); }
+        &.linkedin { background-image: url('/assets/images/linkedin.svg'); }
+        &.twitter { background-image: url('/assets/images/twitter.svg'); }
+      }
     }
   }
 }
@@ -137,8 +162,6 @@ blockquote {
     margin-bottom: 0;
   }
 }
-
-
 
 
 /**

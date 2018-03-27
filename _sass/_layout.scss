@@ -1,9 +1,8 @@
 /* #HOMEPAGE-Intro */
 .hello-section {
 	overflow: hidden;
-	padding: 0 10%;
   background: {
-		color: $background-color;
+		color: $brand-color3;
 		image: url('/assets/images/bg1.png');
 		blend-mode: lighten;
 		attachment: fixed;
@@ -31,14 +30,13 @@
 	}
 
 	.hello-intro-bio {
-	  max-width: 680px;
-		width: 100%;
+		@include project-sizer;
 
 		.hello-intro {
 			font: {
 				family: $display-font-family;
-				size: 64px;
-				weight: $font-regular;
+				size: 4em;
+				weight: $font-light;
 			}
 			margin-bottom: calc(2 * #{$grid-height});
 			line-height: 1.1em;
@@ -68,7 +66,7 @@
 			.tooltip {
 				position: relative;
 			  display: inline-block;
-				border-bottom: 1px dotted rgba(85, 85, 85, 0.8);
+				border-bottom: 1px dotted rgba(79, 93, 117, 0.3);
 				margin-bottom: -1px;
 
 				.tooltiptext {
@@ -108,13 +106,14 @@
 
 					.tooltiptext {
 						visibility: visible;
-						opacity: 0.8;
+						opacity: 1;
 					}
 				}
 			}
 		}
 
 		.hello-bio {
+			padding-right: 35%;
 			@include media-query($on-desktop) {
 				padding: 30px 0;
 			}
@@ -127,6 +126,7 @@
 			  font: {
 					size: 23px;
 					weight: $font-regular;
+					family: $display-font-family;
 				}
 			  line-height: 40px;
 				color: $brand-color4;
@@ -142,25 +142,14 @@
 					margin-bottom: 0;
 				}
 			}
-
-			a {
-				font-weight: $font-regular;
-				color: $brand-color;
-				transition-duration: 0.5s;
-				border-bottom: 1px dotted rgba(85, 85, 85, 0.8);
-
-				&:hover, &:active {
-					color: #f2d0b5;
-					transition-duration: 0.1s;
-				}
-			}
 		}
 	}
 }
 
 /* #HOMEPAGE-Portfolio */
 .project-section {
-	padding: 100px 10%;
+	padding: 100px 0;
+	@include project-sizer;
 
 	h3.section-title {
 		font: {
@@ -171,74 +160,27 @@
 		text-transform: uppercase;
 		display: inline-block;
 		padding: 6px 0;
-		border-top: 4px solid $brand-color;
-	}
-
-	.projects-container {
-		display: flex;
-		flex-flow: row nowrap;
-
-		.projects-panel {
-			width: 200px;
-			display: none;
-
-			ul {
-				font-size: 14px;
-
-				li {
-					a {
-						color: $brand-color4;
-
-						&:hover {
-							color: $brand-color;
-						}
-					}
-
-					&.tag-all {
-						font-weight: $font-semi-bold;
-						margin-bottom: 10px;
-					}
-
-					&::before {
-						content: "» ";
-					}
-				}
-			}
-
-			&.panel-fix {
-				position: fixed;
-				top: 0;
-				right: 10%;
-			}
-		}
+		border-top: 2px solid $brand-color;
 	}
 }
 
 /* #PROJECT-THUMBNAILS-generator */
 .project-thumbnails {
-	margin: calc(-1 * 20px);
-	padding-right: 40px;
 	display: flex;
 	flex-flow: row wrap;
-	width: 100%;
+	width: auto;
 
 	.outerpage & {
 		padding-bottom: 80px;
 	}
 
 	.project {
-		margin: 20px;
+		margin: 20px 0;
 		width: 100%;
 		min-width: 230px;
 		background-color: $background-color;
 		box-sizing: border-box;
 		overflow: hidden;
-		/*@include media-query($on-desktop) {
-			width: calc(50% - (2 * 20px));
-		}
-		@include media-query($on-phone) {
-			width: 100%;
-		} */
 
 		.project-wrapper {
 			width: 185%;
@@ -256,6 +198,8 @@
 				}
 				position: absolute;
 				text-transform: uppercase;
+				padding-right: 5px;
+				background-color: $brand-color3;
 				@include all-transition($transition-time);
 
 				&.case-study::after {
@@ -275,7 +219,7 @@
 
 				.project-image {
 					background: {
-						position: 250px 50%;
+						position: 30% 50%;
 						size: contain;
 						color: $brand-color3;
 						repeat: no-repeat;
@@ -293,6 +237,7 @@
 					  bottom: 0;
 					  right: 0;
 						background-repeat: no-repeat;
+						background-position: 30% 50%;
 						@include all-transition($transition-time);
 					}
 
@@ -313,17 +258,17 @@
 						.project-question {
 							font: {
 								family: $display-font-family;
-								size: 26px;
+								size: 1.8em;
 								weight: 400;
 							}
 							white-space: nowrap;
-							box-shadow: 10px 0 0 $brand-color3, -6px 0 0 $brand-color3;
-							padding: 4px 0;
+							box-shadow: 0.347em 0 0 rgba(241, 245, 247, 0.95), -0.208em 0 0 rgba(241, 245, 247, 0.95);
+							padding: 0.12em 0;
 							box-decoration-break: clone;
 							text-align: left;
-							color: $brand-color4;
-							line-height: 37px;
-							background-color: $brand-color3;
+							color: $brand-color2;
+							line-height: 1.5em;
+							background-color: rgba(241, 245, 247, 0.95);
 							@include all-transition($transition-time);
 
 							strong {
@@ -337,53 +282,42 @@
 
 			.project-label {
 				position: relative;
+				left: -200px;
+				opacity: 0;
 				height: 100%;
 				vertical-align: top;
-				padding: 0 30px 30px;
-				background-color: $background-color;
+				padding: 50px 50px 45px;
+				background-color: lighten($brand-color3, 3%);
 				box-sizing: border-box;
-				width: 39.0540541%;
-				column-count: 2;
-				column-gap: 30px;
-				opacity: 0;
+				width: 34.0540541%;
 				@include all-transition($transition-time);
 
-				.project-label__title {
+				.project-label__body {
+					height: 100%;
+					overflow-x: hidden;
+					overflow-y: auto;
 					font: {
-						size: 24px;
-						weight: $font-semi-bold;
-						family: $display-font-family;
-					}
-					background-color: $background-color;
-					margin-bottom: $grid-height;
-					color: $brand-color;
-					position: sticky;
-					top: 0;
-					column-span: all;
-				}
-
-				.project-label__intro {
-					font: {
-						size: 20px;
+						size: 1.25em;
 						weight: $font-regular;
 						family: $display-font-family;
 					}
-					column-span: all;
+					line-height: 34px;
+
+					strong {
+						color: $brand-color;
+						font-weight: $font-regular;
+					}
 				}
 
 				.project-type {
-					right: 10px;
-					bottom: 10px;
+					position: absolute;
+					right: 50px;
+					bottom: 20px;
 					color: $brand-color3;
 					padding: 4px 10px;
 					background-color: $brand-color;
 					border-radius: 5px;
 					font-weight: $font-bold;
-
-					&::before {
-						content: "View the ";
-						font-weight: $font-regular;
-					}
 
 					&.case-study::after {
 						content: "Case Study »";
@@ -404,38 +338,44 @@
 		}
 
 		&:hover {
-			.project-wrapper {
+			.project-image-box {
+				width: 20%;
+				@include media-query($on-tablet) {
+					width: 0;
+				}
 
-				.project-image-box {
-					width: 15%;
-
-					.project-image {
-						background-position: 50% center;
-
-						&::before {
-							opacity: 0;
-						}
+				.project-image {
+					background-position: 50% 50%;
+					&::before {
+						opacity: 0;
+						left: 200px;
 					}
 
 					.project-type, .question-wrapper {
-						opacity: 0;
-						left: -300px;
+						left: 20px;
 					}
-				}
-
-				.project-label {
-					opacity: 1;
 				}
 			}
 
+			.project-label {
+				opacity: 1;
+				left: 0;
+
+				@include media-query($on-tablet) {
+					padding-left: 0;
+					width: 55.0540541%;
+
+				}
+			}
 		}
 	}
 }
 
 /* #HOMEPAGE-About-section */
 .about-section {
-	padding: 200px 10% 80px;
+	padding: 200px 0 80px;
 	background-color: $background-color;
+	@include project-sizer;
 
 	.bio-container {
 		margin: 0 calc(-1 * 20px) 0;
@@ -444,55 +384,53 @@
 
 		.headshot {
 			display: inline-block;
-			margin: -20px 20px 20px;
+			margin: 0 20px 20px;
 			width: calc(33.33333333333% - (2 * 20px));
 
-			.bio-footer {
+			ul {
+				display: flex;
+				flex-flow: row wrap;
 				width: 100%;
+				justify-content: space-between;
 
-				li {
-					height: calc(3 * #{$grid-height});
-					line-height: calc(3 * #{$grid-height});
-					border-bottom: 2px solid $brand-color3;
-				}
-
-				a {
-					font-size: 22px;
-					display: inline-block;
-					color: $brand-color;
-					text-align: center;
-					margin-right: $global-padding;
-
-					&:last-child {
-						float: right;
-						margin-right: 0;
-					}
+				li::before {
+					content: "";
 				}
 			}
 		}
 
 		.bio {
 			display: inline-block;
-			font-size: 20px;
 			font-weight: $font-regular;
-			line-height: calc(3.5 * #{$grid-height});
 			margin: $global-padding;
 			width: calc(66.66666666666% - (2 * #{$global-padding}));
 
 			h3 {
 				font: {
-					size: 50px;
+					size: 3.125em;
 					weight: $font-light;
 				}
-				line-height: 65px;
+				line-height: 1.3em;
 				color: $brand-color;
 				margin-bottom: 10px;
 			}
 
+			p {
+				font-family: $display-font-family;
+				font-size: 1.25em;
+				color: $brand-color4;
+				line-height: 1.9em;
+				margin-bottom: 10px;
+
+				&.no-break {
+					margin-bottom: 0;
+				}
+			}
+
 			h4 {
 				font: {
-					size: 18px;
-					weight: $font-semi-bold;
+					size: 1.2em;
+					weight: $font-regular;
 				}
 				position: relative;
 				color: $brand-color;
@@ -502,26 +440,12 @@
 				border-top: 2px solid $brand-color3;
 			}
 
-			p {
-				margin-bottom: 10px;
-
-				&.no-break {
-					margin-bottom: 0;
-				}
-			}
-
-			li {
-				padding: 6px 0 0;
-				text-indent: -.7em;
-
-				&::before {
-					content: "• ";
-					color: $brand-color;
-				}
+			.more-link {
+				font-size: 0.8em;
+				margin: 2px 0 4px;
 			}
 
 			.highlight {
-				color: $brand-color2;
 				font-weight: $font-semi-bold;
 			}
 
@@ -554,7 +478,7 @@
 			.logo-grid {
 				display: flex;
 				flex-flow: row wrap;
-				margin: 0 -20px;
+				margin: 0 calc(-1 * 20px);
 				justify-content: space-between;
 
 				.logo-box {
@@ -570,24 +494,21 @@
 				p {
 					font-size: 14px;
 					line-height: 15px;
-					margin-top: $global-padding;
-					text-align: right;
 				}
 
 				.image-grid {
 					display: flex;
 					flex-flow: column wrap;
-					width: 100%;
-					max-height: 400px;
-					margin: 0 calc(-1 * 8px);
+					max-height: 470px;
+					margin: 0 -8px;
 
 					.image-box {
-						flex: auto;
 						position: relative;
 						margin: 8px;
-						width: calc(33.33333333333% - (2 * 8px));
+						width: calc(33.33333333333333333% - (2 * 8px));
 						overflow: hidden;
 						border: 2px solid $brand-color3;
+						box-sizing: border-box;
 
 						a {
 							position: absolute;
@@ -678,6 +599,7 @@
 	padding-bottom: 30px;
 	background-size: contain;
 	background-repeat: no-repeat;
+	@include project-sizer;
 	@include media-query($on-tablet) {
 		padding-bottom: 50px;
 	}
@@ -687,10 +609,9 @@
 
 	.project-name {
 		@include project-sizer;
-		width: 85%;
 		font: {
-			size: 40px;
-			weight: $font-semi-bold;
+			size: 3em;
+			weight: $font-light;
 			family: $display-font-family;
 		}
 		padding-top: 140px;
@@ -731,7 +652,6 @@
 			size: 20px;
 			weight: $font-regular;
 		}
-		width: 85%;
 		line-height: 32px;
 	  -ms-flex-wrap: nowrap;
 	  -webkit-flex-wrap: nowrap;
@@ -828,6 +748,10 @@
 	font-weight: $font-regular;
 	width: 85%;
 	margin-bottom: 80px;
+
+	a {
+		border: none;
+	}
 
 	.info-block {
 		@extend %flex-default;
@@ -1027,12 +951,12 @@
 		}
 
 		&.archetypes {
-			margin: -15px -10px 0;
+			margin: -15px -13px 0;
 
 			.info-archetype {
-				margin: 10px;
-				min-width: calc(188px - 20px);
-				flex: 1 0 calc(20% - 20px);
+				margin: 13px;
+				min-width: calc(188px - 26px);
+				flex: 1 0 calc(20% - 26px);
 
 				.info-pane-title {
 					color: $brand-color;
@@ -1132,16 +1056,20 @@
 /* #MENU */
 .site-header {
 	position: relative;
-	min-width: 100%;
 	z-index: 1000;
+	@include project-sizer;
 
 	.toggle-container {
 		position: fixed;
 		display: inline-block;
-		width: calc(10vw - #{$global-padding});
 		height: 41px;
 		top: 8px;
+		left: calc((0.5 * (100vw - #{$content-width}) - 50px));
 		z-index: 1001;
+		@include media-query($on-1100) {
+			left: auto;
+			margin-left: 10px;
+		}
 
 		.menu-toggle {
 			width: 22px;
@@ -1151,6 +1079,7 @@
 			cursor: pointer;
 			-webkit-transition: $transition-time ease-in-out;
       transition: $transition-time ease-in-out;
+			@extend %clearfix;
 			background: {
 				image: url('/assets/images/menu-icon-brand.svg');
 				position: center center;
@@ -1168,13 +1097,16 @@
 		}
 		display: inline-block;
 		padding-top: 9px;
-		margin-left: 10vw;
 		letter-spacing: .03em;
 		text-transform: uppercase;
 		line-height: 20px;
 		z-index: 1002;
 		border-top: 4px solid $brand-color;
+		border-bottom: none;
 		@include all-transition($transition-time);
+		@include media-query($on-1100) {
+			margin-left: 50px;
+		}
 		@include media-query($on-phone) {
 			font-size: 0.9em;
 		}
@@ -1201,10 +1133,13 @@
 			family: $display-font-family;
 			weight: $font-semi-bold;
 		}
-		color: $brand-color4;
+		color: $brand-color;
 		position: absolute;
-		right: 10vw;
+		right: 0;
 		padding-top: 7px;
+		@include media-query($on-1100) {
+			margin-right: 15px;
+		}
 	}
 
 	.menu-header {
@@ -1212,6 +1147,7 @@
 		width: 100%;
 		top: -50px;
 		opacity: 0;
+		@include project-sizer;
 		@include all-transition($transition-time);
 
 		&.deactivate {
@@ -1256,20 +1192,6 @@
 				}
 			}
 		}
-
-		&.orangeify {
-			.menu-toggle {
-				background-image: url('/assets/images/menu-icon-brand.svg');
-			}
-
-			a.masthead {
-				color: $brand-color;
-
-				.masthead-title {
-					color: $brand-color4;
-				}
-			}
-		}
 	}
 
 	&.active-menu {
@@ -1303,63 +1225,86 @@
 
 /* #FOOTER */
 .page-footer, .menu-footer {
-	padding: 0 10%;
 	background-color: $brand-color3;
 	position: relative;
 	z-index: 2000;
+	left: 0;
+	width: 100%;
 
-	h3.section-title {
-		padding-bottom: 0;
-		margin-bottom: 0;
-	}
+	.projects-container {
+		@include project-sizer;
 
-	.project-thumbnails {
-		padding: $global-padding 0;
+		.site-header .menu-footer & {
+			max-width: auto;
+		}
 
-		.project {
-			margin: $global-padding;
-			min-width: 180px;
-			flex: 1 0 calc(20% - (2 * #{$global-padding}));
+		h3.section-title {
+			font: {
+				size: 0.8em;
+				weight: $font-regular;
+			}
+			text-transform: uppercase;
+			padding-top: 20px;
+			margin-bottom: 0;
+		}
 
-			.project-image-box {
-				height: 180px;
-				width: 100%;
+		.project-thumbnails {
+			width: 50%;
+			padding-bottom: 30px;
+			margin: 0 calc(-1 * #{$global-padding});
 
-				.project-image {
-					width: 101%;
-					height: 180px;
+			.project {
+				margin: $global-padding;
+				min-width: 180px;
+				flex: 1 0 calc(20% - (2 * #{$global-padding}));
+				height: 200px;
 
-					.project-logo {
-						width: 60%;
+				.project-wrapper {
+					width: 100%;
+					height: 100%;
+
+					.project-image-box {
+						height: 100%;
+						width: 100%;
+
+						.project-image {
+							background-color: $background-color;
+							background-position: 50% 50%;
+
+							.question-wrapper {
+								position: absolute;
+								left: 20px;
+								bottom: 15px;
+								@include all-transition($transition-time);
+
+								.project-question {
+									font-size: 1.15em;
+									box-shadow: 0.347em 0 0 rgba(255, 255, 255, 0.95), -0.208em 0 0 rgba(255, 255, 255, 0.95);
+									background-color: rgba(255, 255, 255, 0.95);
+								}
+							}
+
+							&::before {
+								content: "";
+								background: none;
+							}
+						}
 					}
 				}
-			}
 
-			&.current {
-				border: {
-					color: rgba(216, 92, 43, 0.8);
-					width: 2px;
-				}
-
-				.project-image-box {
-				}
-
-				.project-title {
-					margin-top: -4px;
-					@include media-query($on-tablet) {
-						margin-top: 0;
+				&.current {
+					border: {
+						color: rgba(216, 92, 43, 0.8);
+						width: 2px;
+						style: solid;
 					}
 				}
-			}
 
-			.project-label {
-				padding-bottom: 10px;
-			}
-
-			&.fill-empty-space {
-				display: none;
-				@include media-query($on-1100) {
-					display: block;
+				&.fill-empty-space {
+					display: none;
+					@include media-query($on-1100) {
+						display: block;
+					}
 				}
 			}
 		}

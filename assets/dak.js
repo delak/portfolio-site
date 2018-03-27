@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var cs = $('.case-study');
+  var sw = $('.scroll-watch');
   var mt = $('.menu-toggle');
   var sh = $('.site-header');
   var mf = $('.menu-footer');
@@ -53,7 +53,7 @@ $(document).ready(function() {
   $(window).on('scroll', function() {
     var y_scroll_pos = win.scrollTop();
     var page_height = win.height();
-    var scroll_pos_footer = cs.position().top + cs.outerHeight(true);
+    var scroll_pos_footer = sw.position().top + sw.outerHeight(true);
 
     if((y_scroll_pos + page_height) > scroll_pos_footer) {            // if user has scrolled past the case study
       mf.addClass('deactivate');                                      // disable the fixed footer

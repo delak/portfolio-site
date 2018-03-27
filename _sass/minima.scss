@@ -29,15 +29,15 @@ $grey-color:       #333 !default;
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    940px !default;
+$content-width:    64em !default;
 
-$on-phone:         640px !default;
-$on-tablet:        780px !default;
-$on-1100:          1100px !default;
-$on-desktop:       1200px !default;
+$on-phone:         40em !default;
+$on-tablet:        48.75em !default;
+$on-1100:          68.75em !default;
+$on-desktop:       75em !default;
 
 // Global padding
-$global-padding:   15px !default;
+$global-padding:   1em !default;
 $transition-time:  0.3s !default;
 
 

@@ -1,8 +1,10 @@
 {% if page.layout != 'home' %}
 <footer class="page-footer">
-<!--  <h3 class="section-title">Project Work</h3> -->
-  <div class="project-thumbnails">
-    {% include project-grid.html %}
+  <div class="projects-container">
+    <h3 class="section-title">Case Studies</h3>
+    <div class="project-thumbnails">
+      {% include footer-grid.html %}
+    </div>
   </div>
 {% else %}
 <footer class="outerpage page-footer">

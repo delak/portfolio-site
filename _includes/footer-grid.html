@@ -1,5 +1,5 @@
 {% for p in site.pages %}
-  {% if p.layout == 'project' and p.draft != true %}
+  {% if p.layout == 'project' and p.draft != true and p.projecttype == 'case-study' %}
     {% assign printable = true %}
 
     {% for t in p.path %}
@@ -19,26 +19,13 @@
         <div class="project-wrapper">
           <div class="project-image-box">
             <div class="project-image">
-              <div class="project-type {{ p.projecttype }}"></div>
               <div class="question-wrapper">
                 <span class="project-question">
                   {{ p.question }}
                 </span>
               </div>
             </div>
-          </div>
-          <div class="project-label">
-            <div class="project-label__body">
-              {{ p.intro }}
-            </div>
-            {% if p.projecttype %}
-              {% if p.projecttype contains 'case-study' %}
-            <a class="project-type {{ p.projecttype }}" href="{{ p.url }}"></a>
-              {% else if p.projecttype contains 'gallery' %}
-            <a class="project-type {{ p.projecttype }}" data-fancybox="lightbox-{{ p.shortcode }}" data-caption="{{ p.shortcode }}. Field research" href="{{ site.imagepath }}B01-7.jpg"></a>
-              {% endif %}
-            {% endif %}
-          </div>
+          </div> 
         </div>
       </div>
     {% endif %}
