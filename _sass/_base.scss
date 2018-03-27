@@ -122,30 +122,34 @@ figcaption {
     padding: 0;
 
     .contact-button {
-      position: relative;
-      margin-left: 37px;
+      background: {
+        size: contain;
+        position: left center;
+        repeat: no-repeat;
+      }
+      border: none;
 
-      span {
+      &::before {
+        content: "";
         border: {
           width: 0;
           color: $brand-color4;
           radius: 20%;
           style: solid;
         }
-        font-size: 12px;
-        font-weight: 700;
-        display: block;
-        position: absolute;
-        top: 0;
+        display: inline-block;
+        position: relative;
+        top: 5px;
         width: 20px;
         height: 20px;
+        margin-right: 10px;
         background-color: $brand-color3;
         background-size: contain;
-
-        &.email { background-image: url('/assets/images/email.svg'); }
-        &.linkedin { background-image: url('/assets/images/linkedin.svg'); }
-        &.twitter { background-image: url('/assets/images/twitter.svg'); }
       }
+
+      &.email::before { background-image: url('/assets/images/email.svg'); }
+      &.linkedin::before { background-image: url('/assets/images/linkedin.svg'); }
+      &.twitter::before { background-image: url('/assets/images/twitter.svg'); }
     }
   }
 }

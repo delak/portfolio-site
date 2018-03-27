@@ -16,7 +16,8 @@
       {% else %}
       <div class="{{ p.shortcode }} project" style="order: {{ p.order }}">
       {% endif %}
-        <div class="project-wrapper">
+        <a href="{{ p.url }}">
+          <div class="project-wrapper">
           <div class="project-image-box">
             <div class="project-image">
               <div class="question-wrapper">
@@ -25,8 +26,9 @@
                 </span>
               </div>
             </div>
-          </div> 
+          </div>
         </div>
+        </a>
       </div>
     {% endif %}
 
