@@ -64,7 +64,8 @@ $transition-time:  0.3s !default;
   margin-left: auto;
   margin-right: auto;
   @include media-query($on-1100) {
-		padding: 0 10%;
+		padding-left: 10%;
+    padding-right: 10%;
 	}
 }
 

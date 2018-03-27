@@ -337,7 +337,7 @@
 			margin: 15px;
 		}
 
-		&:hover {
+		&:hover, &.hover_effect {
 			.project-image-box {
 				width: 20%;
 				@include media-query($on-tablet) {
@@ -1055,176 +1055,75 @@
 
 /* #MENU */
 .site-header {
-	position: relative;
+	position: fixed;
+	top: 0;
+	width: 100%;
 	z-index: 1000;
-	@include project-sizer;
+	background-color: rgba(255, 255, 255, 0.95);
+	border-bottom: 1px solid $brand-color3;
+	@include all-transition($transition-time);
 
-	.toggle-container {
-		position: fixed;
-		display: inline-block;
-		height: 41px;
-		top: 8px;
-		left: calc((0.5 * (100vw - #{$content-width}) - 50px));
-		z-index: 1001;
-		@include media-query($on-1100) {
-			left: auto;
-			margin-left: 10px;
-		}
+	.menu-wrapper {
+		padding: 14px 0 14px;
+		@include project-sizer;
 
-		.menu-toggle {
-			width: 22px;
-			height: 22px;
-			margin: 4px;
-			float: right;
-			cursor: pointer;
-			-webkit-transition: $transition-time ease-in-out;
-      transition: $transition-time ease-in-out;
-			@extend %clearfix;
-			background: {
-				image: url('/assets/images/menu-icon-brand.svg');
-				position: center center;
-				size: 28px 28px;
-				repeat: no-repeat;
-			}
-		}
-	}
-
-	a.masthead {
-		font: {
-			family: $display-font-family;
-			weight: $font-semi-bold;
-			size: 18px;
-		}
-		display: inline-block;
-		padding-top: 9px;
-		letter-spacing: .03em;
-		text-transform: uppercase;
-		line-height: 20px;
-		z-index: 1002;
-		border-top: 4px solid $brand-color;
-		border-bottom: none;
-		@include all-transition($transition-time);
-		@include media-query($on-1100) {
-			margin-left: 50px;
-		}
-		@include media-query($on-phone) {
-			font-size: 0.9em;
-		}
-
-		.masthead-title {
+		a.masthead {
 			font: {
-				family: $base-font-family;
-				weight: $font-regular;
-				size: 16.2px;
+				family: $display-font-family;
+				weight: $font-semi-bold;
+				size: 18px;
 			}
-			text-transform: none;
-			color: $brand-color4;
-			letter-spacing: 0;
+			display: inline-block;
+			letter-spacing: .03em;
+			text-transform: uppercase;
 			line-height: 20px;
+			z-index: 1002;
+			border-bottom: none;
 			@include all-transition($transition-time);
 			@include media-query($on-phone) {
-				font-size: 0.95em;
+				font-size: 0.9em;
 			}
-		}
-	}
 
-	a.menu-link {
-		font: {
-			family: $display-font-family;
-			weight: $font-semi-bold;
-		}
-		color: $brand-color;
-		position: absolute;
-		right: 0;
-		padding-top: 7px;
-		@include media-query($on-1100) {
-			margin-right: 15px;
-		}
-	}
-
-	.menu-header {
-		position: fixed;
-		width: 100%;
-		top: -50px;
-		opacity: 0;
-		@include project-sizer;
-		@include all-transition($transition-time);
-
-		&.deactivate {
-			display: none;
-		}
-	}
-
-	.menu-footer {
-		position: fixed;
-		top: 100vh;
-		opacity: 0;
-		background: transparent;
-		@include all-transition($transition-time);
-
-		&.deactivate {
-			display: none;
-		}
-	}
-
-	.click-blocker {
-		position: fixed;
-		visibility: hidden;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		opacity: 0;
-		background-color: rgba(241, 245, 247, 0.97);
-		@include all-transition($transition-time);
-	}
-
-	&.outerpage {
-		height: 0;
-
-		&.active-menu {
-			a.masthead {
-				color: $brand-color;
-
-				.masthead-title {
-					color: $brand-color4;
+			.masthead-title {
+				font: {
+					family: $base-font-family;
+					weight: $font-regular;
+					size: 16.2px;
+				}
+				text-transform: none;
+				color: $brand-color4;
+				letter-spacing: 0;
+				line-height: 20px;
+				@include all-transition($transition-time);
+				@include media-query($on-phone) {
+					font-size: 0.95em;
 				}
 			}
 		}
+
+		a.menu-link {
+			font: {
+				family: $display-font-family;
+				weight: $font-semi-bold;
+			}
+			border-bottom: none;
+			color: $brand-color;
+			float: right;
+			@extend %clearfix;
+		}
 	}
 
-	&.active-menu {
-		.toggle-container {
-			height: 40px;
+	&.outerpage {
+		background-color: rgba(241, 245, 247, 0.95);
 
-			.menu-toggle {
-				opacity: 1;
-				background-size: 8px 28px;
-				background-image: url('/assets/images/menu-icon-brand.svg');
-				-webkit-transform: rotate(90deg);
-				transform: rotate(90deg);
-			}
-		}
-
-		.menu-header {
-			opacity: 1;
-			top: 0;
-		}
-
-		.menu-footer {
-			opacity: 1;
-		}
-
-		.click-blocker {
-			visibility: visible;
-			opacity: 1;
+		&.bg-whitener {
+			background-color: rgba(255, 255, 255, 0.95);
 		}
 	}
 }
 
 /* #FOOTER */
-.page-footer, .menu-footer {
+.page-footer {
 	background-color: $brand-color3;
 	position: relative;
 	z-index: 2000;

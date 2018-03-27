@@ -113,6 +113,15 @@ a {
 
 
 /**
+ * stop the browser asking you to copy/save/select the image or whatever
+ */
+.hover {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+
+/**
  * Social buttons
  */
 figcaption {

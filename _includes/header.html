@@ -1,34 +1,13 @@
-{% if page.layout != 'project' %}
+{% if page.layout == 'home' %}
 <header class="site-header outerpage">
 {% else %}
 <header class="site-header">
 {% endif %}
-  <div class="toggle-container">
-    <div class="menu-toggle" /></div>
-  </div>
-  <a class="masthead" href="/index.html">
-    Dela A. Kumahor<br>
-    <span class="masthead-title">Designer + Researcher</span>
-  </a>
-  <a class="menu-link" href="/about.html">About me</a>
-
-  <div class="menu-header deactivate">
+  <div class="menu-wrapper">
     <a class="masthead" href="/index.html">
       Dela A. Kumahor<br>
       <span class="masthead-title">Designer + Researcher</span>
     </a>
     <a class="menu-link" href="/about.html">About me</a>
   </div>
-
-  <div class="menu-footer">
-    <div class="projects-container">
-      <h3 class="section-title">Case Studies</h3>
-      <div class="project-thumbnails">
-        {% include footer-grid.html %}
-      </div>
-    </div>
-  </div>
-
-  <div class="click-blocker"></div>
-
 </header>
