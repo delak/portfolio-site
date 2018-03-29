@@ -603,7 +603,6 @@
 	padding-bottom: 30px;
 	background-size: contain;
 	background-repeat: no-repeat;
-	@include project-sizer;
 	@extend %flex-default;
 	@include media-query($on-tablet) {
 		padding-bottom: 50px;
@@ -613,22 +612,28 @@
 	}
 
 	.project-name {
-		font: {
-			size: 3em;
-			weight: $font-light;
-			family: $display-font-family;
-		}
+		@include project-sizer;
 		padding-top: 140px;
 		margin-bottom: 40px;
 		line-height: 45px;
 		color: $brand-color;
 		letter-spacing: 0;
+		width: 100%;
+		box-sizing: content-box;
+
+		h1 {
+			font: {
+				size: 3em;
+				weight: $font-light;
+				family: $display-font-family;
+			}
+		}
 	}
 
 	.full-width-image {
 		@extend %image-default;
 		height: 450px;
-		width: 100vw;
+		width: 100%;
 		margin: 30px 0;
 		left: calc( (100% - 100vw) * 0.5 );
 		overflow: hidden;
@@ -651,15 +656,12 @@
 	}
 
 	.info-stats {
-		@extend %flex-default;
-		font: {
-			size: 20px;
-			weight: $font-regular;
-		}
 		line-height: 32px;
 	  -ms-flex-wrap: nowrap;
 	  -webkit-flex-wrap: nowrap;
 	  flex-wrap: nowrap;
+		@extend %flex-default;
+		@include project-sizer;
 		@include media-query($on-tablet) {
 			-ms-flex-wrap: wrap;
 		  -webkit-flex-wrap: wrap;
@@ -673,6 +675,10 @@
 		}
 
 		.project-info {
+			font: {
+				size: 1.25em;
+				weight: $font-regular;
+			}
 			width: 70%;
 			padding-right: 30px;
 			margin-top: -5px;
@@ -1116,7 +1122,7 @@
 					family: $display-font-family;
 					weight: $font-regular;
 				}
-				width: 100px;
+				width: 200px;
 				text-align: right;
 				align-self: flex-end;
 				margin-bottom: 1px;
@@ -1324,3 +1330,8 @@
 		}
 	}
 }
+
+/*
+* {
+	outline: 1px solid red;
+} */

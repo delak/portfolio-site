@@ -9,7 +9,10 @@
 
     <main>
       <section class="intro-container">
-        <h3 class="project-name">{{ page.projectname }}</h3>
+
+        <div class="project-name">
+          <h1>{{ page.projectname }}</h1>
+        </div>
         <div class="full-width-image" style="background-image: url({{ site.imagepath }}{{ page.shortcode }}-masthead-bg.png)">
           <img  src="{{ site.imagepath }}{{ page.shortcode }}-masthead.png" alt="{{ page.projectname }}">
         </div>
