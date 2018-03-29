@@ -11,11 +11,13 @@
 	align-items: center;
 	@include media-query($on-tablet) {
 		min-height: auto;
-		padding: 80px 10%;
+		padding-top: 80px;
+		padding-bottom: 80px;
 	}
 	@include media-query($on-landscape) {
 		min-height: auto;
-		padding: 70px 10% 30px;
+		padding-top: 220px;
+		padding-bottom: 30px;
 	}
 
 	.errorpage & {
@@ -107,27 +109,23 @@
 
 		.hello-bio {
 			padding-right: 35%;
-			@include media-query($on-desktop) {
-				padding: 30px 0;
-			}
-
-			@include media-query($on-tablet) {
-				padding: 20px 0;
+			@include media-query($content-width) {
+				padding-right: 0;
 			}
 
 			p {
 			  font: {
-					size: 23px;
+					size: 1.4375em;
 					weight: $font-regular;
 					family: $display-font-family;
 				}
-			  line-height: 40px;
+			  line-height: 1.8em;
 				color: $brand-color4;
 				margin-bottom: 40px;
 
 				@include media-query($on-landscape) {
-					font-size: 16px;
-    			line-height: 24px;
+					font-size: 1.25em;
+    			line-height: 1.8em;
     			margin-bottom: 4vh;
 				}
 
@@ -154,234 +152,234 @@
 		display: inline-block;
 		padding: 6px 0;
 	}
+
+	.project-thumbnails {
+		display: flex;
+		flex-flow: row wrap;
+		width: auto;
+		justify-content: space-between;
+
+		.outerpage & {
+			padding-bottom: 80px;
+		}
+	}
 }
 
 /* #PROJECT-THUMBNAILS-generator */
-.project-thumbnails {
-	display: flex;
-	flex-flow: row wrap;
-	width: auto;
-	justify-content: space-between;
+.project {
+	position: relative;
+	margin-bottom: 40px;
+	width: 100%;
+	background-color: $background-color;
+	box-sizing: border-box;
+	overflow: hidden;
 
-	.outerpage & {
-		padding-bottom: 80px;
-	}
-
-	.project {
-		position: relative;
-		margin-bottom: 40px;
-		width: 100%;
-		background-color: $background-color;
-		box-sizing: border-box;
+	.project-wrapper {
+		width: 185%;
+		height: 360px;
+		display: flex;
+		flex-flow: row nowrap;
 		overflow: hidden;
+		@include all-transition($transition-time);
+		@include media-query($on-landscape) {
+			height: 250px;
+		}
 
-		.project-wrapper {
-			width: 185%;
-			height: 360px;
-			display: flex;
-			flex-flow: row nowrap;
+		.project-image-box {
+			width: 54.0540541%;
+			position: relative;
 			overflow: hidden;
 			@include all-transition($transition-time);
-			@include media-query($on-landscape) {
-				height: 250px;
-			}
 
-			.project-image-box {
-				width: 54.0540541%;
-				position: relative;
-				overflow: hidden;
-				@include all-transition($transition-time);
-
-				.project-image {
-					background: {
-						position: 30% 50%;
-						size: cover;
-						color: $brand-color3;
-						repeat: no-repeat;
-					}
-					position: relative;
-					height: 100%;
-					width: 100%;
-					@include all-transition($transition-time);
-
-					&::before {
-						content: "";
-						position: absolute;
-						top: 0;
-					  left: 0;
-					  bottom: 0;
-					  right: 0;
-						background: {
-							repeat: no-repeat;
-							position: 30% 50%;
-						}
-						@include all-transition($transition-time);
-					}
-
-					.question-wrapper {
-						position: absolute;
-						left: 40px;
-						bottom: 30px;
-						z-index: 100;
-						@include all-transition($transition-time);
-
-						.project-question {
-							font: {
-								family: $display-font-family;
-								size: 1.5em;
-								weight: 400;
-							}
-							white-space: nowrap;
-							box-shadow: 0.347em 0 0 rgba(255, 255, 255, 0.97), -0.308em 0 0 rgba(255, 255, 255, 0.97);
-							padding: 0.12em 0;
-							box-decoration-break: clone;
-							text-align: left;
-							color: $brand-color2;
-							line-height: 1.5em;
-							background-color: rgba(255, 255, 255, 0.97);
-							@include all-transition($transition-time);
-							@include media-query($on-landscape) {
-								font-size: 24px;
-							}
-							@include media-query($on-portrait) {
-								font-size: 1.4em;
-							}
-
-							strong {
-								font-weight: $font-semi-bold;
-								color: $brand-color;
-							}
-						}
-					}
+			.project-image {
+				background: {
+					position: 30% 50%;
+					size: cover;
+					color: $brand-color3;
+					repeat: no-repeat;
 				}
-			}
-
-			.project-label {
 				position: relative;
 				height: 100%;
-				vertical-align: top;
-				padding: 22px 50px 25px;
-				background-color: lighten($brand-color3, 2.5%);
-				box-sizing: border-box;
-				width: 36.0540541%;
+				width: 100%;
 				@include all-transition($transition-time);
 
-				.project-label__body {
-					font: {
-						size: 1.25em;
-						weight: $font-regular;
-						family: $display-font-family;
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+				  left: 0;
+				  bottom: 0;
+				  right: 0;
+					background: {
+						repeat: no-repeat;
+						position: 30% 50%;
 					}
-					color: $brand-color4;
-					height: 100%;
-					overflow: hidden;
-					line-height: 1.7em;
-					@include media-query($on-1100) {
-						font-size: 1.81vw;
-					}
-					@include media-query(56.25em) {
-						font-size: 2.1vw;
-					}
-					@include media-query($on-tablet) {
-						font-size: 1em;
-					}
+					@include all-transition($transition-time);
+				}
 
-					strong {
-						color: $brand-color;
-						font-weight: $font-semi-bold;
-					}
+				.question-wrapper {
+					position: absolute;
+					left: 40px;
+					bottom: 30px;
+					z-index: 100;
+					@include all-transition($transition-time);
 
-					p:last-child {
-						margin-bottom: 0;
+					.project-question {
+						font: {
+							family: $display-font-family;
+							size: 1.5em;
+							weight: 400;
+						}
+						white-space: nowrap;
+						box-shadow: 0.347em 0 0 rgba(255, 255, 255, 0.97), -0.308em 0 0 rgba(255, 255, 255, 0.97);
+						padding: 0.12em 0;
+						box-decoration-break: clone;
+						text-align: left;
+						color: $brand-color2;
+						line-height: 1.5em;
+						background-color: rgba(255, 255, 255, 0.97);
+						@include all-transition($transition-time);
+						@include media-query($on-landscape) {
+							font-size: 24px;
+						}
+						@include media-query($on-portrait) {
+							font-size: 1.4em;
+						}
+
+						strong {
+							font-weight: $font-semi-bold;
+							color: $brand-color;
+						}
 					}
 				}
 			}
+		}
+
+		.project-label {
+			position: relative;
+			height: 100%;
+			vertical-align: top;
+			padding: 22px 50px 25px;
+			background-color: lighten($brand-color3, 2.5%);
+			box-sizing: border-box;
+			width: 36.0540541%;
+			@include all-transition($transition-time);
+
+			.project-label__body {
+				font: {
+					size: 1.25em;
+					weight: $font-regular;
+					family: $display-font-family;
+				}
+				color: $brand-color4;
+				height: 100%;
+				overflow: hidden;
+				line-height: 1.7em;
+				@include media-query($on-1100) {
+					font-size: 1.81vw;
+				}
+				@include media-query(56.25em) {
+					font-size: 2.1vw;
+				}
+				@include media-query($on-tablet) {
+					font-size: 1em;
+				}
+
+				strong {
+					color: $brand-color;
+					font-weight: $font-semi-bold;
+				}
+
+				p:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	&.card-only {
+		width: calc(50% - 20px);
+		@include media-query($on-tablet) {
+			width: 100%;
+		}
+
+		.project-image-box {
+			width: 68%;
+		}
+	}
+
+	&.snippet {
+		cursor: pointer;
+
+		&[style="order: 5"]::before {
+			content: "Project Snippets";
+			font: {
+				size: 1.2em;
+				weight: $font-regular;
+			}
+			cursor: auto;
+			display: block;
+			color: $brand-color4;
+			display: inline;
+			line-height: 30px;
+			padding-bottom: 10px;
+		}
+	}
+
+	&.fill-empty-space {
+		border: none;
+		background: none;
+		height: 0;
+		margin: 15px;
+	}
+
+	&.toggle-preview {
+		.project-image-box {
+			width: 18%;
+			@include media-query($on-landscape) {
+				width: 0;
+			}
+
+			.project-image {
+				background-position: 50% 50%;
+				&::before {
+					opacity: 0;
+					left: 200px;
+				}
+
+				.question-wrapper {
+					left: 20px;
+
+					.project-question {
+						@include media-query($on-1100) {
+							font-size: 2.6vw;
+						}
+					}
+				}
+			}
+		}
+
+		.project-label {
+			opacity: 1;
+			left: 0;
+
+			@include media-query($on-tablet) {
+				padding-left: 25px;
+				width: 55.0540541%;
+			}
+		}
+
+		.project-launch-btn {
+			background-color: transparent;
 		}
 
 		&.card-only {
-			width: calc(50% - 20px);
-			@include media-query($on-tablet) {
-				width: 100%;
-			}
-
-			.project-image-box {
-				width: 68%;
-			}
-		}
-
-		&.snippet {
-			cursor: pointer;
-
-			&[style="order: 5"]::before {
-				content: "Project Snippets";
-				font: {
-					size: 1.2em;
-					weight: $font-regular;
-				}
-				cursor: auto;
-				display: block;
-				color: $brand-color4;
-				display: inline;
-				line-height: 30px;
-				padding-bottom: 10px;
-			}
-		}
-
-		&.fill-empty-space {
-			border: none;
-			background: none;
-			height: 0;
-			margin: 15px;
-		}
-
-		&.toggle-preview {
-			.project-image-box {
-				width: 18%;
-				@include media-query($on-landscape) {
-					width: 0;
-				}
-
-				.project-image {
-					background-position: 50% 50%;
-					&::before {
-						opacity: 0;
-						left: 200px;
-					}
-
-					.question-wrapper {
-						left: 20px;
-
-						.project-question {
-							@include media-query($on-1100) {
-								font-size: 2.6vw;
-							}
-						}
-					}
-				}
-			}
-
-			.project-label {
-				opacity: 1;
-				left: 0;
-
-				@include media-query($on-tablet) {
-					padding-left: 25px;
-					width: 55.0540541%;
-				}
-			}
-
-			.project-launch-btn {
+			.project-preview-btn {
 				background-color: transparent;
 			}
 
-			&.card-only {
-				.project-preview-btn {
-					background-color: transparent;
-				}
-
-				.project-image-box {
-					width: 0;
-				}
+			.project-image-box {
+				width: 0;
 			}
 		}
 	}
@@ -402,17 +400,6 @@
 			display: inline-block;
 			margin: 0 20px 20px;
 			width: calc(33.33333333333% - (2 * 20px));
-
-			ul {
-				display: flex;
-				flex-flow: row wrap;
-				width: 100%;
-				justify-content: space-between;
-
-				li::before {
-					content: "";
-				}
-			}
 		}
 
 		.bio {
@@ -617,6 +604,7 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	@include project-sizer;
+	@extend %flex-default;
 	@include media-query($on-tablet) {
 		padding-bottom: 50px;
 	}
@@ -625,7 +613,6 @@
 	}
 
 	.project-name {
-		@include project-sizer;
 		font: {
 			size: 3em;
 			weight: $font-light;
@@ -812,7 +799,8 @@
 	}
 
 	.main-image {
-		@extend %image-default; padding-top: 47.87%;
+		@extend %image-default;
+		padding-top: 47.87%;
 		@include media-query($on-1100) {
 			width: 100%;
 			height: 0;
@@ -1051,6 +1039,7 @@
 	@include media-query($on-landscape) {
 		background-color: transparent;
 		border-bottom: none;
+		position: absolute;
 	}
 
 	.hamburger {
@@ -1058,7 +1047,7 @@
 		height: 22px;
 		padding: 4px;
 		cursor: pointer;
-		position: absolute;
+		position: fixed;
 		top: 11px;
 		left: 20px;
 		display: none;
@@ -1067,6 +1056,7 @@
 			position: center center;
 			size: 28px 28px;
 			repeat: no-repeat;
+			color: rgba(255, 255, 255, 0.95);
 		}
 		@include all-transition($transition-time);
 		@include media-query($on-landscape) {
@@ -1075,14 +1065,16 @@
 	}
 
 	.menu-wrapper {
-		padding: 14px 0;
+		padding: 0.875em 0;
 		margin-bottom: 0;
 		@include project-sizer;
 		font-size: 1em;
 		display: flex;
+		flex-flow: row wrap;
 		justify-content: space-between;
 		@include media-query($on-landscape) {
-			display: none;
+			flex-flow: column wrap;
+			align-items: center;
 		}
 
 		li {
@@ -1093,7 +1085,7 @@
 				content: "";
 			}
 			@include media-query($on-landscape) {
-				font-size: 0.9em;
+				font-size: 1.2em;
 			}
 
 			.masthead {
@@ -1107,7 +1099,6 @@
 				z-index: 1002;
 				border-bottom: none;
 
-
 				.masthead-title {
 					font: {
 						weight: $font-regular;
@@ -1117,7 +1108,6 @@
 					color: $brand-color4;
 					letter-spacing: 0;
 					margin-top: -7px;
-
 				}
 			}
 
@@ -1126,8 +1116,15 @@
 					family: $display-font-family;
 					weight: $font-regular;
 				}
+				width: 100px;
+				text-align: right;
 				align-self: flex-end;
 				margin-bottom: 1px;
+				@include media-query($on-landscape) {
+					margin-top: 30px;
+					text-align: center;
+					align-self: auto;
+				}
 
 				a {
 					font-size: 0.99em;
@@ -1145,6 +1142,17 @@
 			background-color: rgba(255, 255, 255, 0.95);
 		}
 	}
+
+	&.toggle-menu {
+		position: fixed;
+
+		.hamburger {
+			opacity: 1;
+			background-size: 8px 28px;
+			-webkit-transform: rotate(90deg);
+			transform: rotate(90deg);
+		}
+	}
 }
 
 /* #FOOTER */
@@ -1153,14 +1161,9 @@
 	position: relative;
 	z-index: 2000;
 	left: 0;
-	width: 100%;
 
 	.projects-container {
 		@include project-sizer;
-
-		.site-header .menu-footer & {
-			max-width: auto;
-		}
 
 		h3.section-title {
 			font: {
@@ -1175,94 +1178,93 @@
 		.project-thumbnails {
 			padding-bottom: 30px;
 			margin: 0 calc(-1 * #{$global-padding});
+			display: flex;
+			flex-flow: row wrap;
+		}
+	}
 
-			.project {
-				margin: $global-padding;
-				min-width: 180px;
-				flex: 1 0 calc(20% - (2 * #{$global-padding}));
-				height: 200px;
+	.project {
+		margin: $global-padding;
+		min-width: 180px;
+		flex: 1 0 calc(20% - (2 * #{$global-padding}));
+		height: 200px;
 
-				.project-wrapper {
-					width: 100%;
-					height: 100%;
+		.project-wrapper {
+			width: 100%;
+			height: 100%;
 
-					.project-image-box {
-						height: 100%;
-						width: 100%;
+			.project-image-box {
+				height: 100%;
+				width: 100%;
+			}
+		}
 
-						.project-image {
-							background-color: $background-color;
-							background-position: 50% 50%;
+		&.current {
+			border: {
+				color: rgba(216, 92, 43, 0.8);
+				width: 2px;
+				style: solid;
+			}
+		}
 
-							.project-title {
-								font: {
-									family: $display-font-family;
-									weight: $font-semi-bold;
-									size: 0.6875em;
-								}
-								top: 15px;
-								left: 20px;
-								opacity: 0.9;
-								color: $brand-color;
-								position: absolute;
-								text-transform: uppercase;
-								padding-right: 5px;
-								background-color: $background-color;
-							}
-
-							.question-wrapper {
-								position: absolute;
-								left: 20px;
-								bottom: 15px;
-
-								.project-question {
-									font-size: 1.15em;
-									box-shadow: 0.347em 0 0 rgba(255, 255, 255, 0.95), -0.208em 0 0 rgba(255, 255, 255, 0.95);
-									background-color: rgba(255, 255, 255, 0.95);
-								}
-							}
-
-							&::before {
-								content: "";
-								background: none;
-							}
-						}
-					}
-				}
-
-				&.current {
-					border: {
-						color: rgba(216, 92, 43, 0.8);
-						width: 2px;
-						style: solid;
-					}
-				}
-
-				&.fill-empty-space {
-					display: none;
-					@include media-query($on-1100) {
-						display: block;
-					}
-				}
+		&.fill-empty-space {
+			display: none;
+			height: 0;
+			@include media-query($on-1100) {
+				display: block;
 			}
 		}
 	}
 
-	a {
-		color: $grey-color;
-	  transition-duration: $transition-time;
+	.project-image {
+		background-color: $background-color;
+		background-position: 50% 50%;
 
-		&:hover {
+		.project-title {
+			font: {
+				family: $display-font-family;
+				weight: $font-semi-bold;
+				size: 0.6875em;
+			}
+			top: 15px;
+			left: 20px;
+			opacity: 0.9;
 			color: $brand-color;
-		  transition-duration: $transition-time;
+			position: absolute;
+			text-transform: uppercase;
+			padding-right: 5px;
+			background-color: $background-color;
+		}
+
+		.question-wrapper {
+			position: absolute;
+			left: 20px;
+			bottom: 15px;
+
+			.project-question {
+				font-size: 1.15em;
+				box-shadow: 0.347em 0 0 rgba(255, 255, 255, 0.95), -0.208em 0 0 rgba(255, 255, 255, 0.95);
+				background-color: rgba(255, 255, 255, 0.95);
+			}
+		}
+
+		&::before {
+			content: "";
+			background: none;
 		}
 	}
 
 	&.outerpage {
-		padding-top: 80px;
+		@include project-sizer;
 		margin-top: 0;
 		background-color: $background-color;
 		z-index: 500;
+	}
+
+	.social-links {
+		max-width: 33%;
+		margin-left: auto;
+	  margin-right: auto;
 	}
 }
 

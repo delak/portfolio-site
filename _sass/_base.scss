@@ -135,12 +135,20 @@ mark {
 /**
  * Social buttons
  */
-figcaption {
-  margin-top: 10px;
+.social-links {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  margin: 10px 0 0;
+  padding-bottom: 30px;
+  justify-content: space-between;
 
   li {
     padding: 0;
     text-indent: 0;
+    &::before {
+      content: "";
+    }
 
     .contact-button {
       background: {

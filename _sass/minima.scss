@@ -30,7 +30,7 @@ $table-text-align: left !default;
 
 // Width of the content area
 $on-portrait:      23.5em !default;   // 376px
-$on-landscape:     40em !default;     // 640px
+$on-landscape:     42.5em !default;   // 680px
 $on-tablet:        48.75em !default;  // 780px
 $content-width:    60em !default;     // 960px
 $on-1100:          68.75em !default;  // 1100px
@@ -63,10 +63,8 @@ $transition-time:  0.3s !default;
   max-width: $content-width;
   margin-left: auto;
   margin-right: auto;
-  @include media-query($on-1100) {
-		padding-left: 10%;
-    padding-right: 10%;
-	}
+	padding-left: 10%;
+  padding-right: 10%;
 }
 
 @mixin all-transition($interval) {
