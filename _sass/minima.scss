@@ -2,7 +2,7 @@
 
 // Define defaults for each variable.
 
-$base-font-family: 'IBM Plex Sans', sans-serif !default;
+$base-font-family: 'Titillium Web', sans-serif !default;
 $display-font-family: 'Encode Sans', sans-serif !default;
 $base-font-size:   16px !default;
 $font-lightest:   200 !default;
@@ -29,12 +29,12 @@ $grey-color:       #333 !default;
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    64em !default;
-
-$on-phone:         40em !default;
-$on-tablet:        48.75em !default;
-$on-1100:          68.75em !default;
-$on-desktop:       75em !default;
+$on-portrait:      23.5em !default;   // 376px
+$on-landscape:     40em !default;     // 640px
+$on-tablet:        48.75em !default;  // 780px
+$content-width:    60em !default;     // 960px
+$on-1100:          68.75em !default;  // 1100px
+$on-desktop:       75em !default;     // 1200px
 
 // Global padding
 $global-padding:   1em !default;

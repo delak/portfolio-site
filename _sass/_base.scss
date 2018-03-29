@@ -46,6 +46,15 @@ h1, h2, h3, h4, h5, h6, blockquote {
 
 
 /**
+ * Superscript
+ */
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+
+/**
  * Images
  */
 img {
@@ -98,7 +107,7 @@ a {
   border-bottom: 1px dotted rgba(79, 93, 117, 0.3);
 
   &:hover, &:active {
-    color: lighten($brand-color, 10%);
+    color: lighten($brand-color, 15%);
     transition-duration: 0.1s;
   }
 
@@ -112,12 +121,14 @@ a {
 }
 
 
-/**
- * stop the browser asking you to copy/save/select the image or whatever
- */
-.hover {
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
+mark {
+  padding: 2px 4px 5px;
+  background-color: lighten($brand-color, 47%);
+  color: $brand-color2;
+}
+
+.highlight {
+  color: $brand-color;
 }
 
 
@@ -129,6 +140,7 @@ figcaption {
 
   li {
     padding: 0;
+    text-indent: 0;
 
     .contact-button {
       background: {
@@ -151,7 +163,7 @@ figcaption {
         top: 5px;
         width: 20px;
         height: 20px;
-        margin-right: 10px;
+        margin-right: 7px;
         background-color: $brand-color3;
         background-size: contain;
       }
@@ -278,4 +290,38 @@ blockquote {
    -ms-justify-content: space-between;
    -webkit-justify-content: space-between;
    justify-content: space-between;
+ }
+
+ /**
+  * Archetpe rankings
+  */
+ .archetype-ranking {
+   margin-bottom: 10px;
+   padding: 6px 10px 0;
+   background-color: $brand-color3;
+
+   .ranking-box {
+     height: 50px;
+     margin-bottom: 10px;
+     background: {
+       image: url('/assets/images/ranking.svg');
+       repeat: no-repeat;
+       size: 152px;
+     }
+
+     &:last-child {
+       margin-bottom: 0;
+     }
+
+     h5 {
+       font-weight: $font-semi-bold;
+     }
+
+     &.rank-zero { background-position: 0 35px; }
+     &.rank-one { background-position: 0 -45px; }
+     &.rank-two { background-position: 0 -115px; }
+     &.rank-three { background-position: 0 -185px; }
+     &.rank-four { background-position: 0 -255px; }
+     &.rank-five { background-position: 0 -325px; }
+   }
  }

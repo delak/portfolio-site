@@ -1,5 +1,5 @@
 {% for p in site.pages %}
-  {% if p.layout == 'project' and p.draft != true and p.projecttype == 'case-study' %}
+  {% if p.layout == 'project' and p.draft != true and p.card == 'case' %}
     {% assign printable = true %}
 
     {% for t in p.path %}
@@ -20,6 +20,7 @@
           <div class="project-wrapper">
           <div class="project-image-box">
             <div class="project-image">
+              <div class="project-title">{{ p.projectname }}</div>
               <div class="question-wrapper">
                 <span class="project-question">
                   {{ p.question }}

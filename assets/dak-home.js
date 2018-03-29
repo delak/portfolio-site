@@ -1,14 +1,12 @@
 $(document).ready(function() {
   var sh = $('.site-header');
   var hs = $('.hello-section');
+  var snippet = $('.snippet');
   var win = $(window);
-  var allowHeaderScroll;
 
-  // function that binds hover to click fo touch devices
-  $('.hover').bind('touchstart touchend', function(e) {
-        e.preventDefault();
-        $(this).toggleClass('hover_effect');
-    });
+  snippet.click(function() {
+    $(this).toggleClass('toggle-preview').siblings().removeClass('toggle-preview');
+  })
 
   win.on('scroll', function() {
     var y_scroll_pos = window.pageYOffset;

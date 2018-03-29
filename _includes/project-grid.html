@@ -11,15 +11,26 @@
     {% endfor %}
 
     {% if printable == true %}
-      {% if p.shortcode == page.shortcode %}
-      <div class="{{ p.shortcode }} project current" style="order: {{ p.order }}">
+      {% if p.card == 'case' %}
+      <div class="{{ p.shortcode }} project card-only" style="order: {{ p.order }}">
+        <a class="view-project-btn" href="{{ p.url }}">
+          <div class="project-wrapper">
+            <div class="project-image-box">
+              <div class="project-image">
+                <div class="question-wrapper">
+                  <span class="project-question">
+                    {{ p.question }} <strong>»</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
       {% else %}
-      <div class="{{ p.shortcode }} project" style="order: {{ p.order }}">
-      {% endif %}
+      <div class="{{ p.shortcode }} project snippet" style="order: {{ p.order }}">
         <div class="project-wrapper">
           <div class="project-image-box">
             <div class="project-image">
-              <div class="project-type {{ p.projecttype }}"></div>
               <div class="question-wrapper">
                 <span class="project-question">
                   {{ p.question }}
@@ -28,22 +39,12 @@
             </div>
           </div>
           <div class="project-label">
-            <div class="project-label__body">
-              {{ p.intro }}
-            </div>
-            {% if p.projecttype %}
-              {% if p.projecttype contains 'case-study' %}
-            <a class="project-type {{ p.projecttype }}" href="{{ p.url }}"></a>
-              {% else if p.projecttype contains 'gallery' %}
-            <a class="project-type {{ p.projecttype }}" data-fancybox="lightbox-{{ p.shortcode }}" data-caption="{{ p.shortcode }}. Field research" href="{{ site.imagepath }}B01-7.jpg"></a>
-              {% endif %}
-            {% endif %}
+            <div class="project-label__body">{{ p.intro }}</div>
           </div>
         </div>
+      {% endif %}
       </div>
     {% endif %}
 
   {% endif %}
 {% endfor %}
-    <div class="project fill-empty-space" style="order: 100"></div>
-    <div class="project fill-empty-space" style="order: 101"></div>

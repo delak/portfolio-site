@@ -7,14 +7,22 @@
 // Generate background images for project thumbnails
 {% for h in site.pages %}
   {% if h.layout == 'project' and h.draft != true %}
-    .{{ h.shortcode }} {
-      .project-image {
-        background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.png');
+    {% if h.card %}
+      .{{ h.shortcode }} {
+        .project-image {
+          background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.jpg');
+        }
+      }
+    {% else %}
+      .{{ h.shortcode }} {
+        .project-image {
+          background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.png');
+        }
 
         &::before {
           background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg1.png');
         }
       }
-    }
+    {% endif %}
   {% endif %}
 {% endfor %}
