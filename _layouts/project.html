@@ -9,21 +9,27 @@
 
     <main>
       <section class="intro-container">
-
-        <div class="project-name">
-          <h1>{{ page.projectname }}</h1>
-        </div>
-        <div class="full-width-image" style="background-image: url({{ site.imagepath }}{{ page.shortcode }}-masthead-bg.png)">
-          <img  src="{{ site.imagepath }}{{ page.shortcode }}-masthead.png" alt="{{ page.projectname }}">
-        </div>
-        <div class="info-stats">
-          <div class="project-info">
-            {{ page.description }}
+        <div class="masthead-box">
+          <div class="project-name">
+            <h1>{{ page.projectname }}</h1>
           </div>
-          <div class="stats">
-            <div class="stat">
-              <div class="stat-title">Highlights</div>
-              <div class="stat-value">{{ page.brief }}</div>
+        </div>
+        <div class="project-masthead-bg" style="background-image: url({{ site.imagepath }}mastheads/{{ page.shortcode }}-masthead-bg.png)">
+          <div class="masthead-box">
+            <div id="image4" class="intro-image" style="background-image: url({{ site.imagepath }}mastheads/{{ page.shortcode }}-masthead.png" alt="{{ page.projectname }})">
+            </div>
+          </div>
+        </div>
+        <div class="masthead-box">
+          <div class="info-stats">
+            <div class="project-info">
+              {{ page.intro }}
+            </div>
+            <div class="stats">
+              <div class="stat">
+              <!--  <div class="stat-title">Highlights</div>  -->
+                <div class="stat-value">{{ page.brief }}</div>
+              </div>
             </div>
           </div>
         </div>

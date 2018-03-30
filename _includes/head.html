@@ -22,12 +22,15 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css">
   <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-  {% if page.layout == "project" or page.layout == "about" %}
+  {% if page.layout == "project" %}
     <title>{{ page.projectname }}  |  Dela A. Kumahor</title>
     <script src="/assets/dak.js"></script>
   {% elsif page.layout == "home" %}
     <title>Dela A. Kumahor</title>
     <script src="/assets/dak-home.js"></script>
+  {% elsif page.layout == "about" %}
+    <title>Dela A. Kumahor</title>
+    <script src="/assets/dak.js"></script>
   {% else %}
     <title>Dela A. Kumahor</title>
     <script src="/assets/dak-404.js"></script>

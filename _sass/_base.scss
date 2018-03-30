@@ -122,9 +122,13 @@ a {
 
 
 mark {
-  padding: 2px 4px 5px;
+  padding: 0.125em 0.25em 0.3125em;
   background-color: lighten($brand-color, 47%);
   color: $brand-color2;
+
+  .project-info & {
+    padding: 0;
+  }
 }
 
 .highlight {
