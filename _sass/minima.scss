@@ -21,8 +21,10 @@ $background-color: #fff !default;
 $brand-color:      #C55428 !default;
 $brand-color2:     #2D3142 !default;
 $brand-color3:     #F1F5F7 !default;
-$brand-color4:     #4F5D75 !default;
-$text-color:       $brand-color2 !default;
+$brand-color4:     #48556B !default;
+$question-color:  rgba($background-color, 0.93) !default;
+$link-hover-color: lighten($brand-color, 15%) !default;
+$text-color:       $brand-color4 !default;
 
 $grey-color:       #333 !default;
 
@@ -30,9 +32,11 @@ $table-text-align: left !default;
 
 // Width of the content area
 $on-portrait:      23.5em !default;   // 376px
+$on-540:           33.75em !default;   // 540px
 $on-landscape:     42.5em !default;   // 680px
 $on-tablet:        48.75em !default;  // 780px
 $content-width:    60em !default;     // 960px
+$on-1024:          64em !default;     // 1024px
 $on-1100:          68.75em !default;  // 1100px
 $on-desktop:       75em !default;     // 1200px
 
@@ -74,6 +78,7 @@ $transition-time:  0.3s !default;
   -o-transition: $interval ease-out;
   transition: $interval ease-out;
 }
+
 
 @mixin transform-transition {
   -webkit-transition: -webkit-transform $transition-time ease;

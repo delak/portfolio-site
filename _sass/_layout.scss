@@ -1,14 +1,15 @@
 /* #HOMEPAGE-Intro */
 .hello-section {
 	overflow: hidden;
-  background-color: $brand-color3;
-  min-height: 80vh;
+  background-color: $background-color;
+	min-height: 25em;
+	margin: 10em 0 6.25em;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
+	-webkit-box-align: flex-end;
+	-ms-flex-align: flex-end;
+	align-items: flex-end;
 	@include media-query($on-tablet) {
 		min-height: auto;
 		padding-top: 80px;
@@ -16,12 +17,7 @@
 	}
 	@include media-query($on-landscape) {
 		min-height: auto;
-		padding-top: 220px;
 		padding-bottom: 30px;
-	}
-
-	.errorpage & {
-		min-height: 80vh;
 	}
 
 	.hello-intro-bio {
@@ -36,20 +32,29 @@
 			margin-bottom: calc(2 * #{$grid-height});
 			line-height: 1.1em;
 			color: $brand-color;
+			padding-left: 0.7em;
+	    text-indent: -0.7em;
+			margin-left: -0.8em;
 			@include media-query($on-tablet) {
 				font-size: 8vw;
 				line-height: 10vw;
-				margin: 4vh 0;
+				/*margin: 4vh 0; */
 			}
 			@include media-query($on-landscape) {
 				font-size: 40px;
     		line-height: 45px;
-    		margin: 10px 0;
+    		/*margin: 10px 0; */
 			}
+
+	    &::before {
+	      content: "* ";
+	      color: $brand-color;
+				font-weight: $font-semi-bold;
+	    }
 
 			@at-root {
 				.grey-out {
-					color: rgba(79, 93, 117, 0.7);
+					color: rgba($brand-color2, 0.7);
 					font-weight: $font-lightest;
 				}
 
@@ -57,59 +62,11 @@
 					padding: 0 7px;
 				}
 			}
-
-			.tooltip {
-				position: relative;
-			  display: inline-block;
-				border-bottom: 1px dotted rgba(79, 93, 117, 0.3);
-				margin-bottom: -1px;
-
-				.tooltiptext {
-					font: {
-						size: 17px;
-						weight: $font-regular;
-					}
-					width: 160px;
-				  color: $brand-color4;
-				  text-align: center;
-					padding-bottom: 8px;
-				  position: absolute;
-				  z-index: 1;
-				  bottom: 70%;
-				  left: 50%;
-				  margin-left: -80px;
-				  opacity: 0;
-				  transition: opacity 0.3s;
-
-					&::after {
-						content: "";
-						position: absolute;
-						top: 65%;
-					  left: 50%;
-					  margin-left: -5px;
-						opacity: 0.8;
-					  border: {
-							width: 5px;
-					  	style: solid;
-						  color: $brand-color transparent transparent transparent;
-						}
-					}
-				}
-
-				&:hover {
-					border: none;
-
-					.tooltiptext {
-						visibility: visible;
-						opacity: 1;
-					}
-				}
-			}
 		}
 
 		.hello-bio {
 			padding-right: 35%;
-			@include media-query($content-width) {
+			@include media-query($on-1024) {
 				padding-right: 0;
 			}
 
@@ -139,16 +96,20 @@
 
 /* #HOMEPAGE-Portfolio */
 .project-section {
-	padding: 100px 0;
+	padding-bottom: 100px;
 	@include project-sizer;
+
+	hr {
+		margin-bottom: 100px;
+		opacity: 0.3;
+	}
 
 	h3.section-title {
 		font: {
 			size: 18px;
 			weight: $font-semi-bold;
 		}
-		color: $brand-color4;
-		text-transform: uppercase;
+		color: $brand-color;
 		display: inline-block;
 		padding: 6px 0;
 	}
@@ -159,172 +120,285 @@
 		width: auto;
 		justify-content: space-between;
 
+		&.snippets {
+			flex-flow: column nowrap;
+			justify-content: flex-start;
+			margin: 0 -20px;
+			overflow: hidden;
+		}
+
 		.outerpage & {
 			padding-bottom: 80px;
 		}
+	}
+
+	.snippet-box {
+		width: 100%;
+		margin-top: $global-padding;
+		margin-bottom: 80px;
+		display: flex;
+		flex-flow: column wrap;
 	}
 }
 
 /* #PROJECT-THUMBNAILS-generator */
 .project {
 	position: relative;
-	margin-bottom: 40px;
+	margin-bottom: 80px;
 	width: 100%;
-	background-color: $background-color;
+	height: 100%;
 	box-sizing: border-box;
+	display: flex;
+	flex-flow: row nowrap;
 	overflow: hidden;
+	justify-content: space-between;
+	@include all-transition($transition-time);
 
-	.project-wrapper {
-		width: 185%;
-		height: 360px;
-		display: flex;
-		flex-flow: row nowrap;
-		overflow: hidden;
+	a, .snippet-body {
+		border: none;
+		width: calc(66.66666666666% - 1em);
+		height: 100%;
+		@include media-query($on-landscape) {
+			width: 100%;
+		}
+	}
+
+	.snippet-body {
+		cursor: pointer;
+		border: 0 solid rgba($brand-color4, 0.15);
+		@include all-transition($transition-time);
+	}
+
+	.title-wrapper {
+		position: relative;
+		left: 0;
+		width: calc(33.333333333333% - 1em);
+		margin-top: -8px;
 		@include all-transition($transition-time);
 		@include media-query($on-landscape) {
-			height: 250px;
+			display: none;
 		}
 
-		.project-image-box {
-			width: 54.0540541%;
-			position: relative;
-			overflow: hidden;
-			@include all-transition($transition-time);
+		&.odd-proj {
+			text-align: right;
 
-			.project-image {
-				background: {
-					position: 30% 50%;
-					size: cover;
-					color: $brand-color3;
-					repeat: no-repeat;
-				}
-				position: relative;
-				height: 100%;
-				width: 100%;
-				@include all-transition($transition-time);
+			a {
+				display: inline-block;
+				margin-right: 0.5em;
+			}
 
-				&::before {
-					content: "";
-					position: absolute;
-					top: 0;
-				  left: 0;
-				  bottom: 0;
-				  right: 0;
-					background: {
-						repeat: no-repeat;
-						position: 30% 50%;
-					}
-					@include all-transition($transition-time);
-				}
-
-				.question-wrapper {
-					position: absolute;
-					left: 40px;
-					bottom: 30px;
-					z-index: 100;
-					@include all-transition($transition-time);
-
-					@at-root {
-						.project-question {
-							font: {
-								family: $display-font-family;
-								size: 1.5em;
-								weight: 400;
-							}
-							white-space: nowrap;
-							box-shadow: 0.347em 0 0 rgba(255, 255, 255, 0.97), -0.308em 0 0 rgba(255, 255, 255, 0.97);
-							padding: 0.12em 0;
-							box-decoration-break: clone;
-							text-align: left;
-							color: $brand-color2;
-							line-height: 1.5em;
-							background-color: rgba(255, 255, 255, 0.97);
-							@include all-transition($transition-time);
-							@include media-query($on-landscape) {
-								font-size: 24px;
-							}
-							@include media-query($on-portrait) {
-								font-size: 1.4em;
-							}
-
-							strong {
-								font-weight: $font-semi-bold;
-								color: $brand-color;
-							}
-						}
-					}
-				}
+			.link-arrow {
+				margin-right: 0.5em;
 			}
 		}
 
-		.project-label {
-			position: relative;
-			height: 100%;
-			vertical-align: top;
-			padding: 22px 50px 25px;
-			background-color: lighten($brand-color3, 2.5%);
-			box-sizing: border-box;
-			width: 38.0540541%;
+		hr {
+			margin: 1em 0;
+		}
+
+		a {
+			color: $brand-color4;
+		}
+
+		.link-arrow {
+			font: {
+				weight: $font-regular;
+				size: 1.2em;
+			}
+			color: $brand-color;
+			border: none;
 			@include all-transition($transition-time);
+		}
+	}
 
-			.project-label__body {
-				font: {
-					size: 1.25em;
-					weight: $font-regular;
-					family: $display-font-family;
-				}
-				color: $brand-color4;
-				height: 100%;
-				overflow: hidden;
-				line-height: 1.7em;
-				@include media-query($on-1100) {
-					font-size: 1.81vw;
-				}
-				@include media-query(56.25em) {
-					font-size: 2.1vw;
-				}
-				@include media-query($on-tablet) {
-					font-size: 1em;
-				}
+	.project-image {
+		width: 100%;
+		height: 22em;
+		overflow: hidden;
+		box-sizing: border-box;
+		position: relative;
+		background: {
+			position: center center;
+			size: cover;
+			color: lighten($brand-color, 40%);
+			repeat: no-repeat;
+			blend-mode: multiply;
+		}
+		@include all-transition($transition-time);
 
-				strong {
-					color: $brand-color;
-					font-weight: $font-semi-bold;
-				}
+		.question-wrapper {
+			position: absolute;
+			left: 4em;
+			bottom: 3.6em;
+			opacity: 0;
+			@include all-transition($transition-time);
+			@include media-query($on-landscape) {
+				opacity: 1;
+			}
 
-				p:last-child {
-					margin-bottom: 0;
+			@at-root {
+				.project-question {
+					font: {
+						family: $display-font-family;
+						size: 1.8em;
+						weight: $font-regular;
+					}
+					color: $brand-color4;
+					display: inline;
+					white-space: nowrap;
+					box-shadow: 0.347em 0 0 $question-color, -0.308em 0 0 $question-color;
+					box-decoration-break: clone;
+					background-color: $question-color;
+					padding: 0.12em 0;
+					line-height: 1.5em;
+					@include all-transition($transition-time);
+					@include media-query($on-landscape) {
+						font-size: 24px;
+					}
+					@include media-query($on-portrait) {
+						font-size: 1.4em;
+					}
+
+					strong {
+						font-weight: 500;
+						color: $brand-color;
+					}
 				}
 			}
 		}
 	}
 
-	&.card-only {
-		width: calc(50% - 20px);
-		@include media-query($on-tablet) {
-			width: 100%;
-		}
+	.project-label {
+		width: 100%;
+		z-index: -1;
+		background-color: $brand-color3;
+		margin-top: -600px;
+		@include all-transition(0.4s);
 
-		.project-image-box {
-			width: 68%;
+		.project-label__body {
+			font: {
+				size: 1em;
+				weight: $font-regular;
+				family: $display-font-family;
+			}
+			color: $brand-color4;
+			padding: 30px 40px;
+			max-height: 600px;
+			overflow: auto;
+			line-height: 1.7em;
+			column-count: 2;
+			column-gap: 40px;
+			@include all-transition($transition-time);
+			@include media-query($on-1100) {
+				font-size: 1.81vw;
+			}
+			@include media-query(56.25em) {
+				font-size: 2.1vw;
+			}
+			@include media-query($on-tablet) {
+				font-size: 1em;
+			}
+
+			strong {
+				color: $brand-color;
+				font-weight: $font-semi-bold;
+			}
+
+			p:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 
 	&.snippet {
-		cursor: pointer;
+		margin-bottom: 0;
+		min-height: 3.5em;
 
-		&[style="order: 5"]::before {
-			content: "Project Snippets";
-			font: {
-				size: 1.2em;
-				weight: $font-regular;
+		.project-image {
+			max-height: 3.5em;
+			background-color: lighten($brand-color, 25%);
+
+			.question-wrapper {
+				left: 2em;
+				right: 2em;
+				bottom: 4em;
+				font-size: 1.3em;
 			}
-			cursor: auto;
-			display: block;
-			color: $brand-color4;
-			display: inline;
-			line-height: 30px;
-			padding-bottom: 10px;
+		}
+
+		.title-wrapper {
+			margin-top: 0;
+
+			.project-question {
+				display: block;
+				height: 3.5em;
+			}
+
+			hr {
+				margin: 0.5em 0;
+			}
+		}
+
+		.project-question {
+			white-space: normal;
+			font-size: 1em;
+			line-height: 1.5em;
+			cursor: pointer;
+		}
+
+		&:last-of-type {
+			hr {
+				display: none;
+			}
+		}
+	}
+
+	&:hover {
+		.project-image {
+			background-color: transparent;
+		}
+
+		.title-wrapper {
+			a {
+				color: $link-hover-color;
+			}
+		}
+
+		.link-arrow {
+			margin-left: 0.5em;
+		}
+
+		.odd-proj {
+			.link-arrow {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&.toggle-snippet {
+		.snippet-body {
+			box-sizing: border-box;
+			border-width: 2px;
+			margin: 30px 0;
+		}
+
+		.project-image {
+			background-color: transparent;
+			max-height: 18.5em;
+
+			.question-wrapper {
+				opacity: 1;
+				bottom: 1.6em;
+			}
+		}
+
+		.project-label {
+			margin-top: 0 !important;
+		}
+
+		.title-wrapper {
+			cursor: default;
+			opacity: 0;
 		}
 	}
 
@@ -334,199 +408,124 @@
 		height: 0;
 		margin: 15px;
 	}
-
-	&.toggle-preview {
-		.project-image-box {
-			width: 16%;
-			@include media-query($on-landscape) {
-				width: 0;
-			}
-
-			.project-image {
-				background-position: 50% 50%;
-				&::before {
-					opacity: 0;
-					left: 200px;
-				}
-
-				.question-wrapper {
-					left: 20px;
-
-					.project-question {
-						@include media-query($on-1100) {
-							font-size: 2.6vw;
-						}
-					}
-				}
-			}
-		}
-
-		.project-label {
-			opacity: 1;
-			left: 0;
-
-			@include media-query($on-tablet) {
-				padding-left: 25px;
-				width: 55.0540541%;
-			}
-		}
-
-		.project-launch-btn {
-			background-color: transparent;
-		}
-
-		&.card-only {
-			.project-preview-btn {
-				background-color: transparent;
-			}
-
-			.project-image-box {
-				width: 0;
-			}
-		}
-	}
 }
 
 /* #HOMEPAGE-About-section */
 .about-section {
-	padding: 200px 0 80px;
+	padding: 150px 0 80px;
 	background-color: $background-color;
 	@include project-sizer;
+}
 
-	.bio-container {
-		margin: 0 calc(-1 * 20px) 0;
-		display: flex;
-		flex-flow: row wrap;
+.bio-container {
+	margin: 0 -20px 0;
+	display: flex;
+	flex-flow: row wrap;
 
-		.headshot {
-			display: inline-block;
-			margin: 0 20px 20px;
-			width: calc(33.33333333333% - (2 * 20px));
+	.headshot {
+		display: inline-block;
+		margin: 10px 20px 0;
+		width: calc(30% - (2 * 20px));
+	}
+
+	.bio {
+		display: inline-block;
+		font-weight: $font-regular;
+		margin: 20px;
+		width: calc(70% - (2 * 20px));
+
+		h3 {
+			font: {
+				size: 3.125em;
+				weight: $font-light;
+			}
+			line-height: 1.3em;
+			color: $brand-color;
+			margin-bottom: 10px;
 		}
 
-		.bio {
-			display: inline-block;
-			font-weight: $font-regular;
-			margin: $global-padding;
-			width: calc(66.66666666666% - (2 * #{$global-padding}));
+		p {
+			font-family: $display-font-family;
+			font-size: 1.25em;
+			color: $brand-color4;
+			line-height: 1.9em;
+			margin-bottom: 10px;
 
-			h3 {
-				font: {
-					size: 3.125em;
-					weight: $font-light;
-				}
-				line-height: 1.3em;
-				color: $brand-color;
-				margin-bottom: 10px;
+			&.no-break {
+				margin-bottom: 0;
 			}
+		}
 
-			p {
-				font-family: $display-font-family;
-				font-size: 1.25em;
-				color: $brand-color4;
-				line-height: 1.9em;
-				margin-bottom: 10px;
-
-				&.no-break {
-					margin-bottom: 0;
-				}
-			}
-
-			h4 {
+		@at-root {
+			h4.section-title {
 				font: {
 					size: 1.2em;
 					weight: $font-regular;
 				}
 				position: relative;
-				color: $brand-color4;
+				color: $brand-color;
 				display: inline;
 				line-height: 30px;
 				padding-top: 3px;
 			}
+		}
 
-			.more-link {
-				font-size: 0.8em;
-				margin: 2px 0 4px;
-			}
+		.more-link {
+			font-size: 0.8em;
+			margin: 2px 0 4px;
+		}
 
-			.highlight {
-				font-weight: $font-semi-bold;
-				color: $brand-color4;
-			}
+		.logo-grid {
+			display: flex;
+			flex-flow: row wrap;
+			margin: 0 calc(-1 * 20px);
+			justify-content: space-between;
 
-			.services-container {
-				margin: 0 -10px calc(6 * #{$global-padding});
-				display: none;
-				flex-flow: row wrap;
-
-				.services-box {
-					width: calc(25% - (2 * 10px));
-					height: 200px;
-					margin: 10px;
-					padding: 6px 10px;
-					box-sizing: border-box;
-					background-color: $brand-color3;
-
-					h5 {
-						font: {
-							size: 18px;
-							weight: $font-regular;
-						}
-						color: $brand-color;
-						line-height: 24px;
-						padding-bottom: 5px;
-						border-bottom: 2px solid $background-color;
-					}
-				}
-			}
-
-			.logo-grid {
-				display: flex;
-				flex-flow: row wrap;
-				margin: 0 calc(-1 * 20px);
-				justify-content: space-between;
-
-				.logo-box {
-					width: calc(20% - (2 * 20px));
-					margin: 20px;
-					opacity: 0.7;
-				}
-			}
-
-			.image-grid-container {
-				margin-top: calc(5 * #{$global-padding});
-
-				p {
-					font-size: 14px;
-					line-height: 15px;
-				}
-
-				.image-grid {
-					display: flex;
-					flex-flow: column wrap;
-					max-height: 490px;
-					margin: 0 -8px;
-					overflow: hidden;
-
-					.image-box {
-						position: relative;
-						margin: 8px;
-						width: calc(33.33333333333333333% - (2 * 8px));
-						overflow: hidden;
-						border: 2px solid $brand-color3;
-						box-sizing: border-box;
-
-						a {
-							position: absolute;
-							top: 0;
-							left: 0;
-							width: 100%;
-							height: 100%;
-						}
-					}
-				}
+			.logo-box {
+				width: calc(20% - (2 * 20px));
+				margin: 20px;
+				opacity: 0.7;
 			}
 		}
+
+	}
+}
+
+.image-grid-container {
+	margin-top: calc(5 * #{$global-padding});
+
+	p {
+		font-size: 14px;
+		line-height: 15px;
+	}
+
+	.image-grid {
+		display: flex;
+		flex-flow: column wrap;
+		max-height: 490px;
+		margin: 0 -8px;
+		overflow: hidden;
+
+		.image-box {
+			position: relative;
+			margin: 8px;
+			width: calc(33.33333333333333333% - (2 * 8px));
+			border: 2px solid $brand-color3;
+			box-sizing: border-box;
+
+			a {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border: none;
+			}
+		}
+	}
+
+	&.dribbble .image-grid {
+		flex-flow: row wrap;
 	}
 }
 
@@ -541,54 +540,56 @@
 			min-height: auto;
 			padding: 70px 10% 30px;
 		}
-		.sorry-container {
-			max-width: 750px;
-			width: 100%;
-			font-size: 64px;
-			line-height: 80px;
-			color: rgba(255, 255, 255, 0.8);
-			flex-direction: column;
-			@include media-query($on-tablet) {
-				font-size: 8vw;
-				line-height: 10vw;
-				margin: 4vh 0;
-			}
-			@include media-query($on-landscape) {
-				font-size: 40px;
-				line-height: 45px;
-				margin: 10px 0;
-			}
 
-			.shrug {
-				color: $brand-color;
-				font-weight: $font-semi-bold;
+		.hello-intro-bio {
+			@include project-sizer;
 
-				.shrug-light {
-					font-weight: $font-light;
+			.sorry-container {
+				font-size: 64px;
+				line-height: 80px;
+				color: $brand-color4;
+				@include media-query($on-tablet) {
+					font-size: 8vw;
+					line-height: 10vw;
+					margin: 4vh 0;
 				}
-			}
-
-			.call-to-action {
-			  font: {
-					size: 20px;
-					weight: $font-light;
-				}
-			  line-height: 33px;
-				margin-top: 40px;
-
-				&:last-child {
-					margin-bottom: 0;
+				@include media-query($on-landscape) {
+					font-size: 40px;
+					line-height: 45px;
+					margin: 10px 0;
 				}
 
-				a {
-					font-weight: $font-regular;
+				.shrug {
 					color: $brand-color;
-					transition-duration: 0.5s;
-					border-bottom: 1px dotted $grey-color;
+					font-weight: $font-semi-bold;
 
-					&:hover, &:active {
-						color: darken($brand-color, 15%);
-						transition-duration: 0.1s;
+					.shrug-light {
+						font-weight: $font-light;
+					}
+				}
+
+				.call-to-action {
+				  font: {
+						size: 20px;
+						weight: $font-light;
+					}
+				  line-height: 33px;
+					margin-top: 40px;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+
+					a {
+						font-weight: $font-regular;
+						color: $brand-color;
+						transition-duration: 0.5s;
+						border-bottom: 1px dotted $grey-color;
+
+						&:hover, &:active {
+							color: darken($brand-color, 15%);
+							transition-duration: 0.1s;
+						}
 					}
 				}
 			}
@@ -628,12 +629,13 @@
 	.project-name {
 		margin-top: 180px;
 		margin-bottom: 40px;
-		line-height: 45px;
+		line-height: 3.4em;
 		color: $brand-color;
 		letter-spacing: 0;
 		width: 100%;
 		position: relative;
 		box-sizing: content-box;
+		text-align: center;
 
 		h1 {
 			font: {
@@ -667,12 +669,15 @@
 			-ms-flex-wrap: wrap;
 			-webkit-flex-wrap: wrap;
 			flex-wrap: wrap;
+			flex-flow: column-reverse;
 		}
-
 		@include media-query($on-landscape) {
-			font-size: 16px;
-			line-height: 24px;
+			font-size: 1em;
+			line-height: 1.875em;
 			margin-bottom: 0;
+		}
+		@include media-query($on-540) {
+			flex-flow: column;
 		}
 
 		.project-info {
@@ -686,6 +691,10 @@
 			@include media-query($on-tablet) {
 				width: 100%;
 				margin: 0;
+				padding: 0;
+			}
+			@include media-query($on-540) {
+				margin-bottom: 30px;
 			}
 
 			p {
@@ -700,11 +709,11 @@
 		.stat-title {
 			font: {
 				family: $display-font-family;
-				size: 13px;
+				size: .8125em;
 				weight: $font-semi-bold;
 			}
-			line-height: 15px;
-			margin-bottom: 6px;
+			line-height: 1em;
+			margin-bottom: 0.3em;
 			color: $brand-color;
 			text-transform: uppercase;
 		}
@@ -720,8 +729,10 @@
 				display: flex;
 				flex-flow: row nowrap;
 				margin: 0 -15px;
+				border: none;
+				padding: 0;
 			}
-			@include media-query($on-landscape) {
+			@include media-query($on-540) {
 				flex-flow: column nowrap;
 			}
 
@@ -739,7 +750,7 @@
 
 			.stat-value {
 				margin: 0 0 6px;
-				line-height: 22px;
+				line-height: 1.2em;
 
 				&:last-child {
 					margin-bottom: 0;
@@ -897,7 +908,7 @@
 	 height: 20px;
 	 color: $brand-color3;
 	 line-height: 20px;
-	 background-color: rgba(197, 84, 40, 0.85);
+	 background-color: rgba(79, 93, 117, 0.8);
 	}
 
 	.info-pane {
@@ -911,13 +922,13 @@
 			color: $brand-color;
 			font: {
 				family: $display-font-family;
-				weight: $font-semi-bold;
+				weight: 500;
 			}
 
 			.caption-number {
 				color: $brand-color2;
 				margin: 0 11px 0 -8px;
-				background-color: rgba(255, 255, 255, 0.8);
+				background-color: rgba($background-color, 0.8);
 				border: 1px solid $brand-color;
 				border-radius: 20%;
 				opacity: 1;
@@ -968,8 +979,9 @@
 					color: $brand-color;
 					font: {
 						family: $display-font-family;
-						weight: $font-semi-bold;
+						weight: 500;
 					}
+					margin-bottom: 4px;
 				}
 
 				.info-pane-content {
@@ -984,17 +996,18 @@
 	}
 
 	.section-intro {
-		margin: 60px 0 30px;
+		margin-top: 60px;
 		font-size: 20px;
 
 		h2 {
+			font: {
+				weight: $font-regular;
+				size: 1.25em;
+			}
 			color: $brand-color;
 			margin-bottom: 10px;
-			font: {
-				weight: $font-semi-bold;
-				size: 20px;
-			}
-			border-top: 2px solid $brand-color;
+			padding-bottom: 3px;
+			border-bottom: 1px solid rgba(79, 93, 117, 0.2);
 			display: inline-block;
 		}
 
@@ -1009,8 +1022,8 @@
 	.testimonial-quote {
 		margin: 20px auto 50px;
 		padding: 20px 0 0;
-		border-top: 1px dotted rgba(79, 93, 117, 0.2);
-		border-bottom: 1px dotted rgba(79, 93, 117, 0.2);
+		border-top: 1px dotted rgba($brand-color4, 0.2);
+		border-bottom: 1px dotted rgba($brand-color4, 0.2);
 		text-align: center;
 
 		blockquote {
@@ -1034,8 +1047,7 @@
 	top: 0;
 	width: 100%;
 	z-index: 1000;
-	background-color: rgba(255, 255, 255, 0.95);
-	border-bottom: 1px solid $brand-color3;
+	background-color: rgba($background-color, 0.95);
 	@include all-transition($transition-time);
 	@include media-query($on-landscape) {
 		background-color: transparent;
@@ -1053,11 +1065,11 @@
 		left: 20px;
 		display: none;
 		background: {
-			image: url('/assets/images/menu-icon-brand.svg');
+			image: url('/assets/images/icons/menu-icon-brand.svg');
 			position: center center;
 			size: 28px 28px;
 			repeat: no-repeat;
-			color: rgba(255, 255, 255, 0.95);
+			color: rgba($background-color, 0.95);
 		}
 		@include all-transition($transition-time);
 		@include media-query($on-landscape) {
@@ -1110,6 +1122,10 @@
 					letter-spacing: 0;
 					margin-top: -7px;
 				}
+
+				@include media-query($on-landscape) {
+					text-align: center;
+				}
 			}
 
 			&.menu-link {
@@ -1137,16 +1153,16 @@
 	}
 
 	&.outerpage {
-		background-color: rgba(241, 245, 247, 0.95);
+		background-color: rgba($background-color, 0.95);
 
 		&.bg-whitener {
-			background-color: rgba(255, 255, 255, 0.95);
+			background-color: rgba($background-color, 0.95);
 		}
 	}
 
 	&.toggle-menu {
 		position: fixed;
-		background-color: rgba(255, 255, 255, 0.95);
+		background-color: rgba($background-color, 0.95);
 		border-bottom: 1px solid $brand-color3;
 
 		.hamburger {
@@ -1163,7 +1179,6 @@
 	background-color: $brand-color3;
 	position: relative;
 	z-index: 2000;
-	left: 0;
 
 	.projects-container {
 		@include project-sizer;
@@ -1183,84 +1198,67 @@
 			margin: 0 calc(-1 * #{$global-padding});
 			display: flex;
 			flex-flow: row wrap;
-		}
-	}
 
-	.project {
-		margin: $global-padding;
-		min-width: 180px;
-		flex: 1 0 calc(20% - (2 * #{$global-padding}));
-		height: 200px;
-
-		.project-wrapper {
-			width: 100%;
-			height: 100%;
-
-			.project-footer-image-box {
-				height: 100%;
-				width: 100%;
-				position: relative;
-				overflow: hidden;
-			}
-		}
-
-		&.current {
-			border: {
-				color: rgba(216, 92, 43, 0.8);
-				width: 2px;
-				style: solid;
-			}
-		}
-
-		&.fill-empty-space {
-			display: none;
-			height: 0;
-			@include media-query($on-1100) {
+			.project {
+				margin: $global-padding;
+				min-width: 180px;
+				flex: 1 0 calc(20% - (2 * #{$global-padding}));
+				height: 200px;
 				display: block;
+
+				&.current {
+					border: {
+						color: rgba($brand-color, 0.8);
+						width: 2px;
+						style: solid;
+					}
+				}
+
+				&.fill-empty-space {
+					display: none;
+					height: 0;
+					@include media-query($on-1100) {
+						display: block;
+					}
+				}
 			}
 		}
 	}
 
-	.project-image {
-		background: {
-			position: 50% 50%;
-			size: cover;
-			color: $background-color;
-			repeat: no-repeat;
-		}
-		position: relative;
+	.project-footer-image-box {
 		height: 100%;
 		width: 100%;
+		position: relative;
+		overflow: hidden;
 
-		.project-title {
-			font: {
-				family: $display-font-family;
-				weight: $font-semi-bold;
-				size: 0.6875em;
+		.project-footer-image {
+			background: {
+				position: 50% 50%;
+				size: contain;
+				color: $background-color;
+				repeat: no-repeat;
 			}
-			top: 15px;
-			left: 20px;
-			opacity: 0.9;
-			color: $brand-color;
-			position: absolute;
-			text-transform: uppercase;
-			padding-right: 5px;
-			background-color: $background-color;
-		}
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			box-sizing: border-box;
+			position: relative;
 
-		.question-wrapper {
-			position: absolute;
-			left: 20px;
-			bottom: 15px;
+			.question-wrapper {
+				position: absolute;
+				left: 20px;
+				bottom: 15px;
 
-			.project-question {
-				font-size: 1.15em;
+				.project-question {
+					font-size: 1.1em;
+					white-space: normal;
+				}
 			}
-		}
 
-		&::before {
-			content: "";
-			background: none;
+			&::before {
+				content: "";
+				background: none;
+			}
 		}
 	}
 
@@ -1268,7 +1266,6 @@
 		@include project-sizer;
 		margin-top: 0;
 		background-color: $background-color;
-		z-index: 500;
 	}
 
 	.social-links {
@@ -1321,7 +1318,7 @@
 	}
 
 	.fancybox-caption-wrap {
-  	padding: 0 200px;
+  	margin: 0 auto;
 		background: transparent;
 
 		.fancybox-caption {
@@ -1334,9 +1331,3 @@
 		}
 	}
 }
-
-/*
-* {
-	outline: 1px solid red;
-}
-*/

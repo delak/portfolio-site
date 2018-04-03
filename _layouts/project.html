@@ -14,9 +14,9 @@
             <h1>{{ page.projectname }}</h1>
           </div>
         </div>
-        <div class="project-masthead-bg" style="background-image: url({{ site.imagepath }}mastheads/{{ page.shortcode }}-masthead-bg.png)">
+        <div class="project-masthead-bg" style="background-image: url({{ site.imagepath }}mastheads/{{ page.masthead-bg }})">
           <div class="masthead-box">
-            <div id="image4" class="intro-image" style="background-image: url({{ site.imagepath }}mastheads/{{ page.shortcode }}-masthead.png" alt="{{ page.projectname }})">
+            <div id="image4" class="intro-image" style="background-image: url({{ site.imagepath }}mastheads/{{ page.masthead }}" alt="{{ page.projectname }})">
             </div>
           </div>
         </div>
@@ -27,8 +27,16 @@
             </div>
             <div class="stats">
               <div class="stat">
-              <!--  <div class="stat-title">Highlights</div>  -->
-                <div class="stat-value">{{ page.brief }}</div>
+                <div class="stat-title">Client</div>
+                <div class="stat-value">{{ page.client }}</div>
+              </div>
+              <div class="stat">
+                <div class="stat-title">Role</div>
+                <div class="stat-value">{{ page.role }}</div>
+              </div>
+              <div class="stat">
+                <div class="stat-title">Dates</div>
+                <div class="stat-value">{{ page.dates }}</div>
               </div>
             </div>
           </div>

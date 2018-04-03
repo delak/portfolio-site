@@ -7,7 +7,7 @@
 // Generate background images for project thumbnails
 {% for h in site.pages %}
   {% if h.layout == 'project' and h.draft != true %}
-    {% if h.card %}
+    {% if h.card == 'snippet' %}
       .{{ h.shortcode }} {
         .project-image {
           background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.jpg');
@@ -16,11 +16,17 @@
     {% else %}
       .{{ h.shortcode }} {
         .project-image {
-          background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.png');
+          background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.jpg');
+
+/*          &::after {
+            background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.jpg');
+          } */
         }
 
-        &::before {
-          background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg1.png');
+        .project-footer-image-box {
+          .project-footer-image {
+            background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.png');
+          }
         }
       }
     {% endif %}

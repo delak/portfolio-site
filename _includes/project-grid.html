@@ -1,4 +1,5 @@
 {% for p in site.pages %}
+
   {% if p.layout == 'project' and p.draft != true %}
     {% assign printable = true %}
 
@@ -13,38 +14,61 @@
     {% if printable == true %}
       {% if p.card == 'case' %}
       <div class="{{ p.shortcode }} project card-only" style="order: {{ p.order }}">
-        <a class="view-project-btn" href="{{ p.url }}">
-          <div class="project-wrapper">
-            <div class="project-image-box">
-              <div class="project-image">
-                <div class="question-wrapper">
-                  <span class="project-question">
-                    {{ p.question }} <strong>»</strong>
-                  </span>
-                </div>
-              </div>
+        {% assign oddeven = p.order | modulo:2 %}
+        {% if oddeven == 1 %}
+        <a href="{{ p.url }}">
+          <div class="project-image">
+            <div class="question-wrapper">
+              <span class="project-question">{{ p.question }}</span>
             </div>
           </div>
         </a>
-      {% else %}
-      <div class="{{ p.shortcode }} project snippet" style="order: {{ p.order }}">
-        <div class="project-wrapper">
-          <div class="project-image-box">
-            <div class="project-image">
-              <div class="question-wrapper">
-                <span class="project-question">
-                  {{ p.question }}
-                </span>
-              </div>
+        <div class="title-wrapper">
+          <span class="project-question">{{ p.question }}</span>
+          <hr>
+          <a href="{{ p.url }}">{{ p.projectname }}</a>&nbsp;<span class="link-arrow">»</span>
+        </div>
+        {% else %}
+        <div class="title-wrapper odd-proj">
+          <span class="project-question">{{ p.question }}</span>
+          <hr>
+          <a href="{{ p.url }}">{{ p.projectname }}</a>&nbsp;<span class="link-arrow">»</span>
+        </div>
+        <a href="{{ p.url }}">
+          <div class="project-image">
+            <div class="question-wrapper">
+              <span class="project-question">{{ p.question }}</span>
             </div>
           </div>
-          <div class="project-label">
-            <div class="project-label__body">{{ p.intro }}</div>
-          </div>
-        </div>
-      {% endif %}
+        </a>
+        {% endif %}
       </div>
+      {% endif %}
     {% endif %}
-
   {% endif %}
 {% endfor %}
+    </div>
+    <hr>
+    <h4 class="section-title">Project Snippets</h4><br>
+    Briefly, here&rsquo;s some of the other stuff that I&rsquo;ve done
+      <div class="snippet-box">
+        {% for x in site.pages %}
+          {% if printable == true and x.card == 'snippet' %}
+          <div class="{{ x.shortcode }} project snippet" style="order: {{ x.order }}">
+            <div class="snippet-body">
+              <div class="project-image">
+                <div class="question-wrapper">
+                  <span class="project-question">{{ x.question }}</span>
+                </div>
+              </div>
+              <div class="project-label">
+                <div class="project-label__body">{{ x.intro }}</div>
+              </div>
+            </div>
+            <div class="title-wrapper">
+              <div class="project-question">{{ x.question }}</div>
+              <hr>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
