@@ -45,6 +45,19 @@ h1, h2, h3, h4, h5, h6, blockquote {
 }
 
 
+
+h3.section-title {
+  font: {
+    size: 0.8em;
+    weight: $font-regular;
+  }
+  text-transform: uppercase;
+  padding-top: 20px;
+  margin-bottom: 0;
+}
+
+
+
 /**
  * Superscript
  */
@@ -161,19 +174,17 @@ mark {
         position: left center;
         repeat: no-repeat;
       }
-      color: $brand-color4;
-      border: none;
+      border-width: 0;
 
       &::before {
         content: "";
         border: {
           width: 0;
-          color: $brand-color4;
           radius: 20%;
           style: solid;
         }
         background: {
-          color: $brand-color3;
+          color: transparent;
           size: contain;
         }
         display: inline-block;
@@ -181,18 +192,57 @@ mark {
         top: 5px;
         width: 20px;
         height: 20px;
-        margin-right: 7px;
+        margin-right: 3px;
       }
 
-      &.email::before { background-image: url('/assets/images/icons/email.svg'); }
-      &.linkedin::before { background-image: url('/assets/images/icons/linkedin.svg'); }
-      &.twitter::before { background-image: url('/assets/images/icons/twitter.svg'); }
+      &::after {
+        border-bottom: 1px dotted rgba(79, 93, 117, 0.3);
+        font-size: 0.9em;
+      }
+
+      &.email {
+        &::before { background-image: url('/assets/images/icons/email.svg'); }
+        &::after { content: "Email"; }
+      }
+      &.linkedin {
+        &::before { background-image: url('/assets/images/icons/linkedin.svg'); }
+        &::after { content: "LinkedIn"; }
+      }
+      &.twitter {
+        &::before { background-image: url('/assets/images/icons/twitter.svg'); }
+        &::after { content: "Twitter"; }
+      }
+    }
+  }
+
+  .bio-footer & {
+    @include media-query($on-1100) {
+      justify-content: space-around;
+
+      .contact-button::before {
+        width: 1.8em;
+        height: 1.8em;
+      }
+
+      .contact-button::after {
+        display: none;
+      }
     }
   }
 
   .page-footer & {
-    .contact-button::before {
-      background-color: $background-color;
+    justify-content: space-between;
+
+    .contact-button {
+      &::before {
+        background-color: $brand-color;
+        margin-right: 7px;
+        width: 18px;
+        height: 18px;
+      }
+      &.email:before { background-image: url('/assets/images/icons/email_white.svg'); }
+      &.linkedin::before { background-image: url('/assets/images/icons/linkedin_white.svg'); }
+      &.twitter::before { background-image: url('/assets/images/icons/twitter_white.svg'); }
     }
   }
 }
@@ -211,6 +261,19 @@ blockquote {
 }
 
 
+
+/**
+ * Clearfix
+ */
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
 /**
  * Wrapper
  */
@@ -223,7 +286,7 @@ blockquote {
   padding-left: $spacing-unit;
   @extend %clearfix;
 
-  @include media-query($on-desktop) {
+  @include media-query($on-1200) {
     max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
     max-width:         calc(#{$content-width} - (#{$spacing-unit}));
     padding-right: $spacing-unit / 2;
@@ -233,14 +296,7 @@ blockquote {
 
 
 
-/**
- * Clearfix
- */
-%clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+
 
 
 

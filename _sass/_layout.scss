@@ -10,12 +10,12 @@
 	-webkit-box-align: flex-end;
 	-ms-flex-align: flex-end;
 	align-items: flex-end;
-	@include media-query($on-tablet) {
+	@include media-query($on-780) {
 		min-height: auto;
 		padding-top: 80px;
 		padding-bottom: 80px;
 	}
-	@include media-query($on-landscape) {
+	@include media-query($on-680) {
 		min-height: auto;
 		padding-bottom: 30px;
 	}
@@ -35,12 +35,12 @@
 			padding-left: 0.7em;
 	    text-indent: -0.7em;
 			margin-left: -0.8em;
-			@include media-query($on-tablet) {
+			@include media-query($on-780) {
 				font-size: 8vw;
 				line-height: 10vw;
 				/*margin: 4vh 0; */
 			}
-			@include media-query($on-landscape) {
+			@include media-query($on-680) {
 				font-size: 40px;
     		line-height: 45px;
     		/*margin: 10px 0; */
@@ -80,7 +80,7 @@
 				color: $brand-color4;
 				margin-bottom: 40px;
 
-				@include media-query($on-landscape) {
+				@include media-query($on-680) {
 					font-size: 1.25em;
     			line-height: 1.8em;
     			margin-bottom: 4vh;
@@ -100,18 +100,21 @@
 	@include project-sizer;
 
 	hr {
-		margin-bottom: 100px;
 		opacity: 0.3;
 	}
 
-	h3.section-title {
-		font: {
-			size: 18px;
-			weight: $font-semi-bold;
+	.section-title {
+		position: relative;
+		width: 150px;
+		text-align: center;
+		background-color: $background-color;
+		margin: -10px auto 110px;
+		padding: 0;
+		z-index: 50;
+
+		&.snippets {
+			margin-bottom: 80px;
 		}
-		color: $brand-color;
-		display: inline-block;
-		padding: 6px 0;
 	}
 
 	.project-thumbnails {
@@ -126,9 +129,14 @@
 			margin: 0 -20px;
 			overflow: hidden;
 		}
+	}
 
-		.outerpage & {
-			padding-bottom: 80px;
+	.snippets-intro {
+		width: calc(33.333333333333% - 1em);;
+		float: right;
+
+		hr {
+			margin: 3em 0 0.5em;
 		}
 	}
 
@@ -155,17 +163,24 @@
 	@include all-transition($transition-time);
 
 	a, .snippet-body {
-		border: none;
 		width: calc(66.66666666666% - 1em);
 		height: 100%;
-		@include media-query($on-landscape) {
+		@include media-query($on-680) {
 			width: 100%;
 		}
+	}
+
+	.project-link {
+		overflow: hidden;
+		border: none;
 	}
 
 	.snippet-body {
 		cursor: pointer;
 		border: 0 solid rgba($brand-color4, 0.15);
+		overflow: hidden;
+		min-height: $snippet-height;
+		position: relative;
 		@include all-transition($transition-time);
 	}
 
@@ -175,7 +190,7 @@
 		width: calc(33.333333333333% - 1em);
 		margin-top: -8px;
 		@include all-transition($transition-time);
-		@include media-query($on-landscape) {
+		@include media-query($on-680) {
 			display: none;
 		}
 
@@ -232,7 +247,7 @@
 			bottom: 3.6em;
 			opacity: 0;
 			@include all-transition($transition-time);
-			@include media-query($on-landscape) {
+			@include media-query($on-680) {
 				opacity: 1;
 			}
 
@@ -245,23 +260,23 @@
 					}
 					color: $brand-color4;
 					display: inline;
-					white-space: nowrap;
 					box-shadow: 0.347em 0 0 $question-color, -0.308em 0 0 $question-color;
 					box-decoration-break: clone;
 					background-color: $question-color;
 					padding: 0.12em 0;
 					line-height: 1.5em;
 					@include all-transition($transition-time);
-					@include media-query($on-landscape) {
+					@include media-query($on-680) {
 						font-size: 24px;
 					}
-					@include media-query($on-portrait) {
+					@include media-query($on-376) {
 						font-size: 1.4em;
 					}
 
 					strong {
 						font-weight: 500;
 						color: $brand-color;
+						@include all-transition($transition-time);
 					}
 				}
 			}
@@ -271,9 +286,10 @@
 	.project-label {
 		width: 100%;
 		z-index: -1;
-		background-color: $brand-color3;
-		margin-top: -600px;
-		@include all-transition(0.4s);
+		background-color: rgba($brand-color3, 0.5);
+		transition: none;
+		position: absolute;
+		visibility: hidden;
 
 		.project-label__body {
 			font: {
@@ -283,25 +299,21 @@
 			}
 			color: $brand-color4;
 			padding: 30px 40px;
-			max-height: 600px;
-			overflow: auto;
 			line-height: 1.7em;
 			column-count: 2;
 			column-gap: 40px;
 			@include all-transition($transition-time);
-			@include media-query($on-1100) {
-				font-size: 1.81vw;
-			}
-			@include media-query(56.25em) {
+			@include media-query($content-width) {
+				column-count: 1;
 				font-size: 2.1vw;
 			}
-			@include media-query($on-tablet) {
+			@include media-query($on-780) {
 				font-size: 1em;
 			}
 
 			strong {
-				color: $brand-color;
-				font-weight: $font-semi-bold;
+				color: $brand-color2;
+				font-weight: 500;
 			}
 
 			p:last-child {
@@ -312,43 +324,63 @@
 
 	&.snippet {
 		margin-bottom: 0;
-		min-height: 3.5em;
+		min-height: $snippet-height;
+		@include media-query($on-680) {
+			margin-bottom: 1em;
+		}
 
 		.project-image {
-			max-height: 3.5em;
-			background-color: lighten($brand-color, 25%);
+			max-height: $snippet-height;
+			background-color: lighten($brand-color, 40%);
 
 			.question-wrapper {
-				left: 2em;
-				right: 2em;
-				bottom: 4em;
-				font-size: 1.3em;
+				left: 2.5em;
+				right: 2.5em;
+				bottom: 2.1em;
+				@include media-query($on-680) {
+					left: 1.1em;
+					right: 0;
+					bottom: 0.9em;
+				}
+
+				.project-question {
+					white-space: normal;
+					font-size: 1.4em;
+					line-height: 1.5em;
+					@include media-query($on-680) {
+						font-size: 1em;
+					}
+					@include media-query($on-376) {
+						font-size: 0.85em;
+					}
+				}
 			}
 		}
 
 		.title-wrapper {
-			margin-top: 0;
+			cursor: pointer;
+			display: inline-block;
+			max-height: $snippet-height;
+			line-height: $snippet-height;
+			margin-top: -1em;
+			padding: 1em 0;
+			position: relative;
+			@include media-query($on-680) {
+				display: none;
+			}
 
 			.project-question {
-				display: block;
-				height: 3.5em;
+				display: inline-block;
+				vertical-align: middle;
+				margin-top: -0.4em;
+				font-size: 1em;
 			}
 
 			hr {
-				margin: 0.5em 0;
-			}
-		}
-
-		.project-question {
-			white-space: normal;
-			font-size: 1em;
-			line-height: 1.5em;
-			cursor: pointer;
-		}
-
-		&:last-of-type {
-			hr {
-				display: none;
+				margin: 0;
+				position: absolute;
+				bottom: 0.5em;
+				width: 100%
 			}
 		}
 	}
@@ -356,10 +388,17 @@
 	&:hover {
 		.project-image {
 			background-color: transparent;
+			transform: scale(1.06);
+		}
+
+		&.snippet .project-image {
+			background-position: center 45%;
+			transform: none;
 		}
 
 		.title-wrapper {
-			a {
+
+			a, strong {
 				color: $link-hover-color;
 			}
 		}
@@ -375,20 +414,28 @@
 		}
 	}
 
-	&.toggle-snippet {
+	&.animatable {
+		.project-label {
+			position: static;
+			visibility: visible;
+			@include all-transition(0.4s);
+		}
+	}
+
+	&.snippet-show {
 		.snippet-body {
 			box-sizing: border-box;
 			border-width: 2px;
 			margin: 30px 0;
 		}
 
-		.project-image {
+		&.snippet .project-image {
 			background-color: transparent;
+			background-position: center center;
 			max-height: 18.5em;
 
 			.question-wrapper {
 				opacity: 1;
-				bottom: 1.6em;
 			}
 		}
 
@@ -426,6 +473,11 @@
 		display: inline-block;
 		margin: 10px 20px 0;
 		width: calc(30% - (2 * 20px));
+		border: 10px solid $background-color;
+		box-sizing: border-box;
+		@include media-query($on-780) {
+			display: none;
+		}
 	}
 
 	.bio {
@@ -433,6 +485,9 @@
 		font-weight: $font-regular;
 		margin: 20px;
 		width: calc(70% - (2 * 20px));
+		@include media-query($on-780) {
+			width: 100%;
+		}
 
 		h3 {
 			font: {
@@ -448,8 +503,22 @@
 			font-family: $display-font-family;
 			font-size: 1.25em;
 			color: $brand-color4;
-			line-height: 1.9em;
-			margin-bottom: 10px;
+			line-height: 1.7em;
+			margin-bottom: 1.7em;
+			@include media-query($on-780) {
+				font-size: 1.1em;
+			}
+
+			img {
+				display: none;
+				width: 160px;
+				float: left;
+				margin-right: 20px;
+				@include media-query($on-780) {
+					display: inline;
+				}
+				@extend %clearfix;
+			}
 
 			&.no-break {
 				margin-bottom: 0;
@@ -532,11 +601,11 @@
 /* #404-page */
 .errorpage {
 	.hello-section {
-		@include media-query($on-tablet) {
+		@include media-query($on-780) {
 			min-height: auto;
 			padding: 80px 10%;
 		}
-		@include media-query($on-landscape) {
+		@include media-query($on-680) {
 			min-height: auto;
 			padding: 70px 10% 30px;
 		}
@@ -548,12 +617,12 @@
 				font-size: 64px;
 				line-height: 80px;
 				color: $brand-color4;
-				@include media-query($on-tablet) {
+				@include media-query($on-780) {
 					font-size: 8vw;
 					line-height: 10vw;
 					margin: 4vh 0;
 				}
-				@include media-query($on-landscape) {
+				@include media-query($on-680) {
 					font-size: 40px;
 					line-height: 45px;
 					margin: 10px 0;
@@ -605,10 +674,10 @@
 .intro-container {
 	padding-bottom: 30px;
 	@extend %flex-default;
-	@include media-query($on-tablet) {
+	@include media-query($on-780) {
 		padding-bottom: 50px;
 	}
-	@include media-query($on-landscape) {
+	@include media-query($on-680) {
 		padding-bottom: 30px;
 	}
 
@@ -665,13 +734,13 @@
 		-webkit-flex-wrap: nowrap;
 		flex-wrap: nowrap;
 		@extend %flex-default;
-		@include media-query($on-tablet) {
+		@include media-query($on-780) {
 			-ms-flex-wrap: wrap;
 			-webkit-flex-wrap: wrap;
 			flex-wrap: wrap;
 			flex-flow: column-reverse;
 		}
-		@include media-query($on-landscape) {
+		@include media-query($on-680) {
 			font-size: 1em;
 			line-height: 1.875em;
 			margin-bottom: 0;
@@ -688,7 +757,7 @@
 			width: 70%;
 			padding-right: 30px;
 			margin-top: -5px;
-			@include media-query($on-tablet) {
+			@include media-query($on-780) {
 				width: 100%;
 				margin: 0;
 				padding: 0;
@@ -723,7 +792,7 @@
 			padding-left: 30px;
 			font-size: 16px;
 			border-left: 2px solid $brand-color3;
-			@include media-query($on-tablet) {
+			@include media-query($on-780) {
 				width: 100%;
 				margin: 0;
 				display: flex;
@@ -738,7 +807,7 @@
 
 			.stat {
 				margin-bottom: 30px;
-				@include media-query($on-tablet) {
+				@include media-query($on-780) {
 					margin: 0 15px 15px;
 					flex: 0 1 33.33333333333%;
 				}
@@ -775,7 +844,7 @@
 
 	.info-block {
 		@extend %flex-default;
-		@include media-query($on-tablet) {
+		@include media-query($on-780) {
 			flex-direction: column;
 		}
 	}
@@ -830,7 +899,7 @@
 		@extend %image-default;
 		padding-top: 33%;
 		flex-basis: calc(50% - #{$global-padding});
-		@include media-query($on-tablet) {
+		@include media-query($on-780) {
 			padding-top: 55%;
 		}
 	}
@@ -855,7 +924,7 @@
 	.image-grid-left {
 		@extend %flex-default;
 		width: calc(66.6666666666% - #{$global-padding});
-		@include media-query($on-tablet) {
+		@include media-query($on-780) {
 			flex-direction: column;
 			width: 100%;
 		}
@@ -908,13 +977,13 @@
 	 height: 20px;
 	 color: $brand-color3;
 	 line-height: 20px;
-	 background-color: rgba(79, 93, 117, 0.8);
+	 background-color: rgba($brand-color, 0.8);
 	}
 
 	.info-pane {
 		margin-bottom: calc(1.5 * (#{$global-padding}));
 		line-height: 24px;
-		@include media-query($on-tablet) {
+		@include media-query($on-780) {
 			width: 95%;
 		}
 
@@ -944,7 +1013,7 @@
 	.info-pane-list {
 		width: calc(33.3333333333% - #{$global-padding});
 		margin: $global-padding 0;
-		@include media-query($on-tablet) {
+		@include media-query($on-780) {
 			width: 100%;
 			padding-left: 10px;
 		}
@@ -954,7 +1023,7 @@
 		@extend %flex-default;
 		margin: $global-padding calc(-1 * 20px);
 		justify-content: flex-end;
-		@include media-query($on-tablet) {
+		@include media-query($on-780) {
 			width: 100%;
 			padding-left: 10px;
 		}
@@ -962,7 +1031,7 @@
 		.info-pane {
 			width: calc(33.3333333333% - (2 * 20px));
 			margin: 0 20px;
-			@include media-query($on-tablet) {
+			@include media-query($on-780) {
 				width: 95%;
 			}
 		}
@@ -1049,7 +1118,7 @@
 	z-index: 1000;
 	background-color: rgba($background-color, 0.95);
 	@include all-transition($transition-time);
-	@include media-query($on-landscape) {
+	@include media-query($on-680) {
 		background-color: transparent;
 		border-bottom: none;
 		position: absolute;
@@ -1072,7 +1141,7 @@
 			color: rgba($background-color, 0.95);
 		}
 		@include all-transition($transition-time);
-		@include media-query($on-landscape) {
+		@include media-query($on-680) {
 			display: block;
 		}
 	}
@@ -1085,7 +1154,7 @@
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: space-between;
-		@include media-query($on-landscape) {
+		@include media-query($on-680) {
 			flex-flow: column wrap;
 			align-items: center;
 		}
@@ -1097,7 +1166,7 @@
 			&::before {
 				content: "";
 			}
-			@include media-query($on-landscape) {
+			@include media-query($on-680) {
 				font-size: 1.2em;
 			}
 
@@ -1123,7 +1192,7 @@
 					margin-top: -7px;
 				}
 
-				@include media-query($on-landscape) {
+				@include media-query($on-680) {
 					text-align: center;
 				}
 			}
@@ -1137,7 +1206,7 @@
 				text-align: right;
 				align-self: flex-end;
 				margin-bottom: 1px;
-				@include media-query($on-landscape) {
+				@include media-query($on-680) {
 					margin-top: 30px;
 					text-align: center;
 					align-self: auto;
@@ -1147,6 +1216,10 @@
 					font-size: 0.99em;
 					border-bottom: none;
 					color: $brand-color4;
+
+					&.masthead:hover, &:hover {
+						color: $link-hover-color;
+					}
 				}
 			}
 		}
@@ -1183,16 +1256,6 @@
 	.projects-container {
 		@include project-sizer;
 
-		h3.section-title {
-			font: {
-				size: 0.8em;
-				weight: $font-regular;
-			}
-			text-transform: uppercase;
-			padding-top: 20px;
-			margin-bottom: 0;
-		}
-
 		.project-thumbnails {
 			padding-bottom: 30px;
 			margin: 0 calc(-1 * #{$global-padding});
@@ -1204,20 +1267,22 @@
 				min-width: 180px;
 				flex: 1 0 calc(20% - (2 * #{$global-padding}));
 				height: 200px;
+				border: {
+					color: $background-color;
+					width: 3px;
+					style: solid;
+				}
 				display: block;
 
 				&.current {
-					border: {
-						color: rgba($brand-color, 0.8);
-						width: 2px;
-						style: solid;
-					}
+					border-color: rgba($brand-color, 0.8);
 				}
 
 				&.fill-empty-space {
+					border: none;
 					display: none;
 					height: 0;
-					@include media-query($on-1100) {
+					@include media-query($on-780) {
 						display: block;
 					}
 				}
@@ -1234,7 +1299,7 @@
 		.project-footer-image {
 			background: {
 				position: 50% 50%;
-				size: contain;
+				size: cover;
 				color: $background-color;
 				repeat: no-repeat;
 			}
@@ -1269,7 +1334,7 @@
 	}
 
 	.social-links {
-		max-width: 33%;
+		max-width: 20em;
 		margin-left: auto;
 	  margin-right: auto;
 	}

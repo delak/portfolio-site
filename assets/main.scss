@@ -4,10 +4,15 @@
 
 @import "minima";
 
+{% assign snippet_count = 0 %}
+
 // Generate background images for project thumbnails
 {% for h in site.pages %}
   {% if h.layout == 'project' and h.draft != true %}
     {% if h.card == 'snippet' %}
+      {% if h.order >= snippet_count %}
+        {% assign snippet_count = h.order %}
+      {% endif %}
       .{{ h.shortcode }} {
         .project-image {
           background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.jpg');
@@ -17,18 +22,18 @@
       .{{ h.shortcode }} {
         .project-image {
           background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.jpg');
-
-/*          &::after {
-            background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.jpg');
-          } */
         }
 
         .project-footer-image-box {
           .project-footer-image {
-            background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.png');
+            background-image: url('/assets/images/thumbnails/{{ h.shortcode }}-thumb-bg.jpg');
           }
         }
       }
     {% endif %}
   {% endif %}
 {% endfor %}
+
+.snippet[style*="order: {{ snippet_count }}"] hr {
+  display: none;
+}
