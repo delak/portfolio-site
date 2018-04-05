@@ -45,16 +45,35 @@ h1, h2, h3, h4, h5, h6, blockquote {
 }
 
 
+.section-title {
+  position: relative;
+  left: 50%;
+  float: left;
 
-h3.section-title {
-  font: {
-    size: 0.8em;
-    weight: $font-regular;
+  h3 {
+    font: {
+      size: 0.8em;
+      weight: $font-regular;
+    }
+    color: $brand-color2;
+    text-transform: uppercase;
+    position: relative;
+    left: -50%;
+    top: -10px;
+    float: left;
+    text-align: center;
+    background-color: $background-color;
+    padding: 0 $global-padding;
+    z-index: 50;
+    @extend %clearfix;
   }
-  text-transform: uppercase;
-  padding-top: 20px;
-  margin-bottom: 0;
 }
+
+
+hr {
+  opacity: 0.3;
+}
+
 
 
 
@@ -167,6 +186,7 @@ mark {
     &::before {
       content: "";
     }
+    clear: both;
 
     .contact-button {
       background: {
@@ -175,6 +195,7 @@ mark {
         repeat: no-repeat;
       }
       border-width: 0;
+      float: left;
 
       &::before {
         content: "";
@@ -192,7 +213,7 @@ mark {
         top: 5px;
         width: 20px;
         height: 20px;
-        margin-right: 3px;
+        margin-right: 1px;
       }
 
       &::after {
@@ -212,37 +233,6 @@ mark {
         &::before { background-image: url('/assets/images/icons/twitter.svg'); }
         &::after { content: "Twitter"; }
       }
-    }
-  }
-
-  .bio-footer & {
-    @include media-query($on-1100) {
-      justify-content: space-around;
-
-      .contact-button::before {
-        width: 1.8em;
-        height: 1.8em;
-      }
-
-      .contact-button::after {
-        display: none;
-      }
-    }
-  }
-
-  .page-footer & {
-    justify-content: space-between;
-
-    .contact-button {
-      &::before {
-        background-color: $brand-color;
-        margin-right: 7px;
-        width: 18px;
-        height: 18px;
-      }
-      &.email:before { background-image: url('/assets/images/icons/email_white.svg'); }
-      &.linkedin::before { background-image: url('/assets/images/icons/linkedin_white.svg'); }
-      &.twitter::before { background-image: url('/assets/images/icons/twitter_white.svg'); }
     }
   }
 }
