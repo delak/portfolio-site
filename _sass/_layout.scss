@@ -600,11 +600,13 @@
 
 			.service-box {
 				width: calc(33.333333333% - 1.2em);
+				min-width: 11em;
 				margin: 0.6em;
 				padding: 0.7em 1.1em 0.4em;
 				box-sizing: border-box;
 				font-size: 0.9em;
 				background-color: lighten($brand-color, 50%);
+				flex: 1;
 
 				h4 {
 					font-weight: $font-semi-bold;
