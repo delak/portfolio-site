@@ -223,8 +223,9 @@
 		overflow: hidden;
 		box-sizing: border-box;
 		position: relative;
+		z-index: 100;
 		background: {
-			position: center center;
+			position: left center;
 			size: cover;
 			color: lighten($brand-color, 40%);
 			repeat: no-repeat;
@@ -276,11 +277,10 @@
 
 	.project-label {
 		width: 100%;
-		z-index: -1;
+		z-index: -2;
 		background-color: rgba($brand-color3, 0.5);
 		transition: none;
-		position: absolute;
-		visibility: hidden;
+		display: none;
 
 		.project-label__body {
 			font: {
@@ -299,6 +299,7 @@
 			column-gap: 25px;
 			-moz-column-fill: auto;
        column-fill: auto;
+			 z-index: -1;
 			@include all-transition($transition-time);
 			@include media-query($content-width) {
 				column-count: 1;
@@ -433,22 +434,25 @@
 
 	&.animatable {
 		.project-label {
-			position: static;
-			visibility: visible;
+			display: block;
 			@include all-transition(0.4s);
 		}
 	}
 
 	&.snippet-show {
+		margin: 30px 0;
+
 		.snippet-body {
 			box-sizing: border-box;
 			border-width: 2px;
-			margin: 30px 0;
 		}
 
 		&.snippet .project-image {
-			background-color: transparent;
-			background-position: center center;
+			background: {
+				color: transparent;
+				position: center center;
+				size: cover;
+			}
 			max-height: 18.5em;
 
 			.question-wrapper {
@@ -532,17 +536,20 @@
 		}
 
 		p {
-			font-family: $display-font-family;
 			font-size: 1.125em;
 			color: $brand-color4;
-			line-height: 1.7em;
-			margin-bottom: 1.7em;
+			line-height: 1.6em;
+			margin-bottom: 1.6em;
 			@include media-query($on-780) {
 				font-size: 1.1em;
 			}
 
 			&:last-of-type {
 				margin-bottom: 0;
+			}
+
+			strong {
+				font-weight: $font-semi-bold;
 			}
 
 			img {
@@ -583,6 +590,34 @@
 			font-size: 0.8em;
 			margin: 2px 10px 4px;
 			text-align: right;
+		}
+
+		.services-container {
+			margin: 1.6em -0.6em 0;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: flex-start;
+
+			.service-box {
+				width: calc(33.333333333% - 1.2em);
+				margin: 0.6em;
+				padding: 0.6em 1em;
+				box-sizing: border-box;
+				color: $brand-color2;
+				background-color: lighten($brand-color, 50%);
+
+				h4 {
+					color: $brand-color;
+					font-weight: 500;
+					margin-bottom: 0.2em;
+				}
+
+				p, li {
+					font-size: 1em;
+					line-height: 1.3em;
+					margin-top: 0.4em;
+				}
+			}
 		}
 
 		.logo-grid {
@@ -1264,7 +1299,6 @@
 				a {
 					font-size: 0.99em;
 					border-bottom: none;
-					color: $brand-color4;
 				}
 			}
 		}
