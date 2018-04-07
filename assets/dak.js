@@ -1,38 +1,23 @@
 $(document).ready(function() {
+  var sh = $('.site-header');
+  var hb = $('.hamburger');
+  var win = $(window);
 
-  var toggleMenu = function() {
-    $('.site-header').toggleClass('active-menu');
-    $('main').toggleClass('fader');
-    $('footer').toggleClass('fader');
-  };
-
-  $('.menu-toggle').click(function() {
-    toggleMenu();
+  //make sure that videos loop forever
+  $('video').on('ended', function () {
+    this.load();
+    this.play();
   });
 
-  $('.click-blocker').on('click', function() {
-    if($('.site-header').hasClass('active-menu')) {
-      toggleMenu();
-    };
+  hb.click(function() {
+    sh.toggleClass('toggle-menu');
   });
 
-  $('.info-pane').hover(function() {
-    var hoverImage = $(this).attr('data-image');
-    $('#image'+hoverImage).toggleClass('hover');
-  })
-
-  $(window).on('scroll', function() {
+  win.on("load resize scroll", function(e) {
     var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_test = $('.intro-container').height() + $('.masthead').height()/2;
 
-    if(y_scroll_pos > scroll_pos_test) {
-      $('.site-header').addClass('orangeify');
-    } else {
-      $('.site-header').removeClass('orangeify');
-    }
-
-    if($('.site-header').hasClass('active-menu')) {
-      toggleMenu();
+    if(sh.hasClass('toggle-menu')) {
+      sh.removeClass('toggle-menu');
     }
   });
 });

@@ -1,50 +1,50 @@
 $(document).ready(function() {
   var sh = $('.site-header');
-  var m = $('.masthead')
-  var hb = $('.hello-bio');
   var hs = $('.hello-section');
-  var showTitle = false;
+  var snippet = $('.snippet');
+  var snippet_clicker = $('.snippet-body, .snippet .title-wrapper .project-question');
+  var pl = $('.snippet .project-label');
+  var hb = $('.hamburger');
 
-  var toggleMenu = function() {
-    $('.site-header').toggleClass('active-menu');
-    $('main').toggleClass('fader');
-    $('footer').toggleClass('fader');
-    if (showTitle == false) {
-      sh.toggleClass('show-title');
-    }
+  hb.click(function() {
+    sh.toggleClass('toggle-menu');
+  });
+
+  $.fn.vAlign = function() {
+    return this.each(function(){
+      $(this).css('margin-top', ($(this).outerHeight() * -1));
+    });
   };
 
-  $('.menu-toggle').click(function() {
-    toggleMenu();
+  $.fn.hideMe = function() {
+    var thisSnippet = $(this);
+    return this.each(function() {
+      thisSnippet.removeClass('snippet-show');
+      setTimeout(function() {
+        thisSnippet.removeClass('animatable');
+      }, 400);
+    });
+  };
+
+  $('.snippet .project-label').vAlign();
+
+  snippet_clicker.click(function() {
+    var thisSnippet = $(this).closest('.snippet');
+    thisSnippet.find('.project-label').vAlign();
+    if (thisSnippet.hasClass('snippet-show')) {
+      snippet.hideMe();
+    } else {
+      thisSnippet.addClass('animatable snippet-show');
+      snippet.not(thisSnippet).hideMe();
+    }
   });
 
-  $(".click-blocker").on("click", function() {
-    if($('.site-header').hasClass('active-menu')) {
-      toggleMenu();
-    };
-  });
-
-  $(window).on('scroll', function() {
+  $(window).on("load resize scroll", function(e) {
     var y_scroll_pos = window.pageYOffset;
-    var scroll_pos_title = hb.position().top + hb.outerHeight(true) - 30;
-    var scroll_pos_test = hs.height();
+    var scroll_pos_test = hs.height() - 30;
 
-    if(y_scroll_pos > scroll_pos_title) {
-      showTitle = true;
-      sh.addClass('show-title');
-    } else {
-      showTitle = false;
-      sh.removeClass('show-title');
-    }
-
-    if(y_scroll_pos > scroll_pos_test) {
-      sh.addClass('orangeify');
-    } else {
-      sh.removeClass('orangeify');
-    }
-
-    if($('.site-header').hasClass('active-menu')) {
-      toggleMenu();
+    if(sh.hasClass('toggle-menu')) {
+      sh.removeClass('toggle-menu');
     }
   });
 });

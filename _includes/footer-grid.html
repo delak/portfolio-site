@@ -1,0 +1,36 @@
+{% for p in site.pages %}
+  {% if p.layout == 'project' and p.draft != true and p.card == 'case' %}
+    {% assign printable = true %}
+
+    {% for t in p.path %}
+      {% if t contains 'private' %}
+        {% unless page.path contains 'private' %}
+          {% assign printable = false %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+
+    {% if printable == true %}
+      {% if p.shortcode == page.shortcode %}
+      <div class="{{ p.shortcode }} project current" style="order: {{ p.order }}">
+      {% else %}
+      <div class="{{ p.shortcode }} project" style="order: {{ p.order }}">
+      {% endif %}
+        <a href="{{ p.url }}">
+          <div class="project-footer-image-box">
+            <div class="project-footer-image">
+              <div class="question-wrapper">
+                <span class="project-question">
+                  {{ p.question }}&nbsp;<strong>»</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endif %}
+
+  {% endif %}
+{% endfor %}
+    <div class="project fill-empty-space" style="order: 100"></div>
+    <div class="project fill-empty-space" style="order: 101"></div>

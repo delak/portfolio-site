@@ -8,13 +8,23 @@
     {% include header.html %}
 
     <main>
-      <div class="intro-container">
-        <h3 class="project-name">{{ page.projectname }}</h3>
-        <div class="info-stats">
-          <div class="project-info">
-            {{ page.description }}
+      <section class="intro-container">
+        <div class="masthead-box">
+          <div class="project-name">
+            <h1>{{ page.projectname }}</h1>
           </div>
-          <div class="project-metadata">
+        </div>
+        <div class="project-masthead-bg" style="background-image: url({{ site.imagepath }}mastheads/{{ page.masthead-bg }})">
+          <div class="masthead-box">
+            <div id="image4" class="intro-image" style="background-image: url({{ site.imagepath }}mastheads/{{ page.masthead }}" alt="{{ page.projectname }})">
+            </div>
+          </div>
+        </div>
+        <div class="masthead-box">
+          <div class="info-stats">
+            <div class="project-info">
+              {{ page.intro }}
+            </div>
             <div class="stats">
               <div class="stat">
                 <div class="stat-title">Client</div>
@@ -25,16 +35,18 @@
                 <div class="stat-value">{{ page.role }}</div>
               </div>
               <div class="stat">
-                <div class="stat-title">Dates</div>
+                <div class="stat-title">Date</div>
                 <div class="stat-value">{{ page.dates }}</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+      <section class="write-up scroll-watch">
 
       {{ content }}
 
+      </section>
     </main>
 
     {% include footer.html %}
@@ -45,12 +57,7 @@
        infobar : false,
        protect : true,
        buttons : [
-         //'slideShow',
-         //'fullScreen',
          'thumbs',
-         //'share',
-         //'download',
-         //'zoom',
          'close'
        ]
      });

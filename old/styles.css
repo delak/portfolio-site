@@ -1,0 +1,497 @@
+/*
+	Based on Coin Slider jQuery plugin CSS styles
+	http://workshop.rs/projects/coin-slider
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	font: 13px/19px 'Ruda', verdana, arial, sans-serif;
+	background-color: #FFFFFF;
+	color: #777;
+}
+
+a {
+	color: #1684B4;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
+.small-text {
+	font-size: 13px;
+}
+
+.selected {
+	font-weight: 700;
+	color: #1684B4;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.disabled {
+	font-style: italic;
+	color: #ccc;
+}
+
+.gray {
+	color: #aaa;
+}
+
+.blue {
+	color: #1684B4;
+}
+
+.clear {
+	clear: both;
+}
+
+#wrapper {
+	width: 960px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#sidebar {
+	width: 200px;
+	height: 102px;
+	margin-top: -51px;
+	position: fixed;
+	top: 50%;
+}
+
+#masthead {
+	width: 137px;
+	height: 50px;
+	font-size: 11px;
+/*	cursor: pointer;*/
+	border-bottom: 1px solid #eee;
+}
+
+.myname {
+	font: 16px/24px 'Droid Serif', Georgia, arial, sans-serif;
+	height: 23px;
+	color: #1684B4;
+}
+
+.mytitle {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.intro {
+	padding-left: 35px;
+}
+
+.intro-text {
+	float: left;
+}
+
+.intro-img {
+	width: 310px;
+	height: 100px;
+	float: left;
+	background-image: url('img/dts_circles.jpg');
+	background-repeat: no-repeat;
+}
+
+h1 {
+	font: 17px/23px 'Droid Serif', Georgia, arial, sans-serif;
+}
+
+.info-box {
+	margin: 25px 0 5px 22px;
+	padding: 0 15px;
+	padding-bottom: 10px;
+	background-image: url('img/header_shadow.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+}
+
+.more-info {
+	width: 195px;
+	font-size: 13px;
+	line-height: 20px;
+	float: left;
+	margin-left: 35px;
+	padding-bottom: 10px;
+}
+
+.box1 {
+	margin-left: 0;
+}
+
+.paragraph1 {
+	text-indent: 8px;
+}
+
+#contact {
+	height: 35px;
+	margin-left: -10px;
+	padding-top: 10px;
+}
+
+#contact li {
+	margin-left: 10px;
+	width: 25px;
+	height: 25px;
+	list-style: none;
+	float: left;
+	position: relative;
+	background-repeat: no-repeat;
+}
+
+#email {
+	background-image: url('img/dakfolio_sprite.png');
+	background-position: 0 0;
+}
+
+#twitter {
+	background-image: url('img/dakfolio_sprite.png');
+	background-position: -84px 0;
+}
+
+#linkedin {
+	background-image: url('img/dakfolio_sprite.png');
+	background-position: -28px 0;
+}
+
+#flickr {
+	background-image: url('img/dakfolio_sprite.png');
+	background-position: -56px 0;
+}
+
+#categs {
+	width: 686px;
+	margin-left: 22px;
+	background-color: #fff;
+	font-size: 12px;
+	background-image: url('img/categs_bg.jpg');
+	background-repeat: repeat-x;
+}
+
+.filter-list {
+	display: none;
+	padding: 0 5px;
+}
+
+#categs ul {
+	list-style: none;
+}
+
+#categs li {
+	cursor: pointer;
+	margin-left: 25px;
+}
+
+#categs ul .selected {
+	list-style-image: url('img/tag_close.png');
+}
+
+.column {
+	width: 167px;
+	margin: 5px 0 15px;
+	float: left;
+	border-left: 2px dotted #eee;
+}
+
+.column1 {
+	border: 0;
+}
+
+#content {
+	width: 708px;
+	float: right;
+	margin-top: 60px;
+	padding-bottom: 60px;
+}
+
+#portfolio-title {
+	width: 648px;
+	font: 14px/24px 'Droid Serif', Georgia, arial, sans-serif;
+	color:  #1684B4;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	margin: 0 22px 5px 12px;
+	cursor: pointer;
+}
+
+.more-arrow {
+	width: 25px;
+	height: 12px;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	background-image: url('img/dakfolio_sprite.png');
+	background-repeat: no-repeat;
+	background-position: -110px -4px;
+}
+
+.less-arrow {
+	background-position: 0 -27px;
+}
+
+.projects-box {
+	min-height: 180px;
+	margin-top: 15px;
+	padding-bottom: 30px;
+	letter-spacing: -4px;
+	background-image: url('img/footer_shadow.jpg');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+}
+
+.project {
+	width: 214px;
+	height: 118px;
+	margin: 0 0 12px 22px;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+	background-color: #fff;
+	letter-spacing: normal;
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	background-color: #fff;
+	list-style: none;
+	_height: 118px;
+}
+
+#bubble {
+	width: 214px;
+	height: 118px;
+	background-image: url('img/bubble.jpg');
+	margin: 60px auto 0;
+	display: none;
+	list-style: none;
+}
+
+.caption-box {
+	width: 100%;
+	position: absolute;
+	top: 16px;
+	display: none;
+}
+
+.proj-header {
+	height: 20px;
+}
+
+.proj-title {
+	font: 13px/18px 'Droid Serif', Georgia, arial, sans-serif;
+	max-width: 140px;
+	height: 20px;
+	float:  left;
+	cursor: pointer;
+	color: #000;
+	padding-left: 15px;
+	background-image: url('img/dakfolio_sprite.png');
+	background-repeat: no-repeat;
+	background-position: -8px -27px;
+	position: absolute;
+	overflow: hidden;
+}
+
+.proj-nav {
+	width: 73px;
+	height: 20px;
+	font-size: 12px;
+	position: absolute;
+	right: 0;
+}
+
+.nav-left, .nav-right {
+	width: 14px;
+	height: 20px;
+	display: block;
+	background-repeat: no-repeat;
+	float: left;
+	cursor: pointer;
+	position: relative;
+}
+
+.nav-left {
+	background-image: url('img/dakfolio_sprite.png');
+	background-position: -144px 0;
+}
+
+.nav-right {
+	background-image: url('img/dakfolio_sprite.png');
+	background-position: -158px 0;
+}
+
+.icon-clicker, .clicker {
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1
+}
+
+.icon-clicker {
+	width: 25px;
+	height: 25px;
+}
+
+.proj-paging {
+	width: 45px;
+	float: left;
+	text-align: center;
+}
+
+.top-line {
+	border-bottom: 1px solid #eee;
+	bottom: -1px;
+	position: relative;
+}
+
+.caption {
+	width: 100%;
+	font-size: 12px;
+	line-height: 18px;
+	font-style: normal;
+	border-top: 1px solid #eee;
+	padding-top: 10px;
+	color: #777;
+}
+
+.thumbnail {
+	width: 214px;
+	height: 118px;
+	position: relative;
+	top: 0;
+}
+
+.thumb-fade, .thumb-color {
+	position: absolute;
+	background-repeat: no-repeat;
+	zoom: 1;
+}
+
+.thumb-fade {
+	background-image: url('img/thumbnail_bg.jpg');
+	background-repeat: no-repeat;
+	background-position: -214px 0;
+}
+
+.thumb-color {
+	background-image: url('img/thumbnail_bg.jpg');
+	background-repeat: no-repeat;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+}
+
+.thumb-overlay {
+	width: 214px;
+	height: 133px;
+	background-image: url('img/thumb_overlay.png');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	position: absolute;
+}
+
+.title-prev {
+	font-weight: 700;
+	font-size: 14px;
+	font-style: normal;
+	margin-bottom: 13px;
+}
+
+#stage {
+	height: 415px;
+	padding: 9px 0 0;
+	margin-left: 21px;
+	background-color: #fff;
+	position: relative;
+	display: none;
+}
+
+#stage-close {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: -2px;
+	right: -7px;
+	background-image: url('img/dakfolio_sprite.png');
+	background-repeat: no-repeat;
+	background-position: -174px 0;
+	z-index: 1002;
+	cursor: pointer;
+	display: none;
+}
+
+.slideshow {
+	display: none;
+}
+
+#mailform {
+	text-align: center;
+	padding: 20px;
+	margin-left: 22px;
+	font-size: 12px;
+	border-bottom: 1px solid #eee;
+}
+
+#footer {
+	text-align: center;
+	padding: 20px;
+	margin-left: 22px;
+	font-size: 12px;
+}
+
+.coin-slider {
+	overflow: hidden;
+	zoom: 1;
+	width: 684px;
+	margin: 0 auto;
+	display: none;
+	position: relative;
+	top: 10px;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+}
+
+.coin-slider a {
+	text-decoration: none;
+	outline: none;
+	border: none;
+}
+
+.cs-prev, .cs-next {
+	width: 342px;
+	height: 390px;
+	position: absolute;
+	background-repeat: no-repeat;
+	top: 0;
+	z-index: 1001;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	zoom: 1;
+}
+
+.cs-prev {
+	background-image: url("img/prev_arrow.png");
+	background-position: left center;
+	left: 0;
+}
+
+.cs-next {
+	background-image: url("img/next_arrow.png");
+	background-position: right center;
+	right: 0;
+}

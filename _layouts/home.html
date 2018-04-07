@@ -3,32 +3,34 @@
 
   {% include head.html %}
 
-  <body class="homepage">
+  <body>
 
     {% include header.html %}
 
-    <main>
-      <div class="hello-section">
+    <main class="outerpage">
+      <section class="hello-section">
         <div class="hello-intro-bio">
           <div class="hello-intro">
-            Product<span class="grey-out slash-space">/</span><span class="tooltip">UX<span class="tooltiptext">User Experience</span></span><span class="grey-out slash-space">/</span><span class="tooltip">UI<span class="tooltiptext">User Interface</span></span><br />
+            Product<span class="grey-out slash-space">/</span>UX<br>
             Designer <span class="grey-out">+</span> Researcher<span class="grey-out">.</span>
           </div>
           <div class="hello-bio">
-            <p>I'm in the business of figuring out what people want and making sure they know it when they see and use it. My experience ranges over graphic and communication design, product design, branding and UX Research. I'm currently based in Ghana.</p>
-            <p>Feel free to <a href="mailto:{{ site.email }}">email</a> me or find me on <a href="https://www.linkedin.com/in/dela-andy-kumahor-3aa5b44/" target="_blank">LinkedIn</a>, <a href="https://twitter.com/delak" target="_blank">Twitter</a> or <a href="https://www.instagram.com/delak/" target="_blank">Instagram</a>.</p>
+            <p>I make valuable, well-behaved products and services by marrying human-centered design with big picture perspective and strategy. I live in <mark>Accra, Ghana</mark>.</p>
           </div>
         </div>
-      </div>
-      <div class="project-section">
-        <h3>Portfolio</h3>
+      </section>
+      <section class="project-section">
+        <hr>
+        <div class="section-title">
+          <h3>Case Studies</h3>
+        </div>
         <div class="project-thumbnails">
           {% include project-grid.html %}
         </div>
-      </div>
+      </section>
     </main>
 
-        {% include footer.html %}
+    {% include footer.html %}
 
   </body>
 </html>
