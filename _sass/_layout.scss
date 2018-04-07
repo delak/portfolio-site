@@ -985,6 +985,10 @@
 		@extend %image-default;
 		padding-top: 33%;
 		flex-basis: calc(50% - #{$global-padding});
+		@include media-query($on-1024) {
+			flex-basis: 100%;
+			padding-top: 55%;
+		}
 		@include media-query($on-780) {
 			padding-top: 55%;
 		}
@@ -1010,6 +1014,9 @@
 	.image-grid-left {
 		@extend %flex-default;
 		width: calc(66.6666666666% - #{$global-padding});
+		@include media-query($on-1024) {
+			width: calc(50% - #{$global-padding});
+		}
 		@include media-query($on-780) {
 			flex-direction: column;
 			width: 100%;
@@ -1099,6 +1106,10 @@
 	.info-pane-list {
 		width: calc(33.3333333333% - #{$global-padding});
 		margin: $global-padding 0;
+		@include media-query($on-1024) {
+			width: calc(50% - #{$global-padding});
+			padding-left: 10px;
+		}
 		@include media-query($on-780) {
 			width: 100%;
 			padding-left: 10px;
