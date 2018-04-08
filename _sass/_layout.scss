@@ -970,6 +970,22 @@
 		}
 	}
 
+	.caption-number {
+		font: {
+			size: 12px;
+			weight: $font-bold;
+		}
+		text-align: center;
+	 	border-radius: 20%;
+		margin: $global-padding 0 0 $global-padding;
+		display: inline-block;
+		min-width: 20px;
+		height: 20px;
+		color: $brand-color3;
+		line-height: 20px;
+		background-color: rgba($brand-color, 0.8);
+	}
+
 	.ui-image {
 		@extend %image-default;
 		height: 600px;
@@ -1017,7 +1033,7 @@
 	.half-image {
 		@extend %image-default;
 		padding-top: 33%;
-		flex-basis: calc(50% - #{$global-padding});
+		width: calc(50% - #{$global-padding});
 		@include media-query($on-1024) {
 			flex-basis: 100%;
 			padding-top: 55%;
@@ -1033,7 +1049,7 @@
 	}
 
 	.image-grid-full {
-		@extend %flex-default;
+	//	@extend %flex-default;
 
 		.half-image {
 			padding-top: 27%;
@@ -1045,7 +1061,7 @@
 	}
 
 	.image-grid-left {
-		@extend %flex-default;
+	//	@extend %flex-default;
 		width: calc(66.6666666666% - #{$global-padding});
 		@include media-query($on-1024) {
 			width: calc(50% - #{$global-padding});
@@ -1057,7 +1073,7 @@
 	}
 
 	.image-row {
-		@extend %flex-default;
+		//@extend %flex-default;
 
 		.wide-image {
 			padding-top: 40%;
@@ -1088,22 +1104,6 @@
 
 	.image-stroke div {
 		border: 1px solid $grey-color;
-	}
-
-	.caption-number {
-	 font: {
-		 size: 12px;
-		 weight: $font-bold;
-	 }
-	 text-align: center;
-	 border-radius: 20%;
-	 margin: $global-padding 0 0 $global-padding;
-	 display: inline-block;
-	 min-width: 20px;
-	 height: 20px;
-	 color: $brand-color3;
-	 line-height: 20px;
-	 background-color: rgba($brand-color, 0.8);
 	}
 
 	.info-pane {

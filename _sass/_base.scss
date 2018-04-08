@@ -26,6 +26,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  height: 100%;
 }
 
 
@@ -332,6 +333,7 @@ blockquote {
  */
  %image-default {
  	position: relative;
+  display: inline-block;
  	background-position: center center;
   background-size: cover;
   box-sizing: border-box;
@@ -354,9 +356,12 @@ blockquote {
 * Flex default
 */
  %flex-default {
+   -ms-align-items: flex-start;
    -webkit-align-items: flex-start;
    align-items: flex-start;
- 	 display: -webkit-flex;
+   display: -ms-flex;
+   display: flex;
+   display: -webkit-flex;
    display: flex;
    -ms-flex-wrap: wrap;
    -webkit-flex-wrap: wrap;
