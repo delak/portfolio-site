@@ -1365,7 +1365,9 @@
 			.project {
 				margin: $global-padding;
 				min-width: 180px;
-				flex: 1 0 calc(20% - (2 * #{$global-padding}));
+				flex-grow: 1;
+				flex-shrink: 0;
+				flex-basis: calc(20% - (2 * #{$global-padding}));
 				height: 200px;
 				border: {
 					color: $background-color;
