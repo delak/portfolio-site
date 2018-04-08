@@ -900,6 +900,9 @@
 
 				&:last-child {
 					margin-bottom: 0;
+					@include media-query($on-780) {
+						margin-bottom: 15px;
+					}
 				}
 			}
 
@@ -1139,7 +1142,9 @@
 			.info-archetype {
 				margin: 13px;
 				min-width: calc(188px - 26px);
-				flex: 1 0 calc(20% - 26px);
+				flex-grow: 1;
+				flex-shrink: 0
+				flex-basis: calc(20% - 26px);
 
 				.info-pane-title {
 					color: $brand-color;
