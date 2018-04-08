@@ -246,6 +246,7 @@
 		.question-wrapper {
 			position: absolute;
 			left: 4em;
+			right: 4em;
 			bottom: 3.6em;
 			opacity: 0;
 			@include all-transition($transition-time);
@@ -367,7 +368,7 @@
 				bottom: 2.1em;
 				@include media-query($on-680) {
 					left: 1.1em;
-					right: 0;
+					right: 1.1em;
 					bottom: 0.9em;
 				}
 
@@ -380,6 +381,11 @@
 					}
 					@include media-query($on-376) {
 						font-size: 0.85em;
+						line-height: 1em;
+
+						& br {
+							display: none;
+						}
 					}
 				}
 			}
