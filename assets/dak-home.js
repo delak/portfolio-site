@@ -82,7 +82,6 @@ $(document).ready(function() {
     return this.each(function() {
       var thisSlider = $(this).closest('.snippet').find('.project-image');
       var numImages = parseInt(thisSlider.attr('data-images'));
-      console.log(numImages);
       if (numImages > 1) {
         $(this).addClass('animatable');
       }
