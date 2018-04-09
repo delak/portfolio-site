@@ -41,7 +41,7 @@
         {% if printable == true and x.card == 'snippet' %}
         <div class="{{ x.shortcode }} project snippet" style="order: {{ x.order }}">
           <div class="snippet-body">
-            <div class="project-image">
+            <div class="project-image" data-images="{{ x.slider-images }}" data-this-image="0" style="background-position: 0">
               <div class="question-wrapper">
                 <span class="project-question">
                   {{ x.question }}
@@ -63,6 +63,10 @@
           <div class="title-wrapper">
             <span class="project-question">{{ x.question }}</span>
             <hr>
+          </div>
+          <div class="slideshow-nav-container">
+            <div class="slideshow-nav nav-left"><i></i></div>
+            <div class="slideshow-nav nav-right"><i></i></div>
           </div>
         </div>
         {% endif %}

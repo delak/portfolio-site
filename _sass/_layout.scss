@@ -235,7 +235,7 @@
 		position: relative;
 		z-index: 100;
 		background: {
-			position: center center;
+			position: center;
 			size: cover;
 			color: lighten($brand-color, 40%);
 			repeat: no-repeat;
@@ -246,6 +246,7 @@
 		.question-wrapper {
 			position: absolute;
 			left: 4em;
+			right: 4em;
 			bottom: 3.6em;
 			opacity: 0;
 			@include all-transition($transition-time);
@@ -359,7 +360,8 @@
 
 		.project-image {
 			max-height: $snippet-height;
-			background-color: lighten($brand-color, 40%);
+			background-color: lighten($brand-color, 45%);
+			background-position: left;
 
 			.question-wrapper {
 				left: 2.5em;
@@ -367,7 +369,7 @@
 				bottom: 2.1em;
 				@include media-query($on-680) {
 					left: 1.1em;
-					right: 0;
+					right: 1.1em;
 					bottom: 0.9em;
 				}
 
@@ -380,6 +382,11 @@
 					}
 					@include media-query($on-376) {
 						font-size: 0.85em;
+						line-height: 1em;
+
+						& br {
+							display: none;
+						}
 					}
 				}
 			}
@@ -409,6 +416,66 @@
 				position: absolute;
 				bottom: 0.5em;
 				width: 100%
+			}
+		}
+
+		.slideshow-nav-container {
+			position: absolute;
+			left: calc(66.66666666666% + 0.5em);
+			top: 11.7em;
+			opacity: 0;
+			display: none;
+			z-index: 100;
+
+			.slideshow-nav {
+				display: block;
+				cursor: pointer;
+				width: 2em;
+				height: 2em;
+				margin-bottom: 0.5em;
+				background-color: $background-color;
+				border: 2px solid rgba($brand-color4, 0.15);
+
+				i {
+					position: absolute;
+		      margin-top: 16px;
+		      right: 50%;
+
+		      &:before , &:after {
+		        content: "";
+		        @include all-transition(0.4s);
+		        position: absolute;
+		        background-color: $brand-color;
+		        width: 4px;
+		        height: 11px;
+					}
+
+		      &:before {
+		        transform: translate( -3px , 0 ) rotate( 45deg );
+					}
+
+		      &:after {
+		        transform: translate( 3px , 0 ) rotate( -45deg );
+					}
+				}
+
+				&.nav-left {
+					opacity: 0.5;
+
+					i {
+						transform: translate( -6px , 2px ) rotate( -90deg );
+					}
+				}
+
+				&.nav-right {
+					i {
+						transform: translate( 6px , -2px ) rotate( 90deg );
+					}
+				}
+			}
+
+			&.animatable {
+				display: block;
 			}
 		}
 	}
@@ -460,10 +527,13 @@
 		&.snippet .project-image {
 			background: {
 				color: transparent;
-				position: center center;
+				position: 0%;
 				size: cover;
 			}
 			max-height: 18.5em;
+			@include media-query($on-680) {
+				max-height: calc(18.5em * 0.85);
+			}
 
 			.question-wrapper {
 				opacity: 1;
@@ -477,6 +547,14 @@
 		.title-wrapper {
 			cursor: default;
 			opacity: 0;
+		}
+
+		.slideshow-nav-container {
+			opacity: 1;
+			@include media-query($on-680) {
+				left: 1em;
+				top: 1em;
+			}
 		}
 	}
 
