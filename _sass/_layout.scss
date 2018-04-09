@@ -422,7 +422,7 @@
 		.slideshow-nav-container {
 			position: absolute;
 			left: calc(66.66666666666% + 0.5em);
-			top: 0;
+			top: 11.7em;
 			opacity: 0;
 			display: none;
 			z-index: 100;
@@ -430,8 +430,8 @@
 			.slideshow-nav {
 				display: block;
 				cursor: pointer;
-				width: 2.5em;
-				height: 2.5em;
+				width: 2em;
+				height: 2em;
 				margin-bottom: 0.5em;
 				background-color: $background-color;
 				border: 2px solid rgba($brand-color4, 0.15);
@@ -447,15 +447,15 @@
 		        position: absolute;
 		        background-color: $brand-color;
 		        width: 4px;
-		        height: 13px;
+		        height: 11px;
 					}
 
 		      &:before {
-		        transform: translate( -4px , 0 ) rotate( 45deg );
+		        transform: translate( -3px , 0 ) rotate( 45deg );
 					}
 
 		      &:after {
-		        transform: translate( 4px , 0 ) rotate( -45deg );
+		        transform: translate( 3px , 0 ) rotate( -45deg );
 					}
 				}
 
@@ -463,20 +463,19 @@
 					opacity: 0.5;
 
 					i {
-						transform: translate( -6px , 6px ) rotate( -90deg );
+						transform: translate( -6px , 2px ) rotate( -90deg );
 					}
 				}
 
 				&.nav-right {
 					i {
-						transform: translate( 6px , 2px ) rotate( 90deg );
+						transform: translate( 6px , -2px ) rotate( 90deg );
 					}
 				}
 			}
 
 			&.animatable {
 				display: block;
-				@include all-transition(0.4s);
 			}
 		}
 	}
@@ -532,6 +531,9 @@
 				size: cover;
 			}
 			max-height: 18.5em;
+			@include media-query($on-680) {
+				max-height: calc(18.5em * 0.85);
+			}
 
 			.question-wrapper {
 				opacity: 1;
@@ -549,6 +551,10 @@
 
 		.slideshow-nav-container {
 			opacity: 1;
+			@include media-query($on-680) {
+				left: 1em;
+				top: 1em;
+			}
 		}
 	}
 
