@@ -89,6 +89,10 @@
 					margin-bottom: 0;
 				}
 			}
+
+			.social-links {
+				max-width: 300px;
+			}
 		}
 	}
 }
@@ -1092,16 +1096,9 @@
 	}
 
 	.full-width-image {
-		@extend %image-default;
-		height: 720px;
-		width: 100vw;
-		left: calc( (100% - 100vw) * 0.5 );
-		@include media-query($on-1100) {
-			width: 100%;
-			height: 0;
-			padding-top: 50%;
-			left: auto;
-		}
+		margin-left: calc(-50vw + 50%);
+  	margin-right: calc(-50vw + 50%);
+		background-size: cover;
 	}
 
 	.main-image {
