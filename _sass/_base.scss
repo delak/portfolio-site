@@ -298,7 +298,6 @@ blockquote {
 /**
  * Icons
  */
-
 .svg-icon {
     width: 16px;
     height: 16px;
@@ -331,15 +330,15 @@ blockquote {
 /**
  * Image defaults
  */
- %image-default {
- 	position: relative;
+%image-default {
+  position: relative;
   display: inline-block;
- 	background-position: center center;
+	background-position: center center;
   background-size: cover;
   box-sizing: border-box;
- 	width: 100%;
- 	height: 100%;
- 	margin: $global-padding 0;
+	width: 100%;
+	height: 100%;
+	margin: $global-padding 0;
 
   & a {
     position: absolute;
@@ -352,58 +351,60 @@ blockquote {
   	width: 100%;
   	height: 100%;
   }
- }
+}
 
 /**
 * Flex default
 */
- %flex-default {
-   -ms-align-items: flex-start;
-   -webkit-align-items: flex-start;
-   align-items: flex-start;
-   display: -ms-flex;
-   display: flex;
-   display: -webkit-flex;
-   display: flex;
-   -ms-flex-wrap: wrap;
-   -webkit-flex-wrap: wrap;
-   flex-wrap: wrap;
-   -ms-justify-content: space-between;
-   -webkit-justify-content: space-between;
-   justify-content: space-between;
- }
+%flex-default {
+  -ms-align-items: flex-start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  display: -ms-flex;
+  display: flex;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
 
 
  /**
   * Archetpe rankings
   */
- .archetype-ranking {
-   margin-bottom: 10px;
-   padding: 6px 10px 0;
-   background-color: $brand-color3;
+.archetype-ranking {
+  margin-bottom: 10px;
+  padding: 6px 10px 12px;
+  background-color: $brand-color3;
 
-   .ranking-box {
-     height: 50px;
-     margin-bottom: 10px;
-     background: {
-       image: url('/assets/images/icons/ranking.svg');
-       repeat: no-repeat;
-       size: 152px;
-     }
+  h5 {
+    margin-bottom: 0;
+  }
 
-     &:last-child {
-       margin-bottom: 0;
-     }
+  .ranking-box {
+    width: 100%;
+    height: 0;
+    padding-top: 13.15%;
+    margin: 5px 0 20px;
+    background: {
+      position: 0;
+      repeat: no-repeat;
+      size: contain;
+    }
 
-     h5 {
-       font-weight: $font-semi-bold;
-     }
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-     &.rank-zero { background-position: 0 35px; }
-     &.rank-one { background-position: 0 -45px; }
-     &.rank-two { background-position: 0 -115px; }
-     &.rank-three { background-position: 0 -185px; }
-     &.rank-four { background-position: 0 -255px; }
-     &.rank-five { background-position: 0 -325px; }
-   }
- }
+    &.rank-zero { background-image: url('/assets/images/icons/ranking_0.svg'); }
+    &.rank-one { background-image: url('/assets/images/icons/ranking_1.svg'); }
+    &.rank-two { background-image: url('/assets/images/icons/ranking_2.svg'); }
+    &.rank-three { background-image: url('/assets/images/icons/ranking_3.svg'); }
+    &.rank-four { background-image: url('/assets/images/icons/ranking_4.svg'); }
+    &.rank-five { background-image: url('/assets/images/icons/ranking_5.svg'); }
+  }
+}

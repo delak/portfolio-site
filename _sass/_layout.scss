@@ -182,7 +182,8 @@
 
 	.snippet-body {
 		cursor: pointer;
-		border: 0 solid rgba($brand-color4, 0.15);
+		border: 2px solid rgba($brand-color4, 0.15);
+		box-sizing: border-box;
 		overflow: hidden;
 		min-height: $snippet-height;
 		position: relative;
@@ -197,19 +198,6 @@
 		@include all-transition($transition-time);
 		@include media-query($on-680) {
 			display: none;
-		}
-
-		&.odd-proj {
-			text-align: right;
-
-			a {
-				display: inline-block;
-				margin-right: 0.5em;
-			}
-
-			.link-arrow {
-				margin-right: 0.5em;
-			}
 		}
 
 		hr {
@@ -256,6 +244,8 @@
 			@include all-transition($transition-time);
 			@include media-query($on-680) {
 				opacity: 1;
+				left: 8vw;
+				bottom: 8vw;
 			}
 
 			@at-root {
@@ -303,7 +293,6 @@
 				weight: $font-regular;
 				family: $display-font-family;
 			}
-			color: $brand-color2;
 			padding: 30px 40px;
 			line-height: 1.7em;
 			-webkit-column-count: 2;
@@ -341,7 +330,6 @@
 			}
 
 			strong {
-				color: $brand-color2;
 				font-weight: 500;
 			}
 
@@ -422,65 +410,65 @@
 				width: 100%
 			}
 		}
+	}
 
-		.slideshow-nav-container {
-			position: absolute;
-			left: calc(66.66666666666% + 0.5em);
-			top: 11.7em;
-			opacity: 0;
-			display: none;
-			z-index: 100;
+	.slideshow-nav-container {
+		position: absolute;
+		left: calc(66.66666666666% + 0.5em);
+		top: 11.7em;
+		opacity: 0;
+		display: none;
+		z-index: 100;
 
-			.slideshow-nav {
-				display: block;
-				cursor: pointer;
-				width: 2em;
-				height: 2em;
-				margin-bottom: 0.5em;
-				background-color: $background-color;
-				border: 2px solid rgba($brand-color4, 0.15);
+		.slideshow-nav {
+			display: block;
+			cursor: pointer;
+			width: 2em;
+			height: 2em;
+			margin-bottom: 0.5em;
+			background-color: $background-color;
+			border: 2px solid rgba($brand-color4, 0.15);
+
+			i {
+				position: absolute;
+				margin-top: 16px;
+				right: 50%;
+
+				&:before , &:after {
+					content: "";
+					@include all-transition(0.4s);
+					position: absolute;
+					background-color: $brand-color;
+					width: 4px;
+					height: 11px;
+				}
+
+				&:before {
+					transform: translate( -3px , 0 ) rotate( 45deg );
+				}
+
+				&:after {
+					transform: translate( 3px , 0 ) rotate( -45deg );
+				}
+			}
+
+			&.nav-left {
+				opacity: 0.5;
 
 				i {
-					position: absolute;
-		      margin-top: 16px;
-		      right: 50%;
-
-		      &:before , &:after {
-		        content: "";
-		        @include all-transition(0.4s);
-		        position: absolute;
-		        background-color: $brand-color;
-		        width: 4px;
-		        height: 11px;
-					}
-
-		      &:before {
-		        transform: translate( -3px , 0 ) rotate( 45deg );
-					}
-
-		      &:after {
-		        transform: translate( 3px , 0 ) rotate( -45deg );
-					}
-				}
-
-				&.nav-left {
-					opacity: 0.5;
-
-					i {
-						transform: translate( -6px , 2px ) rotate( -90deg );
-					}
-				}
-
-				&.nav-right {
-					i {
-						transform: translate( 6px , -2px ) rotate( 90deg );
-					}
+					transform: translate( -6px , 2px ) rotate( -90deg );
 				}
 			}
 
-			&.animatable {
-				display: block;
+			&.nav-right {
+				i {
+					transform: translate( 6px , -2px ) rotate( 90deg );
+				}
 			}
+		}
+
+		&.animatable {
+			display: block;
 		}
 	}
 
@@ -522,11 +510,6 @@
 
 	&.snippet-show {
 		margin: 30px 0;
-
-		.snippet-body {
-			box-sizing: border-box;
-			border-width: 2px;
-		}
 
 		&.snippet .project-image {
 			background: {
@@ -875,6 +858,10 @@
 
 	.masthead-box {
 		@include project-sizer;
+
+		&.fill-out {
+			width: 100%;
+		}
 	}
 
 	.project-masthead-bg {
@@ -890,12 +877,8 @@
 	.project-name {
 		margin-top: 180px;
 		margin-bottom: 40px;
-		line-height: 3.4em;
 		color: $brand-color;
 		letter-spacing: 0;
-		width: 100%;
-		position: relative;
-		box-sizing: content-box;
 		text-align: center;
 
 		h1 {
@@ -904,8 +887,8 @@
 				weight: $font-light;
 				family: $display-font-family;
 			}
+			line-height: 1.1em;
 		}
-
 	}
 
 	.intro-image {
@@ -1098,7 +1081,10 @@
 	.full-width-image {
 		margin-left: calc(-50vw + 50%);
   	margin-right: calc(-50vw + 50%);
-		background-size: cover;
+
+		img {
+			width: 100%;
+		}
 	}
 
 	.main-image {
@@ -1332,7 +1318,7 @@
 	width: 100%;
 	z-index: 1000;
 	background-color: rgba($background-color, 0.95);
-	border-bottom: 1px solid $brand-color3;
+	border-bottom: 1px solid rgba($brand-color4, 0.2);
 	@include all-transition($transition-time);
 	@include media-query($on-680) {
 		background-color: transparent;
