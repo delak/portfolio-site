@@ -101,6 +101,7 @@ img {
  */
 ul, ol {
   list-style-type: none;
+  counter-reset: item;
 }
 
 li {
@@ -115,16 +116,34 @@ ul {
 
   li {
     padding-left: 0.7em;
-    text-indent: -.7em;
+    text-indent: -0.7em;
 
     &::before {
       content: "• ";
       color: $brand-color;
+
+      .info-pane-content & {
+        content: "";
+        color: $brand-color;
+      }
     }
 
     &:last-child {
       padding-bottom: 0;
     }
+  }
+}
+
+ol li {
+  margin: 4px 0 0 1.1em;
+
+  &::before {
+    content: counter(item, lower-alpha) ".";
+    color: $brand-color;
+    counter-increment: item;
+    position: absolute;
+    text-align: right;
+    margin-left: -1.1em;
   }
 }
 
@@ -166,11 +185,6 @@ mark {
   .project-info & {
     padding: 0;
   }
-}
-
-.highlight {
-  color: $brand-color;
-  font-weight: $font-bold;
 }
 
 

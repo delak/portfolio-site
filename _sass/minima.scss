@@ -9,7 +9,6 @@ $font-lightest:   200 !default;
 $font-light:      300 !default;
 $font-regular:    400 !default;
 $font-semi-bold:  600 !default;
-$font-bold:       700 !default;
 $base-font-weight: $font-regular !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
@@ -22,7 +21,7 @@ $brand-color:      #C55428 !default;
 $brand-color2:     #2D3142 !default;
 $brand-color3:     #F1F5F7 !default;
 $brand-color4:     #48556B !default;
-$question-color:  rgba($background-color, 0.93) !default;
+$question-color:   rgba($background-color, 0.93) !default;
 $link-hover-color: lighten($brand-color, 15%) !default;
 $text-color:       $brand-color4 !default;
 
@@ -31,14 +30,14 @@ $grey-color:       #333 !default;
 $table-text-align: left !default;
 
 // Width of the content area
-$on-376:      23.5em !default;   // 376px
+$on-376:           23.5em !default;   // 376px
 $on-540:           33.75em !default;   // 540px
-$on-680:     42.5em !default;   // 680px
-$on-780:        48.75em !default;  // 780px
+$on-680:           42.5em !default;   // 680px
+$on-780:           48.75em !default;  // 780px
 $content-width:    60em !default;     // 960px
 $on-1024:          64em !default;     // 1024px
 $on-1100:          68.75em !default;  // 1100px
-$on-1200:       75em !default;     // 1200px
+$on-1200:          75em !default;     // 1200px
 
 $global-padding:   1em !default;
 $transition-time:  0.3s !default;

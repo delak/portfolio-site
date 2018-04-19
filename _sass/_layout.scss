@@ -1038,17 +1038,18 @@
 	.caption-number {
 		font: {
 			size: 12px;
-			weight: $font-bold;
+			weight: $font-semi-bold;
 		}
 		text-align: center;
 	 	border-radius: 20%;
+		border: 1px solid $brand-color;
 		margin: $global-padding 0 0 $global-padding;
 		display: inline-block;
 		min-width: 20px;
 		height: 20px;
-		color: $brand-color3;
+		color: $brand-color2;
 		line-height: 20px;
-		background-color: rgba($brand-color, 0.8);
+		background-color: rgba($background-color, 0.85);
 	}
 
 	.ui-image {
@@ -1079,11 +1080,24 @@
 	}
 
 	.full-width-image {
+		position: relative;
 		margin-left: calc(-50vw + 50%);
   	margin-right: calc(-50vw + 50%);
 
 		img {
 			width: 100%;
+		}
+
+		.caption-wrapper {
+			max-width: $content-width;
+			position: absolute;
+			top: 0;
+			left: calc(0.5 * (100vw - #{$content-width}));
+
+			.caption-number {
+				position: absolute;
+				top: 0;
+			}
 		}
 	}
 
@@ -1189,11 +1203,10 @@
 			}
 
 			.caption-number {
-				color: $brand-color2;
+				color: $brand-color3;
 				margin: 0 11px 0 -8px;
-				background-color: rgba($background-color, 0.8);
-				border: 1px solid $brand-color;
-				border-radius: 20%;
+				background-color: rgba($brand-color, 0.8);
+				border-color: $background-color;
 				opacity: 1;
 			}
 		}
@@ -1201,6 +1214,10 @@
 		.info-pane-content {
 			margin-left: 26px;
 			margin-top: -2px;
+
+			strong {
+				font-weight: $font-semi-bold;
+			}
 		}
 	}
 
@@ -1397,6 +1414,10 @@
 					color: $brand-color4;
 					letter-spacing: 0;
 					margin-top: -7px;
+
+					strong {
+						color: $brand-color;
+					}
 				}
 
 				@include media-query($on-680) {
@@ -1548,7 +1569,7 @@
 	}
 
 	.social-links {
-		max-width: 20em;
+		max-width: 18em;
 		margin-left: auto;
 	  margin-right: auto;
 		justify-content: space-between;
