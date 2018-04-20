@@ -182,7 +182,7 @@ mark {
   background-color: lighten($brand-color, 47%);
   color: $brand-color2;
 
-  .project-info & {
+  .project-info &, .bio & {
     padding: 0;
   }
 }
