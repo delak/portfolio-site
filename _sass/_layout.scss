@@ -390,7 +390,7 @@
 			max-height: $snippet-height;
 			line-height: $snippet-height;
 			margin-top: -1em;
-			padding: 1em 0;
+			padding: 1.5em 0;
 			position: relative;
 			@include media-query($on-680) {
 				display: none;
@@ -399,14 +399,14 @@
 			.project-question {
 				display: inline-block;
 				vertical-align: middle;
-				margin-top: -0.4em;
+				margin-top: -1em;
 				font-size: 1em;
 			}
 
 			hr {
 				margin: 0;
 				position: absolute;
-				bottom: 0.5em;
+				bottom: 0.75em;
 				width: 100%
 			}
 		}
@@ -1112,7 +1112,7 @@
 
 	.wide-image {
 		@extend %image-default;
-		padding-top: 55%;
+		padding-top: 58%;
 	}
 
 	.half-image {
