@@ -199,6 +199,7 @@
 
 		hr {
 			margin: 1em 0;
+			opacity: 0.2;
 		}
 
 		a {
@@ -221,13 +222,12 @@
 		height: 22em;
 		overflow: hidden;
 		box-sizing: border-box;
-		border: 2px solid rgba($brand-color4, 0.15);
 		position: relative;
 		z-index: 100;
 		background: {
 			position: center;
 			size: cover;
-			color: lighten($brand-color, 40%);
+			color: transparent;
 			repeat: no-repeat;
 			blend-mode: multiply;
 		}
@@ -350,6 +350,7 @@
 
 		.project-image {
 			max-height: $snippet-height;
+			border: 2px solid rgba($brand-color4, 0.15);
 			background-color: lighten($brand-color, 45%);
 			background-position: left;
 
@@ -411,19 +412,20 @@
 	}
 
 	.slideshow-nav-container {
-		position: absolute;
+		/*position: relative;
 		left: calc(66.66666666666% + 0.5em);
-		top: 11.7em;
+		top: 11.7em;*/
 		opacity: 0;
 		display: none;
 		z-index: 100;
 
 		.slideshow-nav {
-			display: block;
+			display: inline-block;
+			position: relative;
 			cursor: pointer;
 			width: 2em;
 			height: 2em;
-			margin-bottom: 0.5em;
+			margin-right: 0.5em;
 			background-color: $background-color;
 			border: 2px solid rgba($brand-color4, 0.15);
 
@@ -467,6 +469,7 @@
 
 		&.animatable {
 			display: block;
+			@include all-transition(0.2s);
 		}
 	}
 
@@ -521,7 +524,7 @@
 			}
 
 			.question-wrapper {
-				opacity: 1;
+				//opacity: 1;
 			}
 		}
 
@@ -530,8 +533,18 @@
 		}
 
 		.title-wrapper {
-			cursor: default;
-			opacity: 0;
+			/*cursor: default;
+			opacity: 0;*/
+			padding-bottom: 5em;
+
+			/*.project-question {
+				font-size: 1.5em;
+			}*/
+
+			hr {
+				bottom: 0;
+				opacity: 0;
+			}
 		}
 
 		.slideshow-nav-container {
@@ -570,7 +583,7 @@
 		display: inline-block;
 		margin: 10px 20px 0;
 		width: calc(30% - (2 * 20px));
-		padding: 0 10px;
+		padding-right: 10px;
 		box-sizing: border-box;
 		@include media-query($on-780) {
 			display: none;
