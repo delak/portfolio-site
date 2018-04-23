@@ -177,7 +177,7 @@
 
 	.project-link {
 		overflow: hidden;
-		border: none;
+		border: 2px solid rgba($brand-color4, 0.15);
 	}
 
 	.snippet-body {
@@ -206,6 +206,7 @@
 
 		a {
 			color: $brand-color4;
+			border: none;
 		}
 
 		.link-arrow {
@@ -229,9 +230,7 @@
 		background: {
 			position: center;
 			size: cover;
-			color: lighten($brand-color, 40%);
 			repeat: no-repeat;
-			blend-mode: multiply;
 		}
 		@include all-transition($transition-time);
 
@@ -571,7 +570,7 @@
 	.headshot {
 		display: inline-block;
 		margin: 10px 20px 0;
-		width: calc(30% - (2 * 20px));
+		width: calc(33.33333333333% - (2 * 20px));
 		padding: 0 10px;
 		box-sizing: border-box;
 		@include media-query($on-780) {
@@ -585,12 +584,21 @@
 	      .contact-button::before {
 	        width: 1.8em;
 	        height: 1.8em;
+					margin-right: 0.25em;
 	      }
 
 	      .contact-button::after {
 	        display: none;
 	      }
 	    }
+
+			.social-links {
+				flex-flow: column wrap;
+			}
+
+			.contact-button::before {
+				margin-right: 0.25em;
+			}
 	  }
 	}
 
@@ -598,9 +606,13 @@
 		display: inline-block;
 		font-weight: $font-regular;
 		margin: 20px;
-		width: calc(70% - (2 * 20px));
+		width: calc(66.666666666% - (2 * 20px));
 		@include media-query($on-780) {
 			width: 100%;
+		}
+
+		mark {
+			padding: 0;
 		}
 
 		h2 {
@@ -620,6 +632,17 @@
 			margin-bottom: 1.6em;
 			@include media-query($on-780) {
 				font-size: 1.1em;
+			}
+
+			.drp-caps {
+			  color: #903;
+			  float: left;
+			  font-family: Georgia;
+			  font-size: 75px;
+			  line-height: 60px;
+			  padding-top: 4px;
+			  padding-right: 8px;
+			  padding-left: 3px;
 			}
 
 			&:last-of-type {
@@ -1569,7 +1592,7 @@
 	}
 
 	.social-links {
-		max-width: 18em;
+		max-width: 30em;
 		margin-left: auto;
 	  margin-right: auto;
 		justify-content: space-between;
@@ -1584,6 +1607,7 @@
       &.email:before { background-image: url('/assets/images/icons/email_white.svg'); }
       &.linkedin::before { background-image: url('/assets/images/icons/linkedin_white.svg'); }
       &.twitter::before { background-image: url('/assets/images/icons/twitter_white.svg'); }
+			&.instagram::before { background-image: url('/assets/images/icons/instagram_white.svg'); }
     }
 	}
 }
