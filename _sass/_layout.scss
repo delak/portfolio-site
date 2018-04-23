@@ -628,21 +628,10 @@
 		p {
 			font-size: 1.125em;
 			color: $brand-color4;
-			line-height: 1.6em;
+			line-height: 1.7em;
 			margin-bottom: 1.6em;
 			@include media-query($on-780) {
 				font-size: 1.1em;
-			}
-
-			.drp-caps {
-			  color: #903;
-			  float: left;
-			  font-family: Georgia;
-			  font-size: 75px;
-			  line-height: 60px;
-			  padding-top: 4px;
-			  padding-right: 8px;
-			  padding-left: 3px;
 			}
 
 			&:last-of-type {
@@ -694,7 +683,7 @@
 		}
 
 		.services-container {
-			margin: 1.6em -0.6em;
+			margin: 1.6em -0.6em 0.1em;
 			display: -webkit-flex;
 			display: flex;
 			-ms-flex-flow: row wrap;
@@ -709,7 +698,7 @@
 				padding: 0.7em 1.1em 0.4em;
 				box-sizing: border-box;
 				font-size: 0.9em;
-				background-color: lighten($brand-color, 50%);
+				background-color: lighten($brand-color, 51.5%);
 				flex: 1;
 
 				h4 {
@@ -723,6 +712,10 @@
 					color: $brand-color4;
 					line-height: 1.4em;
 					margin-top: 0.5em;
+				}
+
+				&.fill-empty-space {
+					background-color: transparent;
 				}
 			}
 		}
