@@ -37,12 +37,10 @@
 			@include media-query($on-780) {
 				font-size: 8vw;
 				line-height: 10vw;
-				/*margin: 4vh 0; */
 			}
 			@include media-query($on-680) {
 				font-size: 40px;
     		line-height: 45px;
-    		/*margin: 10px 0; */
 			}
 
 	    &::before {
@@ -325,6 +323,72 @@
 		}
 	}
 
+	.slider-nav-container {
+		position: absolute;
+		right: 1em;
+		display: none;
+		z-index: 100;
+
+		&.slideshow-initiated {
+			opacity: 0;
+			display: block;
+			top: -3em;
+			@include all-transition($transition-time);
+		}
+
+		.slider-nav {
+			display: inline-block;
+			position: relative;
+			cursor: pointer;
+			width: 2em;
+			height: 2em;
+			margin-right: 0.5em;
+			background-color: rgba($background-color, 0.95);
+			border: 1px solid $project-border;
+			border-radius: 20%;
+
+			i {
+				position: absolute;
+				margin-top: 16px;
+				right: 50%;
+
+				&:before , &:after {
+					content: "";
+					@include all-transition(0.4s);
+					position: absolute;
+					background-color: $brand-color;
+					width: 4px;
+					height: 11px;
+				}
+
+				&:before {
+					transform: translate( -3px , 0 ) rotate( 45deg );
+				}
+
+				&:after {
+					transform: translate( 3px , 0 ) rotate( -45deg );
+				}
+			}
+
+			&.nav-left {
+				i {
+					transform: translate( -6px , 2px ) rotate( -90deg );
+				}
+			}
+
+			&.nav-right {
+				i {
+					transform: translate( 6px , -2px ) rotate( 90deg );
+				}
+			}
+
+			&.disabled-btn {
+				opacity: 0.5;
+				border-color: transparent;
+			}
+		}
+	}
+
 	&.snippet {
 		margin-bottom: 0;
 		min-height: $snippet-height;
@@ -414,8 +478,8 @@
 
 		.slider-show-btn {
 			position: absolute;
-			right: calc(33.3333333333333% + 1em);
-			top: -0.5em;
+			right: 1.5em;
+			top: 1.5em;
 			width: 0.4em;
 			height: 0.4em;
 			opacity: 0;
@@ -434,31 +498,19 @@
 				right: -0.6em;
 			}
 		}
-	}
 
-	.slideshow-nav-container {
-		position: absolute;
-		right: 1em;
-		display: none;
-		z-index: 100;
-
-		&.slideshow-initiated {
+		.snippet-close-btn {
+			position: absolute;
+			right: calc(33.3333333333% + 0.25em);
+			top: -0.8em;
+			width: 1.6em;
+			height: 1.6em;
 			opacity: 0;
-			display: block;
-			top: -3em;
-			@include all-transition($transition-time);
-		}
-
-		.slideshow-nav {
-			display: inline-block;
-			position: relative;
+			border-radius: 50%;
+			z-index: 500;
+			visibility: hidden;
 			cursor: pointer;
-			width: 2em;
-			height: 2em;
-			margin-right: 0.5em;
 			background-color: $background-color;
-			border: 2px solid $project-border;
-			border-radius: 20%;
 
 			i {
 				position: absolute;
@@ -470,34 +522,17 @@
 					@include all-transition(0.4s);
 					position: absolute;
 					background-color: $brand-color;
-					width: 4px;
-					height: 11px;
+					width: 0.19em;
+					height: 0.875em;
 				}
 
 				&:before {
-					transform: translate( -3px , 0 ) rotate( 45deg );
+					transform: translate( -0.1em , -0.65em ) rotate( 45deg );
 				}
 
 				&:after {
-					transform: translate( 3px , 0 ) rotate( -45deg );
+					transform: translate( -0.1em , -0.65em ) rotate( -45deg );
 				}
-			}
-
-			&.nav-left {
-				i {
-					transform: translate( -6px , 2px ) rotate( -90deg );
-				}
-			}
-
-			&.nav-right {
-				i {
-					transform: translate( 6px , -2px ) rotate( 90deg );
-				}
-			}
-
-			&.disabled-btn {
-				opacity: 0.5;
-				border-color: transparent;
 			}
 		}
 	}
@@ -527,7 +562,7 @@
 			@include all-transition(0.3s);
 		}
 
-		.slider-show-btn {
+		.slider-show-btn, .snippet-close-btn {
 			visibility: visible;
 			@include all-transition(0.4s);
 		}
@@ -553,10 +588,14 @@
 		}
 
 		.slider-show-btn {
-			right: calc(33.3333333333333% + 0.2em);
-			top: -1em;
+			right: 1.4em;
+			top: 1.4em;
 			width: 2em;
 			height: 2em;
+			opacity: 1;
+		}
+
+		.snippet-close-btn {
 			opacity: 1;
 		}
 
@@ -571,7 +610,7 @@
 				color: $brand-color;
 			}
 
-			.project-meta {
+			.meta-ready {
 				opacity: 0.75;
 			}
 
@@ -598,7 +637,10 @@
 		}
 
 		.slider-show-btn {
-			background-image: url('/assets/images/icons/minimizer.svg');
+			background: {
+				image: url('/assets/images/icons/minimizer.svg');
+				color: transparent;
+			}
 		}
 
 		.slideshow-initiated {

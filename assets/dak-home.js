@@ -3,7 +3,6 @@ $(document).ready(function() {
   var hs = $('.hello-section');
   var snippet = $('.snippet');
   var snippet_width = 624;
-  var snippet_clicker = $('.snippet .project-image, .snippet .title-wrapper .project-question');
   var pq = $('.snippet .title-wrapper .project-question');
   var pi = $('.snippet .project-image');
   var pl = $('.snippet .project-label');
@@ -11,6 +10,7 @@ $(document).ready(function() {
   var nl = $('.nav-left');
   var nr = $('.nav-right');
   var ssb = $('.slider-show-btn');
+  var scb = $('.snippet-close-btn');
 
   pq.click(function() {
     $(this).snippetClick();
@@ -77,6 +77,10 @@ $(document).ready(function() {
     thisSnippet.toggleClass('slider-show');
   });
 
+  scb.click(function() {
+    $(this).snippetClick();
+  });
+
 
   $.fn.snippetClick = function() {
     var thisSnippet = $(this).closest('.snippet');
@@ -85,7 +89,7 @@ $(document).ready(function() {
       snippet.hideMe();
     } else {
       thisSnippet.addClass('animatable snippet-show');
-      thisSnippet.positionSlider();
+    //  thisSnippet.positionSlider();
       snippet.not(thisSnippet).hideMe();
     }
   };
@@ -129,7 +133,7 @@ $(document).ready(function() {
 
 
   $('.snippet .project-label').vAlign();
-  $('.slideshow-nav-container').initSlideshow();
+  $('.slider-nav-container').initSlideshow();
 
 
 
