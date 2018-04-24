@@ -163,7 +163,6 @@
 	-ms-flex-flow: row nowrap;
 	-webkit-flex-flow: row nowrap;
 	flex-flow: row nowrap;
-	overflow: hidden;
 	justify-content: space-between;
 	@include all-transition($transition-time);
 
@@ -177,12 +176,10 @@
 
 	.project-link {
 		overflow: hidden;
-		border: 2px solid rgba($brand-color4, 0.15);
+		border: 2px solid $project-border;
 	}
 
 	.snippet-body {
-		cursor: pointer;
-		border: 2px solid rgba($brand-color4, 0.15);
 		box-sizing: border-box;
 		overflow: hidden;
 		min-height: $snippet-height;
@@ -221,6 +218,7 @@
 	}
 
 	.project-image {
+		cursor: pointer;
 		width: 100%;
 		height: 22em;
 		overflow: hidden;
@@ -312,24 +310,9 @@
 				font-size: 1em;
 			}
 
-			.project-meta {
-				font-size: 0.9em;
-				line-height: 1.55em;
-				margin-bottom: 2em;
-				opacity: 0.7;
-
-				hr {
-					margin-bottom: 1.7em;
-				}
-
-				span {
-					display: inline-block;
-					margin-bottom: 0.5em;
-				}
-			}
-
 			strong {
-				font-weight: 500;
+				font-weight: $font-semi-bold;
+				color: $brand-color2;
 			}
 
 			p {
@@ -351,8 +334,8 @@
 
 		.project-image {
 			max-height: $snippet-height;
-			background-color: lighten($brand-color, 45%);
 			background-position: left;
+			border: 2px solid $project-border;
 
 			.question-wrapper {
 				left: 2.5em;
@@ -384,7 +367,6 @@
 		}
 
 		.title-wrapper {
-			cursor: pointer;
 			display: inline-block;
 			max-height: $snippet-height;
 			line-height: $snippet-height;
@@ -396,10 +378,30 @@
 			}
 
 			.project-question {
+				cursor: pointer;
 				display: inline-block;
 				vertical-align: middle;
 				margin-top: -1em;
 				font-size: 1em;
+			}
+
+			.project-meta {
+				font-size: 0.9em;
+				line-height: 1.4em;
+				margin-bottom: 1em;
+				margin-top: -0.5em;
+				padding-top: 1em;
+				opacity: 0;
+				border-top: 1px solid $project-border;
+
+				&.meta-ready {
+					display: none;
+				}
+
+				span {
+					display: inline-block;
+					margin-bottom: 0.3em;
+				}
 			}
 
 			hr {
@@ -409,24 +411,54 @@
 				width: 100%
 			}
 		}
+
+		.slider-show-btn {
+			position: absolute;
+			right: calc(33.3333333333333% + 1em);
+			top: -0.5em;
+			width: 0.4em;
+			height: 0.4em;
+			opacity: 0;
+			border-radius: 20%;
+			z-index: 500;
+			visibility: hidden;
+			cursor: pointer;
+			background: {
+				image: url('/assets/images/icons/expander.svg');
+				color: $background-color;
+				size: 60%;
+				position: center;
+				repeat: no-repeat;
+			}
+			@include media-query($on-680) {
+				right: -0.6em;
+			}
+		}
 	}
 
 	.slideshow-nav-container {
 		position: absolute;
-		left: calc(66.66666666666% + 0.5em);
-		top: 11.7em;
-		opacity: 0;
+		right: 1em;
 		display: none;
 		z-index: 100;
 
-		.slideshow-nav {
+		&.slideshow-initiated {
+			opacity: 0;
 			display: block;
+			top: -3em;
+			@include all-transition($transition-time);
+		}
+
+		.slideshow-nav {
+			display: inline-block;
+			position: relative;
 			cursor: pointer;
 			width: 2em;
 			height: 2em;
-			margin-bottom: 0.5em;
+			margin-right: 0.5em;
 			background-color: $background-color;
-			border: 2px solid rgba($brand-color4, 0.15);
+			border: 2px solid $project-border;
+			border-radius: 20%;
 
 			i {
 				position: absolute;
@@ -452,8 +484,6 @@
 			}
 
 			&.nav-left {
-				opacity: 0.5;
-
 				i {
 					transform: translate( -6px , 2px ) rotate( -90deg );
 				}
@@ -464,46 +494,47 @@
 					transform: translate( 6px , -2px ) rotate( 90deg );
 				}
 			}
-		}
 
-		&.animatable {
-			display: block;
+			&.disabled-btn {
+				opacity: 0.5;
+				border-color: transparent;
+			}
 		}
 	}
 
 	&:hover {
-		.project-image {
-			background-color: transparent;
-			transform: scale(1.06);
-		}
-
 		&.snippet .project-image {
 			background-position: center 45%;
 			transform: none;
 		}
 
 		.title-wrapper {
-
-			a, strong {
-				color: $link-hover-color;
+			.project-question {
+				strong {
+					color: $link-hover-color;
+				}
 			}
 		}
 
 		.link-arrow {
 			margin-left: 0.5em;
 		}
-
-		.odd-proj {
-			.link-arrow {
-				margin-right: 0;
-			}
-		}
 	}
 
 	&.animatable {
 		.project-label {
 			display: block;
+			@include all-transition(0.3s);
+		}
+
+		.slider-show-btn {
+			visibility: visible;
 			@include all-transition(0.4s);
+		}
+
+		.title-wrapper .project-meta.meta-ready {
+			display: block;
+			@include all-transition(0.2s);
 		}
 	}
 
@@ -516,14 +547,17 @@
 				position: 0%;
 				size: cover;
 			}
-			max-height: 18.5em;
 			@include media-query($on-680) {
 				max-height: calc(18.5em * 0.85);
 			}
+		}
 
-			.question-wrapper {
-				opacity: 1;
-			}
+		.slider-show-btn {
+			right: calc(33.3333333333333% + 0.2em);
+			top: -1em;
+			width: 2em;
+			height: 2em;
+			opacity: 1;
 		}
 
 		.project-label {
@@ -531,12 +565,45 @@
 		}
 
 		.title-wrapper {
-			cursor: default;
-			opacity: 0;
+			padding-bottom: 5em;
+
+			.project-question {
+				color: $brand-color;
+			}
+
+			.project-meta {
+				opacity: 0.75;
+			}
+
+			hr {
+				 bottom: 0;
+				 opacity: 0;
+			}
 		}
 
-		.slideshow-nav-container {
+		&:hover {
+			.title-wrapper {
+				.project-question {
+					strong {
+						color: $brand-color;
+					}
+				}
+			}
+		}
+	}
+
+	&.slider-show {
+		&.snippet .project-image {
+			max-height: 18.8em;
+		}
+
+		.slider-show-btn {
+			background-image: url('/assets/images/icons/minimizer.svg');
+		}
+
+		.slideshow-initiated {
 			opacity: 1;
+			top: 15em;
 			@include media-query($on-680) {
 				left: 1em;
 				top: 1em;
