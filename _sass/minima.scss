@@ -79,12 +79,12 @@ $snippet-height:   4.75em !default;
 }
 
 
-@mixin transform-transition {
-  -webkit-transition: -webkit-transform $transition-time ease;
-  -moz-transition: -moz-transform $transition-time ease;
-  -ms-transition: -ms-transform $transition-time ease;
-  -o-transition: -o-transform $transition-time ease;
-  transition: transform $transition-time ease;
+@mixin opacity-transition($interval) {
+  -webkit-transition: -webkit-opacity $interval ease;
+  -moz-transition: -moz-opacity $interval ease;
+  -ms-transition: -ms-opacity $interval ease;
+  -o-transition: -o-opacity $interval ease;
+  transition: opacity $interval ease;
 }
 
 // Import partials.

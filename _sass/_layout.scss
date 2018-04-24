@@ -308,6 +308,20 @@
 				font-size: 1em;
 			}
 
+			.project-headline {
+				font-size: 1.3em;
+				line-height: 1.5em;
+				margin-bottom: 1em;
+				display: none;
+				@include media-query($on-680) {
+					display: block;
+				}
+
+				strong {
+					color: $brand-color;
+				}
+			}
+
 			strong {
 				font-weight: $font-semi-bold;
 				color: $brand-color2;
@@ -323,77 +337,15 @@
 		}
 	}
 
-	.slider-nav-container {
-		position: absolute;
-		right: 1em;
-		display: none;
-		z-index: 100;
-
-		&.slideshow-initiated {
-			opacity: 0;
-			display: block;
-			top: -3em;
-			@include all-transition($transition-time);
-		}
-
-		.slider-nav {
-			display: inline-block;
-			position: relative;
-			cursor: pointer;
-			width: 2em;
-			height: 2em;
-			margin-right: 0.5em;
-			background-color: rgba($background-color, 0.95);
-			border: 1px solid $project-border;
-			border-radius: 20%;
-
-			i {
-				position: absolute;
-				margin-top: 16px;
-				right: 50%;
-
-				&:before , &:after {
-					content: "";
-					@include all-transition(0.4s);
-					position: absolute;
-					background-color: $brand-color;
-					width: 4px;
-					height: 11px;
-				}
-
-				&:before {
-					transform: translate( -3px , 0 ) rotate( 45deg );
-				}
-
-				&:after {
-					transform: translate( 3px , 0 ) rotate( -45deg );
-				}
-			}
-
-			&.nav-left {
-				i {
-					transform: translate( -6px , 2px ) rotate( -90deg );
-				}
-			}
-
-			&.nav-right {
-				i {
-					transform: translate( 6px , -2px ) rotate( 90deg );
-				}
-			}
-
-			&.disabled-btn {
-				opacity: 0.5;
-				border-color: transparent;
-			}
-		}
-	}
-
 	&.snippet {
 		margin-bottom: 0;
 		min-height: $snippet-height;
 		@include media-query($on-680) {
 			margin-bottom: 1em;
+		}
+
+		.snippet-top {
+			position: relative;
 		}
 
 		.project-image {
@@ -476,6 +428,71 @@
 			}
 		}
 
+		.slider-nav-container {
+			position: absolute;
+			right: 1em;
+			bottom: 1em;
+			z-index: 100;
+			visibility: hidden;
+
+			.slider-nav {
+				display: inline-block;
+				position: relative;
+				cursor: pointer;
+				width: 2em;
+				height: 2em;
+				margin-right: 0.5em;
+				background-color: rgba($background-color, 0.95);
+				border: 1px solid $project-border;
+				border-radius: 20%;
+
+				i {
+					position: absolute;
+					margin-top: 16px;
+					right: 50%;
+
+					&:before , &:after {
+						content: "";
+						@include all-transition(0.4s);
+						position: absolute;
+						background-color: $brand-color;
+						width: 4px;
+						height: 11px;
+					}
+
+					&:before {
+						transform: translate( -3px , 0 ) rotate( 45deg );
+					}
+
+					&:after {
+						transform: translate( 3px , 0 ) rotate( -45deg );
+					}
+				}
+
+				&.nav-left {
+					i {
+						transform: translate( -6px , 2px ) rotate( -90deg );
+					}
+				}
+
+				&.nav-right {
+					i {
+						transform: translate( 6px , -2px ) rotate( 90deg );
+					}
+				}
+
+				&.disabled-btn {
+					opacity: 0.5;
+					border-color: transparent;
+				}
+			}
+		}
+
+		.slideshow-initiated {
+			opacity: 0;
+			@include all-transition($transition-time);
+		}
+
 		.slider-show-btn {
 			position: absolute;
 			right: 1.5em;
@@ -511,6 +528,9 @@
 			visibility: hidden;
 			cursor: pointer;
 			background-color: $background-color;
+			@include media-query($on-680) {
+				right: -0.8em;
+			}
 
 			i {
 				position: absolute;
@@ -562,9 +582,14 @@
 			@include all-transition(0.3s);
 		}
 
-		.slider-show-btn, .snippet-close-btn {
+		.slider-show-btn {
 			visibility: visible;
 			@include all-transition(0.4s);
+		}
+
+		.snippet-close-btn {
+			visibility: visible;
+			@include opacity-transition(0.4s);
 		}
 
 		.title-wrapper .project-meta.meta-ready {
@@ -582,8 +607,10 @@
 				position: 0%;
 				size: cover;
 			}
-			@include media-query($on-680) {
-				max-height: calc(18.5em * 0.85);
+
+			.question-wrapper {
+				opacity: 0;
+				bottom: 0;
 			}
 		}
 
@@ -611,7 +638,7 @@
 			}
 
 			.meta-ready {
-				opacity: 0.75;
+				opacity: 0.85;
 			}
 
 			hr {
@@ -633,7 +660,7 @@
 
 	&.slider-show {
 		&.snippet .project-image {
-			max-height: 18.8em;
+			padding-top: 55.8%;
 		}
 
 		.slider-show-btn {
@@ -645,11 +672,7 @@
 
 		.slideshow-initiated {
 			opacity: 1;
-			top: 15em;
-			@include media-query($on-680) {
-				left: 1em;
-				top: 1em;
-			}
+			visibility: visible;
 		}
 	}
 

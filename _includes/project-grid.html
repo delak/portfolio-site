@@ -41,23 +41,26 @@
         {% if printable == true and x.card == 'snippet' %}
         <div class="{{ x.shortcode }} project snippet" style="order: {{ x.order }}">
           <div class="snippet-body">
-            <div class="project-image" data-images="{{ x.slider-images }}" data-this-image="0" style="background-position: 0">
-              <div class="question-wrapper">
-                <span class="project-question">
-                  {{ x.question }}
-                </span>
+            <div class="snippet-top">
+              <div class="project-image" data-images="{{ x.slider-images }}" data-this-image="0" style="background-position: 0">
+                <div class="question-wrapper">
+                  <span class="project-question">
+                    {{ x.question }}
+                  </span>
+                </div>
               </div>
+              <div class="slider-nav-container">
+                <div class="slider-nav nav-left disabled-btn"><i></i></div>
+                <div class="slider-nav nav-right"><i></i></div>
+              </div>
+              <div class="slider-show-btn"></div>
             </div>
             <div class="project-label">
               <div class="project-label__body">
+                <div class="project-headline">{{ x.question }}</div>
                 {{ x.intro }}
               </div>
             </div>
-            <div class="slider-nav-container">
-              <div class="slider-nav nav-left disabled-btn"><i></i></div>
-              <div class="slider-nav nav-right"><i></i></div>
-            </div>
-            <div class="slider-show-btn"></div>
           </div>
           <div class="title-wrapper">
             <span class="project-question">{{ x.question }}</span>
