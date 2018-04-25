@@ -417,7 +417,7 @@
 				}
 
 				span {
-					display: inline-block;
+					display: block;
 					margin-bottom: 0.3em;
 				}
 			}
@@ -452,10 +452,10 @@
 					position: absolute;
 					margin-top: 16px;
 					right: 50%;
+					@include all-transition(0.2s);
 
-					&:before , &:after {
+					&:before, &:after {
 						content: "";
-						@include all-transition(0.4s);
 						position: absolute;
 						background-color: $brand-color;
 						width: 4px;
@@ -486,6 +486,26 @@
 				&.disabled-btn {
 					opacity: 0.5;
 					border-color: transparent;
+				}
+
+				&:hover {
+					i {
+						&:before, &:after {
+							background-color: $link-hover-color;
+						}
+					}
+
+					&.nav-left {
+						i {
+							transform: translate( -9px , 2px ) rotate( -90deg );
+						}
+					}
+
+					&.nav-right {
+						i {
+							transform: translate( 9px , -2px ) rotate( 90deg );
+						}
+					}
 				}
 			}
 		}
