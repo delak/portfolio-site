@@ -302,7 +302,7 @@
 			@include all-transition($transition-time);
 			@include media-query($content-width) {
 				column-count: 1;
-				font-size: 2.1vw;
+				font-size: 1.8vw;
 			}
 			@include media-query($on-780) {
 				font-size: 1em;
@@ -338,7 +338,6 @@
 	}
 
 	&.snippet {
-		margin-bottom: 0;
 		min-height: $snippet-height;
 		@include media-query($on-680) {
 			margin-bottom: 1em;
@@ -349,7 +348,10 @@
 		}
 
 		.project-image {
-			max-height: $snippet-height;
+			//max-height: $snippet-height;
+			cursor: default;
+			padding-top: 55.8%;
+			height: 0;
 			background-position: left;
 			border: 2px solid $project-border;
 
@@ -384,34 +386,34 @@
 
 		.title-wrapper {
 			display: inline-block;
-			max-height: $snippet-height;
-			line-height: $snippet-height;
+			//max-height: $snippet-height;
+			//line-height: $snippet-height;
 			margin-top: -1em;
 			padding: 1.5em 0;
-			position: relative;
+			//position: relative;
 			@include media-query($on-680) {
 				display: none;
 			}
 
 			.project-question {
 				cursor: pointer;
-				display: inline-block;
-				vertical-align: middle;
-				margin-top: -1em;
-				font-size: 1em;
+			//	display: inline-block;
+				//vertical-align: middle;
+				//margin-top: -1em;
+				font-size: 1.2em;
 			}
 
 			.project-meta {
 				font-size: 0.9em;
 				line-height: 1.4em;
 				margin-bottom: 1em;
-				margin-top: 0.1em;
+				margin-top: 1.6em;
 				padding-top: 1.6em;
-				opacity: 0;
+				opacity: 0.85;
 				border-top: 1px solid $project-border;
 
 				&.meta-ready {
-					display: none;
+					//display: none;
 				}
 
 				span {
@@ -489,20 +491,21 @@
 		}
 
 		.slideshow-initiated {
-			opacity: 0;
+			//opacity: 0;
+			visibility: visible;
 			@include all-transition($transition-time);
 		}
 
 		.slider-show-btn {
 			position: absolute;
-			right: 1.5em;
-			top: 1.5em;
-			width: 0.4em;
-			height: 0.4em;
-			opacity: 0;
+			right: 1.4em;
+			top: 1.4em;
+			width: 1.8em;
+			height: 1.8em;
+			//opacity: 0;
 			border-radius: 20%;
 			z-index: 500;
-			visibility: hidden;
+			//visibility: hidden;
 			cursor: pointer;
 			background: {
 				image: url('/assets/images/icons/expander.svg');
@@ -510,9 +513,6 @@
 				size: 60%;
 				position: center;
 				repeat: no-repeat;
-			}
-			@include media-query($on-680) {
-				right: -0.6em;
 			}
 		}
 
@@ -558,6 +558,11 @@
 	}
 
 	&:hover {
+		.project-image {
+			background-color: transparent;
+			transform: scale(1.06);
+		}
+
 		&.snippet .project-image {
 			background-position: center 45%;
 			transform: none;
@@ -599,7 +604,7 @@
 	}
 
 	&.snippet-show {
-		margin: 30px 0;
+		//margin: 30px 0;
 
 		&.snippet .project-image {
 			background: {
@@ -617,9 +622,9 @@
 		.slider-show-btn {
 			right: 1.4em;
 			top: 1.4em;
-			width: 2em;
-			height: 2em;
-			opacity: 1;
+			width: 1.8em;
+			height: 1.8em;
+			background-image: url('/assets/images/icons/minimizer.svg');
 		}
 
 		.snippet-close-btn {
