@@ -16,7 +16,8 @@ $(document).ready(function() {
     $(this).snippetClick();
   });
 
-  pi.click(function() {
+/*  pi.click(function() {
+    $(this).snippetClick();
     var thisSnippet = $(this).closest('.snippet');
 
     if (thisSnippet.hasClass('snippet-show')) {
@@ -24,7 +25,7 @@ $(document).ready(function() {
     } else {
       $(this).snippetClick();
     }
-  });
+  });*/
 
   hb.click(function() {
     sh.toggleClass('toggle-menu');
@@ -71,8 +72,7 @@ $(document).ready(function() {
   });
 
   ssb.click(function() {
-    var thisSnippet = $(this).closest('.snippet');
-    thisSnippet.toggleClass('slider-show');
+    $(this).snippetClick();
   });
 
   scb.click(function() {
