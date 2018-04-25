@@ -510,8 +510,8 @@
 			background: {
 				image: url('/assets/images/icons/expander.svg');
 				color: $background-color;
-				size: 60%;
-				position: center;
+				size: 145%;
+				position: 0.375em center;
 				repeat: no-repeat;
 			}
 		}
@@ -589,7 +589,6 @@
 
 		.slider-show-btn {
 			visibility: visible;
-			@include all-transition(0.4s);
 		}
 
 		.snippet-close-btn {
@@ -624,7 +623,9 @@
 			top: 1.4em;
 			width: 1.8em;
 			height: 1.8em;
-			background-image: url('/assets/images/icons/minimizer.svg');
+			background: {
+				position: -1.1em center;
+			}
 		}
 
 		.snippet-close-btn {
