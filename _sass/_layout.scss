@@ -388,8 +388,8 @@
 			display: inline-block;
 			//max-height: $snippet-height;
 			//line-height: $snippet-height;
-			margin-top: -1em;
-			padding: 1.5em 0;
+			//margin-top: -1em;
+			padding: 1.8em 0 1.5em;
 			//position: relative;
 			@include media-query($on-680) {
 				display: none;
@@ -497,13 +497,13 @@
 
 					&.nav-left {
 						i {
-							transform: translate( -9px , 2px ) rotate( -90deg );
+							transform: translate( -8px , 2px ) rotate( -90deg );
 						}
 					}
 
 					&.nav-right {
 						i {
-							transform: translate( 9px , -2px ) rotate( 90deg );
+							transform: translate( 8px , -2px ) rotate( 90deg );
 						}
 					}
 				}
@@ -527,11 +527,12 @@
 			z-index: 500;
 			//visibility: hidden;
 			cursor: pointer;
+			@include all-transition(0.2s);
 			background: {
 				image: url('/assets/images/icons/expander.svg');
 				color: $background-color;
-				size: 145%;
-				position: 0.375em center;
+				size: 60%;
+				position: 0.375em -1.1em;
 				repeat: no-repeat;
 			}
 		}
@@ -644,7 +645,7 @@
 			width: 1.8em;
 			height: 1.8em;
 			background: {
-				position: -1.1em center;
+				position: 0.375em 0.4em;
 			}
 		}
 
@@ -1459,30 +1460,6 @@
 
 	.new-section {
 		margin-top: 120px;
-	}
-
-	.section-intro {
-		margin-top: 60px;
-		font-size: 20px;
-
-		h2 {
-			font: {
-				weight: $font-regular;
-				size: 1.25em;
-			}
-			color: $brand-color;
-			margin-bottom: 10px;
-			padding-bottom: 3px;
-			border-bottom: 1px solid rgba(79, 93, 117, 0.2);
-			display: inline-block;
-		}
-
-		p {
-			font: {
-				weight: $font-regular;
-			}
-			line-height: 32px;
-		}
 	}
 
 	.testimonial-quote {
