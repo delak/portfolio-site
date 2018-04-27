@@ -334,6 +334,12 @@
 					margin-bottom: 0;
 				}
 			}
+
+			mark {
+				padding: 0;
+			  background-color: transparent;
+			  color: $brand-color4;
+			}
 		}
 	}
 
@@ -348,7 +354,6 @@
 		}
 
 		.project-image {
-			//max-height: $snippet-height;
 			cursor: default;
 			padding-top: 55.8%;
 			height: 0;
@@ -386,20 +391,13 @@
 
 		.title-wrapper {
 			display: inline-block;
-			//max-height: $snippet-height;
-			//line-height: $snippet-height;
-			//margin-top: -1em;
 			padding: 1.8em 0 1.5em;
-			//position: relative;
 			@include media-query($on-680) {
 				display: none;
 			}
 
 			.project-question {
 				cursor: pointer;
-			//	display: inline-block;
-				//vertical-align: middle;
-				//margin-top: -1em;
 				font-size: 1.2em;
 			}
 
@@ -411,10 +409,6 @@
 				padding-top: 1.6em;
 				opacity: 0.85;
 				border-top: 1px solid $project-border;
-
-				&.meta-ready {
-					//display: none;
-				}
 
 				span {
 					display: block;
@@ -511,7 +505,6 @@
 		}
 
 		.slideshow-initiated {
-			//opacity: 0;
 			visibility: visible;
 			@include all-transition($transition-time);
 		}
@@ -522,10 +515,8 @@
 			top: 1.4em;
 			width: 1.8em;
 			height: 1.8em;
-			//opacity: 0;
 			border-radius: 20%;
 			z-index: 500;
-			//visibility: hidden;
 			cursor: pointer;
 			@include all-transition(0.2s);
 			background: {
@@ -624,7 +615,6 @@
 	}
 
 	&.snippet-show {
-		//margin: 30px 0;
 
 		&.snippet .project-image {
 			background: {
