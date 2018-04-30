@@ -553,6 +553,35 @@
 				color: $link-hover-color;
 			}
 		}
+
+		.snippet-top .slider-show-btn {
+			display: none;
+			position: absolute;
+			right: 1.4em;
+			top: 1.4em;
+
+			.show-btn-icon {
+				top: 0;
+				width: 1.8em;
+				height: 1.8em;
+				background: {
+					image: url('/assets/images/icons/expander_white.svg');
+					color: $brand-color;
+					size: 60%;
+					position: 0.375em -1.1em;
+					repeat: no-repeat;
+				}
+				border-radius: 20%;
+			}
+
+			@include media-query($on-680) {
+				display: block;
+			}
+
+			&:after {
+				content: "";
+			}
+		}
 	}
 
 	&:hover {
@@ -607,6 +636,21 @@
 
 			&:after {
 				content: "Hide description";
+			}
+		}
+
+		.snippet-top .slider-show-btn {
+
+			.show-btn-icon {
+				background-position: 0.375em 0.4em;
+			}
+
+			@include media-query($on-680) {
+				display: block;
+			}
+
+			&:after {
+				content: "";
 			}
 		}
 
