@@ -3,29 +3,15 @@ $(document).ready(function() {
   var hs = $('.hello-section');
   var snippet = $('.snippet');
   var snippet_width = 624;
-  var pq = $('.snippet .title-wrapper .project-question');
-  var pi = $('.snippet .project-image');
+  var show_btn = $('.slider-show-btn');
   var pl = $('.snippet .project-label');
   var hb = $('.hamburger');
   var nl = $('.nav-left');
   var nr = $('.nav-right');
-  var ssb = $('.slider-show-btn');
-  var scb = $('.snippet-close-btn');
 
-  pq.click(function() {
+  show_btn.click(function() {
     $(this).snippetClick();
   });
-
-/*  pi.click(function() {
-    $(this).snippetClick();
-    var thisSnippet = $(this).closest('.snippet');
-
-    if (thisSnippet.hasClass('snippet-show')) {
-      thisSnippet.toggleClass('slider-show');
-    } else {
-      $(this).snippetClick();
-    }
-  });*/
 
   hb.click(function() {
     sh.toggleClass('toggle-menu');
@@ -69,14 +55,6 @@ $(document).ready(function() {
         $(this).addClass('disabled-btn');
       }
     }
-  });
-
-  ssb.click(function() {
-    $(this).snippetClick();
-  });
-
-  scb.click(function() {
-    $(this).snippetClick();
   });
 
 

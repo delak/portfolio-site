@@ -200,8 +200,12 @@
 		}
 
 		a {
-			color: $brand-color4;
+			color: $brand-color;
 			border: none;
+
+			&:hover {
+				color: $link-hover-color;
+			}
 		}
 
 		.link-arrow {
@@ -209,7 +213,8 @@
 				weight: $font-regular;
 				size: 1.2em;
 			}
-			color: $brand-color;
+			margin-left: 0.25em;
+			color: $brand-color4;
 			border: none;
 			@include all-transition($transition-time);
 		}
@@ -397,7 +402,6 @@
 			}
 
 			.project-question {
-				cursor: pointer;
 				font-size: 1.2em;
 			}
 
@@ -420,7 +424,7 @@
 				margin: 0;
 				position: absolute;
 				bottom: 0.75em;
-				width: 100%
+				width: 100%;
 			}
 		}
 
@@ -438,8 +442,7 @@
 				width: 2em;
 				height: 2em;
 				margin-right: 0.5em;
-				background-color: rgba($background-color, 0.95);
-				border: 1px solid $project-border;
+				background-color: rgba($brand-color, 0.95);
 				border-radius: 20%;
 
 				i {
@@ -451,7 +454,7 @@
 					&:before, &:after {
 						content: "";
 						position: absolute;
-						background-color: $brand-color;
+						background-color: $background-color;
 						width: 4px;
 						height: 11px;
 					}
@@ -478,14 +481,14 @@
 				}
 
 				&.disabled-btn {
-					opacity: 0.5;
-					border-color: transparent;
+					opacity: 0.7;
+					background-color: $link-hover-color;
 				}
 
 				&:hover {
 					i {
 						&:before, &:after {
-							background-color: $link-hover-color;
+
 						}
 					}
 
@@ -493,11 +496,23 @@
 						i {
 							transform: translate( -8px , 2px ) rotate( -90deg );
 						}
+
+						&.disabled-btn {
+							i {
+								transform: translate( -6px , 2px ) rotate( -90deg );
+							}
+						}
 					}
 
 					&.nav-right {
 						i {
 							transform: translate( 8px , -2px ) rotate( 90deg );
+						}
+
+						&.disabled-btn {
+							i {
+								transform: translate( 6px , -2px ) rotate( 90deg );
+							}
 						}
 					}
 				}
@@ -510,61 +525,32 @@
 		}
 
 		.slider-show-btn {
-			position: absolute;
-			right: 1.4em;
-			top: 1.4em;
-			width: 1.8em;
-			height: 1.8em;
-			border-radius: 20%;
+			display: inline-block;
 			z-index: 500;
 			cursor: pointer;
-			@include all-transition(0.2s);
-			background: {
-				image: url('/assets/images/icons/expander.svg');
-				color: $background-color;
-				size: 60%;
-				position: 0.375em -1.1em;
-				repeat: no-repeat;
-			}
-		}
+			color: $brand-color;
 
-		.snippet-close-btn {
-			position: absolute;
-			right: calc(33.3333333333% + 0.25em);
-			top: -0.8em;
-			width: 1.6em;
-			height: 1.6em;
-			opacity: 0;
-			border-radius: 50%;
-			z-index: 500;
-			visibility: hidden;
-			cursor: pointer;
-			background-color: $background-color;
-			@include media-query($on-680) {
-				right: -0.8em;
+			.show-btn-icon {
+				display: inline-block;
+				position: relative;
+				top: 0.4em;
+				width: 1.5em;
+				height: 1.5em;
+				@include all-transition(0.2s);
+				background: {
+					image: url('/assets/images/icons/expander.svg');
+					size: 65%;
+					position: 0 -1.08em;
+					repeat: no-repeat;
+				}
 			}
 
-			i {
-				position: absolute;
-				margin-top: 16px;
-				right: 50%;
+			&:after {
+				content: "Show description";
+			}
 
-				&:before , &:after {
-					content: "";
-					@include all-transition(0.4s);
-					position: absolute;
-					background-color: $brand-color;
-					width: 0.19em;
-					height: 0.875em;
-				}
-
-				&:before {
-					transform: translate( -0.1em , -0.65em ) rotate( 45deg );
-				}
-
-				&:after {
-					transform: translate( -0.1em , -0.65em ) rotate( -45deg );
-				}
+			&:hover {
+				color: $link-hover-color;
 			}
 		}
 	}
@@ -580,14 +566,6 @@
 			transform: none;
 		}
 
-		.title-wrapper {
-			.project-question {
-				strong {
-					color: $link-hover-color;
-				}
-			}
-		}
-
 		.link-arrow {
 			margin-left: 0.5em;
 		}
@@ -597,15 +575,6 @@
 		.project-label {
 			display: block;
 			@include all-transition(0.3s);
-		}
-
-		.slider-show-btn {
-			visibility: visible;
-		}
-
-		.snippet-close-btn {
-			visibility: visible;
-			@include opacity-transition(0.4s);
 		}
 
 		.title-wrapper .project-meta.meta-ready {
@@ -630,17 +599,15 @@
 		}
 
 		.slider-show-btn {
-			right: 1.4em;
-			top: 1.4em;
-			width: 1.8em;
-			height: 1.8em;
-			background: {
-				position: 0.375em 0.4em;
+			.show-btn-icon {
+				background: {
+					position: 0 0.25em;
+				}
 			}
-		}
 
-		.snippet-close-btn {
-			opacity: 1;
+			&:after {
+				content: "Hide description";
+			}
 		}
 
 		.project-label {
@@ -672,24 +639,6 @@
 					}
 				}
 			}
-		}
-	}
-
-	&.slider-show {
-		&.snippet .project-image {
-			padding-top: 55.8%;
-		}
-
-		.slider-show-btn {
-			background: {
-				image: url('/assets/images/icons/minimizer.svg');
-				color: transparent;
-			}
-		}
-
-		.slideshow-initiated {
-			opacity: 1;
-			visibility: visible;
 		}
 	}
 
