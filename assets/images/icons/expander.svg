@@ -4,19 +4,19 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="100px" height="240px" viewBox="0 0 100 240" enable-background="new 0 0 100 240" xml:space="preserve">
 <g>
-	<rect x="10" y="149.2" fill="#C55528" width="55" height="8"/>
-	<rect x="10" y="167.6" fill="#C55528" width="80" height="8"/>
-	<rect x="10" y="186" fill="#C55528" width="60" height="8"/>
-	<rect x="10" y="204.4" fill="#C55528" width="75" height="8"/>
-	<rect x="10" y="222.8" fill="#C55528" width="55" height="8"/>
+	<rect x="10" y="149.2" fill="#48556B" width="55" height="8"/>
+	<rect x="10" y="167.6" fill="#48556B" width="80" height="8"/>
+	<rect x="10" y="186" fill="#48556B" width="60" height="8"/>
+	<rect x="10" y="204.4" fill="#48556B" width="75" height="8"/>
+	<rect x="10" y="222.8" fill="#48556B" width="55" height="8"/>
 </g>
-<rect x="10" y="9.2" fill="#C55528" width="55" height="8"/>
-<polygon fill="#C55528" points="10,27.6 10,35.6 47.344,35.6 55.344,27.6 "/>
-<polygon fill="#C55528" points="90,35.6 90,27.6 89.457,27.6 81.457,35.6 "/>
-<polygon fill="#C55528" points="70,54 70,47.057 63.057,54 "/>
-<polygon fill="#C55528" points="10,46 10,54 28.943,54 36.943,46 "/>
-<polygon fill="#C55528" points="10,64.4 10,72.4 10.543,72.4 18.543,64.4 "/>
-<polygon fill="#C55528" points="85,72.4 85,64.4 52.657,64.4 44.657,72.4 "/>
-<polygon fill="#C55528" points="65,90.8 65,82.8 34.257,82.8 26.257,90.8 "/>
-<rect x="44.939" y="-11.491" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 50 120.7107)" fill="#C55528" width="10.122" height="122.981"/>
+<rect x="10" y="9.2" fill="#48556B" width="55" height="8"/>
+<polygon fill="#48556B" points="10,27.6 10,35.6 47.344,35.6 55.344,27.6 "/>
+<polygon fill="#48556B" points="90,35.6 90,27.6 89.457,27.6 81.457,35.6 "/>
+<polygon fill="#48556B" points="70,54 70,47.057 63.057,54 "/>
+<polygon fill="#48556B" points="10,46 10,54 28.943,54 36.943,46 "/>
+<polygon fill="#48556B" points="10,64.4 10,72.4 10.543,72.4 18.543,64.4 "/>
+<polygon fill="#48556B" points="85,72.4 85,64.4 52.657,64.4 44.657,72.4 "/>
+<polygon fill="#48556B" points="65,90.8 65,82.8 34.257,82.8 26.257,90.8 "/>
+<rect x="44.939" y="-11.489" transform="matrix(0.7071 0.7071 -0.7071 0.7071 50.0006 -20.7101)" fill="#48556B" width="10.122" height="122.98"/>
 </svg>
