@@ -14,6 +14,17 @@
     {% if printable == true %}
       {% if p.card == 'case' %}
       <div class="{{ p.shortcode }} project card-only" style="order: {{ p.order }}">
+        <div class="title-wrapper">
+          <a class="title-card-outline" href="{{ p.url }}">
+            <span class="project-question">{{ p.question }}</span>
+            <div class="case-study-label">Case Study</div>
+            <div class="project-meta">
+              <div class="project-title">{{ p.projectname }}</div>
+              <!--  <div><strong>Client:</strong> {{ p.client }}</div>-->
+              <div><strong>Role:</strong> {{ p.role }}</div>
+          </div>
+          </a>
+        </div>
         <a class="project-link" href="{{ p.url }}">
           <div class="project-image">
             <div class="question-wrapper">
@@ -21,10 +32,6 @@
             </div>
           </div>
         </a>
-        <div class="title-wrapper">
-          <div class="project-question">{{ p.question }}</div>
-          <a href="{{ p.url }}">{{ p.projectname }}</a>&nbsp;<span class="link-arrow">»</span>
-        </div>
       </div>
       {% endif %}
     {% endif %}
@@ -39,6 +46,15 @@
       {% for x in site.pages %}
         {% if printable == true and x.card == 'snippet' %}
         <div class="{{ x.shortcode }} project snippet" style="order: {{ x.order }}">
+          <div class="title-wrapper">
+            <div class="project-question">{{ x.question }}</div>
+            <div class="slider-show-btn"><div class="show-btn-icon"></div></div>
+          <!--  <div class="project-meta">
+              <span><strong>Client:</strong> {{ x.client }}</span>
+              <span><strong>Role:</strong> {{ x.role }}</span>
+              <span><strong>Date:</strong> {{ x.dates }}</span>
+            </div> -->
+          </div>
           <div class="snippet-body">
             <div class="snippet-top">
               <div class="project-image" data-images="{{ x.slider-images }}" data-this-image="0" style="background-position: 0">
@@ -59,15 +75,6 @@
                 <div class="project-headline">{{ x.question }}</div>
                 {{ x.intro }}
               </div>
-            </div>
-          </div>
-          <div class="title-wrapper">
-            <div class="project-question">{{ x.question }}</div>
-            <div class="slider-show-btn"><div class="show-btn-icon"></div></div>
-            <div class="project-meta">
-              <span><strong>Client:</strong> {{ x.client }}</span>
-              <span><strong>Date:</strong> {{ x.dates }}</span>
-              <span><strong>Role:</strong> {{ x.role }}</span>
             </div>
           </div>
         </div>

@@ -5,6 +5,8 @@ $(document).ready(function() {
   var snippet_width = 624;
   var show_btn = $('.slider-show-btn');
   var pl = $('.snippet .project-label');
+  var plpi = $('.project-link .project-image');
+  var tco = $('.title-card-outline');
   var hb = $('.hamburger');
   var nl = $('.nav-left');
   var nr = $('.nav-right');
@@ -56,6 +58,19 @@ $(document).ready(function() {
       }
     }
   });
+
+  plpi.hover(function() { 
+    $(this).closest('.project').addClass('hover-project');
+    }, function(){
+    $(this).closest('.project').removeClass('hover-project');
+  });
+
+  tco.hover(function() {
+    $(this).closest('.project').addClass('hover-project');
+    }, function(){
+    $(this).closest('.project').removeClass('hover-project');
+  });
+
 
 
   $.fn.snippetClick = function() {
