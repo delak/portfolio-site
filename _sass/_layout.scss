@@ -25,7 +25,7 @@
 		.hello-intro {
 			font: {
 				family: $display-font-family;
-				size: 3.8em;
+				size: 3.5em;
 				weight: $font-light;
 			}
 			margin-bottom: calc(2 * #{$grid-height});
@@ -117,15 +117,6 @@
 		width: auto;
 		justify-content: space-between;
 		clear: both;
-
-		&.snippets {
-			-ms-flex-flow: column nowrap;
-			-webkit-flex-flow: column nowrap;
-			flex-flow: column nowrap;
-			justify-content: flex-start;
-			margin: 0 -20px;
-			overflow: hidden;
-		}
 	}
 
 	.snippets-intro {
@@ -140,18 +131,17 @@
 	.snippet-box {
 		width: 100%;
 		margin-top: $global-padding;
-		margin-bottom: 80px;
 		display: -webkit-flex;
 		display: flex;
 		-ms-flex-flow: column wrap;
 		-webkit-flex-flow: column wrap;
 		flex-flow: column wrap;
+		position: relative;
 	}
 }
 
 /* #PROJECT-THUMBNAILS-generator */
 .project {
-	position: relative;
 	margin-bottom: 140px;
 	width: 100%;
 	height: 100%;
@@ -165,7 +155,7 @@
 	align-items: flex-start;
 	@include all-transition($transition-time);
 
-	a, .snippet-body {
+	a, .snippet-body-container {
 		width: calc(66.66666666666% - 1em);
 		height: 100%;
 		@include media-query($on-680) {
@@ -176,15 +166,7 @@
 	.project-link {
 		overflow: hidden;
 		box-sizing: border-box;
-		border: 2px solid $project-border;
-	}
-
-	.snippet-body {
-		box-sizing: border-box;
-		overflow: hidden;
-		min-height: $snippet-height;
-		position: relative;
-		@include all-transition($transition-time);
+		border: 1px solid $project-border;
 	}
 
 	.title-wrapper {
@@ -203,7 +185,7 @@
 			top: -1em;
 			left: -1.5em;
 			padding: 1em 30% 1.8em 1.8em;
-			border: 2px solid $project-border;
+			border: 1px solid $project-border;
 			width: 100%;
 			@include all-transition($transition-time);
 		}
@@ -218,55 +200,13 @@
 			color: $project-border;
 			margin: 1.5em 0;
 		}
-
-		.case-study-label {
-			text-transform: uppercase;
-			color: $brand-color4;
-			font-size: 0.7em;
-			font-weight: 500;
-			margin-top: 2.5em;
-		}
-
 		.project-title {
 			font-weight: $font-semi-bold;
-
-		/*	&:after {
-				content: " »";
-				font: {
-					weight: $font-regular;
-					size: 1.2em;
-				}
-				margin-left: 0.25em;
-				color: $brand-color4;
-				border: none;
-				@include all-transition($transition-time);
-			} */
 		}
 
 		.project-meta {
 			color: $brand-color4;
 		}
-
-	/*	a {
-			display: block;
-			color: $brand-color;
-			border: none;
-
-			&:hover {
-				color: $link-hover-color;
-			}
-		}
-
-		.link-arrow {
-			font: {
-				weight: $font-regular;
-				size: 1.2em;
-			}
-			margin-left: 0.25em;
-			color: $brand-color4;
-			border: none;
-			@include all-transition($transition-time);
-		}*/
 	}
 
 	.project-image {
@@ -319,7 +259,7 @@
 					}
 
 					strong {
-						font-weight: $font-semi-bold;
+						font-weight: 500;
 						color: $brand-color;
 						@include all-transition($transition-time);
 					}
@@ -331,9 +271,8 @@
 	.project-label {
 		width: 100%;
 		z-index: -2;
-		background-color: rgba($brand-color3, 0.5);
+		background-color: $card-color;
 		transition: none;
-		display: none;
 
 		.project-label__body {
 			font: {
@@ -396,20 +335,58 @@
 		}
 	}
 
+	.case-study-tag {
+		text-transform: uppercase;
+		color: $brand-color4;
+		font-size: 0.7em;
+		font-weight: 500;
+		margin-top: 2.5em;
+	}
+
+	.project-question .case-study-tag {
+		font-size: 0.45em;
+		line-height: 1em;
+	}
+
 	&.hover-project {
 		.title-card-outline {
-			background-color: rgba($link-hover-color, 0.1);
+			background-color: $card-color;
 		}
 
 		.project-image {
 			transform: scale(1.06);
+			@include media-query($on-680) {
+				transform: none;
+			}
 		}
 	}
 
 	&.snippet {
 		min-height: $snippet-height;
+		margin-bottom: 0;
 		@include media-query($on-680) {
-			margin-bottom: 1em;
+			margin-bottom: 5em;
+		}
+
+		.snippet-body-container {
+			box-sizing: border-box;
+			min-height: $snippet-height;
+			position: absolute;
+			left: calc(33.3333333333333333% + 1em);
+			top: 0;
+			@include all-transition($transition-time);
+			@include media-query($on-680) {
+				position: relative;
+				left: 0;
+			}
+		}
+
+		.snippet-body {
+			display: none;
+			overflow: hidden;
+			@include media-query($on-680) {
+				display: block;
+			}
 		}
 
 		.snippet-top {
@@ -420,7 +397,7 @@
 			padding-top: 55.8%;
 			height: 0;
 			background-position: left;
-			border: 2px solid $project-border;
+			border: 1px solid $project-border;
 
 			.question-wrapper {
 				left: 2.5em;
@@ -452,28 +429,41 @@
 		}
 
 		.title-wrapper {
+			cursor: pointer;
 			display: inline-block;
-			padding: 1.0 0 1.5em;
+			padding: 1.1em 0.8em;
+			margin: 0;
+			width: calc(33.333333333333% - 1em - 1.6em);
+			border-bottom: 1px solid $project-border;
+			@include all-transition(0.4s);
 			@include media-query($on-680) {
 				display: none;
 			}
 
-			.project-question {
-				font-size: 1.3em;
-				margin-bottom: 0;
+			.arrow-right {
+			  width: 0;
+			  height: 0;
+				position: absolute;
+				right: -0.8em;
+				top: calc(50% - 0.8em);
+			  border-top: 0.8em solid transparent;
+			  border-bottom: 0.8em solid transparent;
+			  border-left: 0.8em solid transparent;
+				@include all-transition(0.4s);
 			}
 
-			.project-meta {
-				font-size: 0.9em;
-				line-height: 1.4em;
-				margin-bottom: 1em;
-				margin-top: 1.6em;
-				opacity: 0.85;
+			&:hover {
+				background-color: $card-color;
 
-				span {
-					display: block;
-					margin-bottom: 0.3em;
+				.arrow-right {
+					border-left-color: $card-color;
 				}
+			}
+
+			.project-question {
+				font-size: 1.1em;
+				margin-bottom: 0;
+				margin-top: -0.2em;
 			}
 
 			hr {
@@ -666,6 +656,33 @@
 				content: "";
 			}
 		}
+
+		.project-meta {
+			font-size: 0.9em;
+			line-height: 1.4em;
+			margin-bottom: 1em;
+			margin-top: 1.6em;
+			opacity: 0.85;
+
+			span {
+				display: block;
+				margin-bottom: 0.3em;
+			}
+		}
+
+		&.active-snippet {
+			.title-wrapper {
+				background-color: $card-color;
+
+				.arrow-right {
+					border-left-color: $card-color;
+				}
+			}
+
+			.snippet-body {
+				display: block;
+			}
+		}
 	}
 
 	&.animatable {
@@ -677,74 +694,6 @@
 		.title-wrapper .project-meta.meta-ready {
 			display: block;
 			@include all-transition(0.2s);
-		}
-	}
-
-	&.snippet-show {
-
-		&.snippet .project-image {
-			background: {
-				color: transparent;
-				position: 0%;
-				size: cover;
-			}
-
-			.question-wrapper {
-				opacity: 0;
-				bottom: 0;
-			}
-		}
-
-		.slider-show-btn {
-			.show-btn-icon {
-				background-position: 0 0.25em;
-			}
-
-			&:after {
-				content: "Hide description";
-			}
-		}
-
-		.snippet-top .slider-show-btn {
-
-			.show-btn-icon {
-				background-position: 0.375em 0.4em;
-			}
-
-			@include media-query($on-680) {
-				display: block;
-			}
-
-			&:after {
-				content: "";
-			}
-		}
-
-		.project-label {
-			margin-top: 0 !important;
-		}
-
-		.title-wrapper {
-			padding-bottom: 5em;
-
-			.meta-ready {
-				opacity: 0.85;
-			}
-
-			hr {
-				 bottom: 0;
-				 opacity: 0;
-			}
-		}
-
-		&:hover {
-			.title-wrapper {
-				.project-question {
-					strong {
-						color: $brand-color;
-					}
-				}
-			}
 		}
 	}
 
