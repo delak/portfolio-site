@@ -4,8 +4,7 @@
   background-color: $background-color;
 	min-height: 25em;
 	margin: 10em 0 6.25em;
-	display: -webkit-flex;
-	display: flex;
+	@include makeflex(row);
 	-webkit-box-align: flex-end;
 	-ms-flex-align: flex-end;
 	align-items: flex-end;
@@ -109,33 +108,30 @@
 	}
 
 	.project-thumbnails {
-		display: -webkit-flex;
-		display: flex;
-		-ms-flex-flow: row wrap;
-		-webkit-flex-flow: row wrap;
-		flex-flow: row wrap;
+		@include makeflex(row);
+		-webkit-box-lines: multiple;
+	  -moz-box-lines: multiple;
+	  -ms-flex-wrap: wrap;
+	  -webkit-flex-wrap: wrap;
+	  flex-wrap: wrap;
 		width: auto;
-		justify-content: space-between;
+		-webkit-box-pack: justify;
+	  -moz-box-pack: justify;
+	  -ms-flex-pack: justify;
+	  -webkit-justify-content: space-between;
+	  justify-content: space-between;
 		clear: both;
-	}
-
-	.snippets-intro {
-		width: calc(33.333333333333% - 1em);;
-		float: right;
-
-		hr {
-			margin: 3em 0 0.5em;
-		}
 	}
 
 	.snippet-box {
 		width: 100%;
 		margin-top: $global-padding;
-		display: -webkit-flex;
-		display: flex;
-		-ms-flex-flow: column wrap;
-		-webkit-flex-flow: column wrap;
-		flex-flow: column wrap;
+		@include makeflex(column);
+		-webkit-box-lines: multiple;
+	  -moz-box-lines: multiple;
+	  -ms-flex-wrap: wrap;
+	  -webkit-flex-wrap: wrap;
+	  flex-wrap: wrap;
 		position: relative;
 	}
 }
@@ -146,12 +142,15 @@
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
-	display: -webkit-flex;
-	display: flex;
+	@include makeflex(row);
 	-ms-flex-flow: row nowrap;
 	-webkit-flex-flow: row nowrap;
 	flex-flow: row nowrap;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 	align-items: flex-start;
 	@include all-transition($transition-time);
 
@@ -184,9 +183,10 @@
 			position: relative;
 			top: -1em;
 			left: -1.5em;
-			padding: 1em 30% 1.8em 1.8em;
+			padding: 1em 30% 1.8em 2em;
 			border: 1px solid $project-border;
 			width: 100%;
+			background-color: $background-color;
 			@include all-transition($transition-time);
 		}
 
@@ -240,7 +240,7 @@
 				.project-question {
 					font: {
 						family: $display-font-family;
-						size: 1.5em;
+						size: 1.7em;
 						weight: $font-regular;
 					}
 					color: $brand-color4;
@@ -271,7 +271,7 @@
 	.project-label {
 		width: 100%;
 		z-index: -2;
-		background-color: $card-color;
+		background-color: rgba($card-color, 0.6);
 		transition: none;
 
 		.project-label__body {
@@ -351,6 +351,11 @@
 	&.hover-project {
 		.title-card-outline {
 			background-color: $card-color;
+			border-color: transparent;
+
+			.project-question {
+				color: $brand-color;
+			}
 		}
 
 		.project-image {
@@ -384,6 +389,7 @@
 		.snippet-body {
 			display: none;
 			overflow: hidden;
+			border: 1px solid $project-border;
 			@include media-query($on-680) {
 				display: block;
 			}
@@ -397,7 +403,6 @@
 			padding-top: 55.8%;
 			height: 0;
 			background-position: left;
-			border: 1px solid $project-border;
 
 			.question-wrapper {
 				left: 2.5em;
@@ -444,19 +449,23 @@
 			  width: 0;
 			  height: 0;
 				position: absolute;
-				right: -0.8em;
-				top: calc(50% - 0.8em);
-			  border-top: 0.8em solid transparent;
-			  border-bottom: 0.8em solid transparent;
-			  border-left: 0.8em solid transparent;
+				right: -1em;
+				top: calc(50% - 1em);
+			  border-top: 1em solid transparent;
+			  border-bottom: 1em solid transparent;
+			  border-left: 1em solid transparent;
 				@include all-transition(0.4s);
 			}
 
 			&:hover {
 				background-color: $card-color;
 
+				.project-question {
+					color: $brand-color;
+				}
+
 				.arrow-right {
-					border-left-color: $card-color;
+					//border-left-color: $card-color;
 				}
 			}
 
@@ -674,6 +683,10 @@
 			.title-wrapper {
 				background-color: $card-color;
 
+				.project-question {
+					color: $brand-color;
+				}
+
 				.arrow-right {
 					border-left-color: $card-color;
 				}
@@ -714,11 +727,12 @@
 
 .bio-container {
 	margin: 0 -20px 0;
-	display: -webkit-flex;
-	display: flex;
-	-ms-flex-flow: row wrap;
-	-webkit-flex-flow: row wrap;
-	flex-flow: row wrap;
+	@include makeflex(row);
+	-webkit-box-lines: multiple;
+	-moz-box-lines: multiple;
+	-ms-flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
 
 	.headshot {
 		display: inline-block;
@@ -837,11 +851,12 @@
 
 		.services-container {
 			margin: 1.6em -0.6em 0.1em;
-			display: -webkit-flex;
-			display: flex;
-			-ms-flex-flow: row wrap;
-			-webkit-flex-flow: row wrap;
-			flex-flow: row wrap;
+			@include makeflex(row);
+			-webkit-box-lines: multiple;
+		  -moz-box-lines: multiple;
+		  -ms-flex-wrap: wrap;
+		  -webkit-flex-wrap: wrap;
+		  flex-wrap: wrap;
 			justify-content: flex-start;
 
 			.service-box {
@@ -851,14 +866,14 @@
 				padding: 0.7em 1.1em 0.4em;
 				box-sizing: border-box;
 				font-size: 0.9em;
-				background-color: lighten($brand-color, 51.5%);
+				background-color: $card-color;
 				flex: 1;
 
 				h4 {
 					font-weight: $font-semi-bold;
 					margin-bottom: 0.2em;
 					padding-bottom: 0.2em;
-					border-bottom: 1px dotted rgba($brand-color, 0.3);
+					border-bottom: 1px dotted rgba($brand-color4, 0.3);
 				}
 
 				p, li {
@@ -874,11 +889,12 @@
 		}
 
 		.logo-grid {
-			display: -webkit-flex;
-			display: flex;
-			-ms-flex-flow: row wrap;
-			-webkit-flex-flow: row wrap;
-			flex-flow: row wrap;
+			@include makeflex(row);
+			-webkit-box-lines: multiple;
+		  -moz-box-lines: multiple;
+		  -ms-flex-wrap: wrap;
+		  -webkit-flex-wrap: wrap;
+		  flex-wrap: wrap;
 			margin: 0 calc(-1 * 1.25em);
 			justify-content: flex-start;
 
@@ -903,8 +919,7 @@
 	clear: both;
 
 	.image-grid {
-		display: -webkit-flex;
-		display: flex;
+		@include makeflex(column);
 		-ms-flex-flow: column wrap;
 		-webkit-flex-flow: column wrap;
 		flex-flow: column wrap;
@@ -945,16 +960,6 @@
 				height: 100%;
 				border: none;
 			}
-		}
-	}
-
-	&.dribbble .image-grid {
-		-ms-flex-flow: row wrap;
-		-webkit-flex-flow: row wrap;
-		flex-flow: row wrap;
-		justify-content: flex-end;
-		@include media-query($on-540) {
-			justify-content: flex-start;
 		}
 	}
 }
@@ -1144,8 +1149,7 @@
 			border-left: 2px solid $brand-color3;
 			@include media-query($on-780) {
 				width: 100%;
-				display: -webkit-flex;
-				display: flex;
+				@include makeflex(row);
 				-ms-flex-flow: row nowrap;
 				-webkit-flex-flow: row nowrap;
 				flex-flow: row nowrap;
@@ -1520,12 +1524,17 @@
 		margin-bottom: 0;
 		@include project-sizer;
 		font-size: 1em;
-		display: -webkit-flex;
-		display: flex;
-		-ms-flex-flow: row wrap;
-		-webkit-flex-flow: row wrap;
-		flex-flow: row wrap;
-		justify-content: space-between;
+		@include makeflex(row);
+		-webkit-box-lines: multiple;
+	  -moz-box-lines: multiple;
+	  -ms-flex-wrap: wrap;
+	  -webkit-flex-wrap: wrap;
+	  flex-wrap: wrap;
+		-webkit-box-pack: justify;
+	  -moz-box-pack: justify;
+	  -ms-flex-pack: justify;
+	  -webkit-justify-content: space-between;
+	  justify-content: space-between;
 		@include media-query($on-680) {
 			-ms-flex-flow: column wrap;
 			-webkit-flex-flow: column wrap;
@@ -1638,11 +1647,12 @@
 		.project-thumbnails {
 			padding-bottom: 30px;
 			margin: 0 calc(-1 * #{$global-padding});
-			display: -webkit-flex;
-			display: flex;
-			-ms-flex-flow: row wrap;
-			-webkit-flex-flow: row wrap;
-			flex-flow: row wrap;
+			@include makeflex(row);
+			-webkit-box-lines: multiple;
+		  -moz-box-lines: multiple;
+		  -ms-flex-wrap: wrap;
+		  -webkit-flex-wrap: wrap;
+		  flex-wrap: wrap;
 			clear: both;
 
 			.project {
@@ -1722,7 +1732,11 @@
 		max-width: 30em;
 		margin-left: auto;
 	  margin-right: auto;
-		justify-content: space-between;
+		-webkit-box-pack: justify;
+	  -moz-box-pack: justify;
+	  -ms-flex-pack: justify;
+	  -webkit-justify-content: space-between;
+	  justify-content: space-between;
 
 		.contact-button {
       &::before {
