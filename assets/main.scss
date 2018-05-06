@@ -34,6 +34,6 @@
   {% endif %}
 {% endfor %}
 
-.snippet[style*="order: {{ snippet_count }}"] .title-wrapper hr {
-  display: none;
+.snippet[style*="order: {{ snippet_count }}"] .title-wrapper {
+  border: none;
 }

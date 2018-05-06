@@ -17,7 +17,7 @@
         <div class="title-wrapper">
           <a class="title-card-outline" href="{{ p.url }}">
             <span class="project-question">{{ p.question }}</span>
-            <div class="case-study-label">Case Study</div>
+            <div class="case-study-tag">Case Study</div>
             <div class="project-meta">
               <div class="project-title">{{ p.projectname }}</div>
               <!--  <div><strong>Client:</strong> {{ p.client }}</div>-->
@@ -28,7 +28,10 @@
         <a class="project-link" href="{{ p.url }}">
           <div class="project-image">
             <div class="question-wrapper">
-              <span class="project-question">{{ p.question }}</span>
+              <span class="project-question">
+                <span class="case-study-tag">Case Study</span><br>
+                {{ p.question }}
+              </span>
             </div>
           </div>
         </a>
@@ -38,42 +41,40 @@
   {% endif %}
 {% endfor %}
     </div>
-    <hr>
-    <div class="section-title snippets">
-      <h3>Other Projects</h3>
-    </div>
+
     <div class="snippet-box">
       {% for x in site.pages %}
         {% if printable == true and x.card == 'snippet' %}
+        {% if x.order == 4 %}
+        <div class="{{ x.shortcode }} project snippet active-snippet" style="order: {{ x.order }}">
+        {% else %}
         <div class="{{ x.shortcode }} project snippet" style="order: {{ x.order }}">
+        {% endif %}
           <div class="title-wrapper">
             <div class="project-question">{{ x.question }}</div>
-            <div class="slider-show-btn"><div class="show-btn-icon"></div></div>
-          <!--  <div class="project-meta">
-              <span><strong>Client:</strong> {{ x.client }}</span>
-              <span><strong>Role:</strong> {{ x.role }}</span>
-              <span><strong>Date:</strong> {{ x.dates }}</span>
-            </div> -->
+            <div class="arrow-right"></div>
           </div>
-          <div class="snippet-body">
-            <div class="snippet-top">
-              <div class="project-image" data-images="{{ x.slider-images }}" data-this-image="0" style="background-position: 0">
-                <div class="question-wrapper">
-                  <span class="project-question">
-                    {{ x.question }}
-                  </span>
+          <div class="snippet-body-container">
+            <div class="snippet-body">
+              <div class="snippet-top">
+                <div class="project-image" data-images="{{ x.slider-images }}" data-this-image="0" style="background-position: 0">
+                </div>
+                <div class="slider-nav-container">
+                  <div class="slider-nav nav-left disabled-btn"><i></i></div>
+                  <div class="slider-nav nav-right"><i></i></div>
                 </div>
               </div>
-              <div class="slider-nav-container">
-                <div class="slider-nav nav-left disabled-btn"><i></i></div>
-                <div class="slider-nav nav-right"><i></i></div>
-              </div>
-              <div class="slider-show-btn"><div class="show-btn-icon"></div></div>
-            </div>
-            <div class="project-label">
-              <div class="project-label__body">
-                <div class="project-headline">{{ x.question }}</div>
-                {{ x.intro }}
+              <div class="project-label">
+                <div class="project-label__body">
+                  <div class="project-headline">{{ x.question }}</div>
+                  {{ x.intro }}
+                  <hr>
+                  <div class="project-meta">
+                    <span><strong>Client:</strong> {{ x.client }}</span>
+                    <span><strong>Role:</strong> {{ x.role }}</span>
+                    <span><strong>Date:</strong> {{ x.dates }}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
