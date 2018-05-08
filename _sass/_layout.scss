@@ -699,6 +699,7 @@
 			.snippet-body {
 				left: 0;
 				opacity: 1;
+				z-index: 999;
 			}
 		}
 	}
@@ -1494,7 +1495,7 @@
 	width: 100%;
 	z-index: 1000;
 	background-color: rgba($background-color, 0.95);
-	border-bottom: 1px solid rgba($brand-color4, 0.2);
+	border-bottom: 1px solid $project-border;
 	@include all-transition($transition-time);
 	@include media-query($on-680) {
 		background-color: transparent;
