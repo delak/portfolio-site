@@ -98,6 +98,10 @@
 .project-section {
 	padding: 150px 0 100px;
 	@include project-sizer;
+	@include media-query($on-540) {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
 
 	.section-title {
 		margin-bottom: 80px;
@@ -225,15 +229,13 @@
 
 		.question-wrapper {
 			position: absolute;
-			left: 4em;
+			left: 8vw;
+			bottom: 8vw;
 			right: 4em;
-			bottom: 3.6em;
-			opacity: 0;
+			display: none;
 			@include all-transition($transition-time);
 			@include media-query($on-680) {
-				opacity: 1;
-				left: 8vw;
-				bottom: 8vw;
+				display: inline-block;
 			}
 
 			@at-root {
@@ -266,13 +268,32 @@
 				}
 			}
 		}
+
+		.case-study-tag {
+			position: absolute;
+			left: calc(8vw - 0.467em);
+			top: calc(8vw - 0.467em);
+			font-size: 0.75em;
+			line-height: 0.75em;
+			padding: 0.5em;
+			margin: 0;
+			background-color: $background-color;
+			display: none;
+			@include media-query($on-680) {
+				display: block;
+			}
+		}
 	}
 
 	.project-label {
 		width: 100%;
 		z-index: -2;
+		margin-top: 0 !important;
 		background-color: rgba($card-color, 0.3);
 		transition: none;
+		@include media-query($on-680) {
+			display: none;
+		}
 
 		.project-label__body {
 			font: {
@@ -298,20 +319,6 @@
 			}
 			@include media-query($on-780) {
 				font-size: 1em;
-			}
-
-			.project-headline {
-				font-size: 1.3em;
-				line-height: 1.5em;
-				margin-bottom: 1em;
-				display: none;
-				@include media-query($on-680) {
-					display: block;
-				}
-
-				strong {
-					color: $brand-color;
-				}
 			}
 
 			strong {
@@ -343,11 +350,6 @@
 		margin-top: 2.5em;
 	}
 
-	.project-question .case-study-tag {
-		font-size: 0.45em;
-		line-height: 1em;
-	}
-
 	&.hover-project {
 		.title-card-outline {
 			background-color: $card-color;
@@ -371,6 +373,22 @@
 		margin-bottom: 0;
 		@include media-query($on-680) {
 			margin-bottom: 5em;
+		}
+
+		.question-wrapper {
+			display: none;
+			margin-bottom: 1em;
+			@include media-query($on-680) {
+				display: block;
+			}
+
+			.project-question {
+				white-space: normal;
+				font-size: 1.4em;
+				@include media-query($on-540) {
+					font-size: 1.2em;
+				}
+			}
 		}
 
 		.snippet-body-container {
@@ -409,25 +427,15 @@
 			background-position: left;
 
 			.question-wrapper {
-				left: 2.5em;
-				right: 2.5em;
-				bottom: 2.1em;
-				@include media-query($on-680) {
-					left: 1.1em;
-					right: 1.1em;
-					bottom: 0.9em;
-				}
+				left: 1.8em;
+				right: 8em;
+				bottom: 1.5em;
 
 				.project-question {
 					white-space: normal;
 					font-size: 1.4em;
-					line-height: 1.5em;
-					@include media-query($on-680) {
+					@include media-query($on-540) {
 						font-size: 1em;
-					}
-					@include media-query($on-376) {
-						font-size: 0.85em;
-						line-height: 1em;
 
 						& br {
 							display: none;
@@ -541,7 +549,7 @@
 				}
 
 				&:hover {
-					border-color: $brand-color;
+					border-color: $link-hover-color;
 
 					&.nav-left {
 						i {
@@ -569,6 +577,7 @@
 				}
 
 				&.disabled-btn {
+					cursor: default;
 					opacity: 0.5;
 					background-color: $background-color;
 					border-color: transparent;
@@ -581,37 +590,6 @@
 			@include all-transition($transition-time);
 		}
 
-		.slider-show-btn {
-			display: inline-block;
-			z-index: 500;
-			cursor: pointer;
-			color: $brand-color;
-			margin-top: 0.7em;
-
-			.show-btn-icon {
-				display: inline-block;
-				position: relative;
-				top: 0.35em;
-				width: 1.5em;
-				height: 1.5em;
-				@include all-transition(0.2s);
-				background: {
-					image: url('/assets/images/icons/expander.svg');
-					size: 65%;
-					position: 0 -1.08em;
-					repeat: no-repeat;
-				}
-			}
-
-			&:after {
-				content: "Show description";
-			}
-
-			&:hover {
-				color: $link-hover-color;
-			}
-		}
-
 		.snippet-top .slider-show-btn {
 			display: none;
 			position: absolute;
@@ -619,26 +597,20 @@
 			top: 1.4em;
 			z-index: 500;
 			cursor: pointer;
-			color: $brand-color;
 			margin-top: 0.7em;
 
 			.show-btn-icon {
-				display: inline-block;
-				position: relative;
-				top: 0.35em;
-				width: 1.5em;
-				height: 1.5em;
-				@include all-transition(0.2s);
+				top: 0;
+				width: 1.8em;
+				height: 1.8em;
+				border-radius: 20%;
 				background: {
 					image: url('/assets/images/icons/expander.svg');
-					size: 65%;
-					position: 0 -1.08em;
+					color: $background-color;
+					size: 60%;
+					position: 0.375em -1.1em;
 					repeat: no-repeat;
 				}
-			}
-
-			&:after {
-				content: "Show description";
 			}
 
 			&:hover {
@@ -647,26 +619,6 @@
 
 			@include media-query($on-680) {
 				display: block;
-				right: 1.4em;
-				top: 1.4em;
-
-				.show-btn-icon {
-					top: 0;
-					width: 1.8em;
-					height: 1.8em;
-					background: {
-						image: url('/assets/images/icons/expander_white.svg');
-						color: $brand-color;
-						size: 60%;
-						position: 0.375em -1.1em;
-						repeat: no-repeat;
-					}
-					border-radius: 20%;
-				}
-			}
-
-			&:after {
-				content: "";
 			}
 		}
 
@@ -704,15 +656,16 @@
 		}
 	}
 
-	&.animatable {
+	&.snippet-show {
+		.snippet-top .slider-show-btn {
+			.show-btn-icon {
+				background-position: 0.375em 0.4em;
+			}
+		}
+
 		.project-label {
 			display: block;
 			@include all-transition(0.3s);
-		}
-
-		.title-wrapper .project-meta.meta-ready {
-			display: block;
-			@include all-transition(0.2s);
 		}
 	}
 

@@ -27,9 +27,9 @@
         </div>
         <a class="project-link" href="{{ p.url }}">
           <div class="project-image">
+            <span class="case-study-tag">Case Study</span>
             <div class="question-wrapper">
               <span class="project-question">
-                <span class="case-study-tag">Case Study</span><br>
                 {{ p.question }}
               </span>
             </div>
@@ -55,6 +55,11 @@
             <div class="arrow-right"></div>
           </div>
           <div class="snippet-body-container">
+            <div class="question-wrapper">
+              <span class="project-question">
+                {{ x.question }}
+              </span>
+            </div>
             <div class="snippet-body">
               <div class="snippet-top">
                 <div class="project-image" data-images="{{ x.slider-images }}" data-this-image="0" style="background-position: 0">
@@ -63,10 +68,10 @@
                   <div class="slider-nav nav-left disabled-btn"><i></i></div>
                   <div class="slider-nav nav-right"><i></i></div>
                 </div>
+                <div class="slider-show-btn"><div class="show-btn-icon"></div></div>
               </div>
               <div class="project-label">
                 <div class="project-label__body">
-                  <div class="project-headline">{{ x.question }}</div>
                   {{ x.intro }}
                   <hr>
                   <div class="project-meta">
