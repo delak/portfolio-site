@@ -1699,15 +1699,14 @@
 
 		.contact-button {
       &::before {
-        background-color: $brand-color;
-        margin-right: 7px;
-        width: 16px;
-        height: 16px;
+        margin-right: 4px;
+        width: 20px;
+        height: 20px;
       }
-      &.email:before { background-image: url('/assets/images/icons/email_white.svg'); }
-      &.linkedin::before { background-image: url('/assets/images/icons/linkedin_white.svg'); }
-      &.twitter::before { background-image: url('/assets/images/icons/twitter_white.svg'); }
-			&.instagram::before { background-image: url('/assets/images/icons/instagram_white.svg'); }
+      &.email:before { background-image: url('/assets/images/icons/email.svg'); }
+      &.linkedin::before { background-image: url('/assets/images/icons/linkedin.svg'); }
+      &.twitter::before { background-image: url('/assets/images/icons/twitter.svg'); }
+			&.instagram::before { background-image: url('/assets/images/icons/instagram.svg'); }
     }
 	}
 }
