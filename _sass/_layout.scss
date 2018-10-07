@@ -1,16 +1,25 @@
 /* #HOMEPAGE-Intro */
+.hello-section-container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	background: $brand-color3 url("/assets/images/square_bg_2X.png") repeat fixed center;
+	z-index: -100;
+	@include media-query($on-680) {
+		position: relative;
+	}
+}
+
 .hello-section {
 	overflow: hidden;
-  background-color: $background-color;
-	min-height: 25em;
-	margin: 10em 0 6.25em;
+	padding: 12em 0 1.5em;
 	@include makeflex(row);
 	-webkit-box-align: flex-end;
 	-ms-flex-align: flex-end;
 	align-items: flex-end;
 	@include media-query($on-780) {
 		min-height: auto;
-		padding-top: 80px;
 		padding-bottom: 80px;
 	}
 	@include media-query($on-680) {
@@ -24,22 +33,16 @@
 		.hello-intro {
 			font: {
 				family: $display-font-family;
-				size: 3em;
-				weight: $font-light;
+				size: 2.3em;
+				weight: $font-regular;
 			}
-			margin-bottom: calc(2 * #{$grid-height});
-			line-height: 1.1em;
 			color: $brand-color;
 			padding-left: 0.7em;
 	    text-indent: -0.7em;
 			margin-left: -0.8em;
-			@include media-query($on-780) {
-				font-size: 8vw;
-				line-height: 10vw;
-			}
 			@include media-query($on-680) {
-				font-size: 40px;
-    		line-height: 45px;
+				font-size: 2em;
+    		line-height: 1.3em;
 			}
 
 	    &::before {
@@ -51,7 +54,7 @@
 			@at-root {
 				.grey-out {
 					color: rgba($brand-color2, 0.7);
-					font-weight: $font-lightest;
+					font-weight: $font-light;
 				}
 
 				.slash-space {
@@ -66,7 +69,11 @@
 				padding-right: 0;
 			}
 
-			p {
+			ol {
+				margin-bottom: 40px;
+			}
+
+			li {
 			  font: {
 					size: 1.5em;
 					weight: $font-regular;
@@ -74,41 +81,47 @@
 				}
 			  line-height: 1.8em;
 				color: $brand-color4;
-				margin-bottom: 40px;
-
 				@include media-query($on-680) {
 					font-size: 1.25em;
     			line-height: 1.8em;
-    			margin-bottom: 4vh;
 				}
 
 				&:last-child {
 					margin-bottom: 0;
 				}
-			}
 
-			.social-links {
-				max-width: 300px;
+				mark {
+					background-color: $background-color;
+				}
 			}
 		}
 	}
 }
 
 /* #HOMEPAGE-Portfolio */
+.project-section-container {
+	width: 100%;
+	background-color: $background-color;
+}
+
+.hello-drop-shadow {
+	height: 30px;
+	width: 100%;
+	margin-top: 550px;
+	background-image: linear-gradient(transparent 50%, darken($brand-color3, 15%));
+	opacity: 0.5;
+	@include media-query($on-680) {
+		margin-top: -30px !important;
+	}
+}
+
 .project-section {
 	padding: 150px 0 100px;
 	@include project-sizer;
 	@include media-query($on-540) {
 		padding-left: 5%;
 		padding-right: 5%;
-	}
-
-	.section-title {
-		margin-bottom: 80px;
-
-		&.snippets {
-			margin-bottom: 50px;
-		}
+		padding-top: 50px;
 	}
 
 	.project-thumbnails {
@@ -125,6 +138,12 @@
 	  -webkit-justify-content: space-between;
 	  justify-content: space-between;
 		clear: both;
+	}
+
+	.case-study-heading {
+		position: relative;
+		margin-top: -20px;
+		padding-bottom: 40px;
 	}
 
 	.snippet-box {
@@ -157,6 +176,9 @@
   justify-content: space-between;
 	align-items: flex-start;
 	@include all-transition($transition-time);
+	@include media-query($on-680) {
+		margin-bottom: 40px;
+	}
 
 	a, .snippet-body-container {
 		width: calc(66.66666666666% - 1em);
@@ -186,8 +208,8 @@
 			display: block;
 			position: relative;
 			top: -1em;
-			left: -1.5em;
-			padding: 1em 30% 1.8em 2em;
+			left: 0;
+			padding: 1em 3em 1.8em 2em;
 			border: 1px solid $project-border;
 			width: 100%;
 			background-color: $background-color;
@@ -268,28 +290,13 @@
 				}
 			}
 		}
-
-		.case-study-tag {
-			position: absolute;
-			left: calc(8vw - 0.467em);
-			top: calc(8vw - 0.467em);
-			font-size: 0.75em;
-			line-height: 0.75em;
-			padding: 0.5em;
-			margin: 0;
-			background-color: $background-color;
-			display: none;
-			@include media-query($on-680) {
-				display: block;
-			}
-		}
 	}
 
 	.project-label {
 		width: 100%;
 		z-index: -2;
 		margin-top: 0 !important;
-		background-color: rgba($card-color, 0.3);
+		background-color: lighten($brand-color3, 2%);
 		transition: none;
 		@include media-query($on-680) {
 			display: none;
@@ -299,10 +306,9 @@
 			font: {
 				size: 1em;
 				weight: $font-regular;
-				family: $display-font-family;
 			}
 			padding: 30px 40px;
-			line-height: 1.7em;
+			line-height: 1.5em;
 			-webkit-column-count: 2;
      	-moz-column-count: 2;
 			column-count: 2;
@@ -342,17 +348,9 @@
 		}
 	}
 
-	.case-study-tag {
-		text-transform: uppercase;
-		color: $brand-color4;
-		font-size: 0.7em;
-		font-weight: 500;
-		margin-top: 2.5em;
-	}
-
 	&.hover-project {
 		.title-card-outline {
-			background-color: $card-color;
+			background-color: $brand-color3;
 			border-color: transparent;
 
 			.project-question {
@@ -372,7 +370,7 @@
 		min-height: $snippet-height;
 		margin-bottom: 0;
 		@include media-query($on-680) {
-			margin-bottom: 5em;
+			margin-bottom: 2em;
 		}
 
 		.question-wrapper {
@@ -395,9 +393,9 @@
 			box-sizing: border-box;
 			min-height: $snippet-height;
 			position: absolute;
-			left: calc(33.3333333333333333% + 1em);
+			left: calc(33.3333333333333333% + 0.5em);
 			top: 0;
-			@include all-transition($transition-time);
+			@include all-transition(0.2s);
 			@include media-query($on-680) {
 				position: relative;
 				left: 0;
@@ -406,19 +404,19 @@
 
 		.snippet-body {
 			opacity: 0;
-			overflow: hidden;
+			display: none;
 			position: relative;
-			left: -1em;
-			border: 1px solid $project-border;
+		//	left: -1em;
 			@include all-transition(0.2s);
 			@include media-query($on-680) {
 				opacity: 1;
-				left: 0;
+				display: block;
 			}
 		}
 
 		.snippet-top {
 			position: relative;
+			border: 1px solid $project-border;
 		}
 
 		.project-image {
@@ -448,9 +446,9 @@
 		.title-wrapper {
 			cursor: pointer;
 			display: inline-block;
-			padding: 1.1em 0.8em;
+			padding: 1.1em 0.8em 1.1em 1.5em;
 			margin: 0;
-			width: calc(33.333333333333% - 1em - 1.6em);
+			width: calc(33.333333333333% - 1em - 2.3em);
 			border-bottom: 1px solid $project-border;
 			@include all-transition(0.4s);
 			@include media-query($on-680) {
@@ -470,7 +468,7 @@
 			}
 
 			&:hover {
-				background-color: $card-color;
+				background-color: $brand-color3;
 
 				.project-question {
 					color: $brand-color;
@@ -633,19 +631,26 @@
 
 		&.active-snippet {
 			.title-wrapper {
-				background-color: $card-color;
+				background-color: $brand-color3;
 
 				.project-question {
 					color: $brand-color;
 				}
 
 				.arrow-right {
-					border-left-color: $card-color;
+					border-left-color: $brand-color3;
+				}
+			}
+
+			.snippet-body-container {
+				left: calc(33.3333333333333333% + 1em);
+				@include media-query($on-680) {
+					left: 0;
 				}
 			}
 
 			.snippet-body {
-				left: 0;
+				display: block;
 				opacity: 1;
 				z-index: 999;
 			}
@@ -693,10 +698,14 @@
 		display: inline-block;
 		margin: 10px 20px 0;
 		width: calc(33.33333333333% - (2 * 20px));
-		padding: 0 10px;
+		padding-right: 10px;
 		box-sizing: border-box;
 		@include media-query($on-780) {
 			display: none;
+		}
+
+		img {
+			border-bottom: 1px solid $project-border;
 		}
 
 		.bio-footer {
@@ -708,15 +717,7 @@
 	        height: 1.8em;
 					margin-right: 0.25em;
 	      }
-
-	      .contact-button::after {
-	        display: none;
-	      }
 	    }
-
-			.social-links {
-				flex-flow: column wrap;
-			}
 
 			.contact-button::before {
 				margin-right: 0.25em;
@@ -737,17 +738,7 @@
 			padding: 0;
 		}
 
-		h2 {
-			font: {
-				size: 3.125em;
-				weight: $font-light;
-			}
-			line-height: 1.3em;
-			color: $brand-color;
-			margin-bottom: 10px;
-		}
-
-		p {
+		p, ul {
 			font-size: 1.125em;
 			color: $brand-color4;
 			line-height: 1.7em;
@@ -805,7 +796,7 @@
 		}
 
 		.services-container {
-			margin: 1.6em -0.6em 0.1em;
+			margin: 1.6em -0.6em;
 			@include makeflex(row);
 			-webkit-box-lines: multiple;
 		  -moz-box-lines: multiple;
@@ -816,12 +807,12 @@
 
 			.service-box {
 				width: calc(33.333333333% - 1.2em);
-				min-width: 11em;
+				min-width: 12em;
 				margin: 0.6em;
-				padding: 0.7em 1.1em 0.4em;
+				padding: 0.7em 1.1em 1.1em;
 				box-sizing: border-box;
 				font-size: 0.9em;
-				background-color: $card-color;
+				background-color: $brand-color3;
 				flex: 1;
 
 				h4 {
@@ -869,6 +860,61 @@
 	}
 }
 
+.resume {
+	clear: both;
+
+	.resume-section {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+		-webkit-column-gap: 1em;
+		-moz-column-gap: 1em;
+		column-gap: 1em;
+		margin-bottom: 3em;
+		@include media-query($on-540) {
+			-webkit-column-count: 1;
+			-moz-column-count: 1;
+			column-count: 1;
+		}
+
+		&:last-of-type {
+	    margin-bottom: 0;
+		}
+
+		&.speaking-section {
+			padding-top: 4px;
+		}
+	}
+
+	.resume-block {
+		margin-bottom: 1em;
+
+		h5, h6 {
+			font-size: 0.8em;
+			line-height: 1.5em;
+		}
+	}
+
+	h3, h4, h5, h6 {
+		margin-bottom: 0;
+		margin-left: 16px;
+	}
+
+	h4 {
+		color: $brand-color;
+		font-weight: $font-regular;
+	}
+
+	h3 {
+		margin-left: 0;
+		font-weight: $font-semi-bold;
+	}
+
+	h6 {
+		font-weight: $font-regular;
+	}
+}
+
 .image-grid-container {
 	margin-top: calc(2 * #{$global-padding});
 	clear: both;
@@ -878,14 +924,14 @@
 		-ms-flex-flow: column wrap;
 		-webkit-flex-flow: column wrap;
 		flex-flow: column wrap;
-		max-height: 490px;
+		max-height: 550px;
 		margin: 0 -8px;
 		overflow: hidden;
 		@include media-query($content-width) {
 			max-height: 400px;
 		}
 		@include media-query($on-780) {
-			max-height: 490px;
+			max-height: 500px;
 		}
 		@include media-query($on-680) {
 			max-height: 400px;
@@ -922,6 +968,10 @@
 /* #404-page */
 .errorpage {
 	.hello-section {
+		background-image: none;
+		background-color: $background-color;
+		margin-top: 10em;
+		padding-top: 0;
 		@include media-query($on-780) {
 			min-height: auto;
 			padding: 80px 10%;
@@ -1334,14 +1384,15 @@
 				family: $display-font-family;
 				weight: 500;
 			}
+		}
 
-			.caption-number {
-				color: $brand-color3;
-				margin: 0 11px 0 -8px;
-				background-color: rgba($brand-color, 0.8);
-				border-color: $background-color;
-				opacity: 1;
-			}
+		.caption-number {
+			color: $background-color;
+			font-family: $base-font-family;
+			margin: 0 11px 0 -8px;
+			background-color: rgba($brand-color, 0.8);
+			border-color: $background-color;
+			opacity: 1;
 		}
 
 		.info-pane-content {
@@ -1447,8 +1498,6 @@
 	border-bottom: 1px solid $project-border;
 	@include all-transition($transition-time);
 	@include media-query($on-680) {
-		background-color: transparent;
-		border-bottom: none;
 		position: absolute;
 	}
 
@@ -1471,6 +1520,19 @@
 		@include all-transition($transition-time);
 		@include media-query($on-680) {
 			display: block;
+		}
+	}
+
+	&.toggle-menu {
+		position: fixed;
+		background-color: rgba(255,255,255,0.95);
+		border-bottom: 1px solid #F1F5F7;
+
+		.hamburger {
+			opacity: 1;
+			background-size: 8px 28px;
+			-webkit-transform:rotate(90deg);
+			transform:rotate(90deg);
 		}
 	}
 
@@ -1561,30 +1623,13 @@
 			}
 		}
 	}
-
-	&.outerpage {
-		background-color: rgba($background-color, 0.95);
-
-		&.bg-whitener {
-			background-color: rgba($background-color, 0.95);
-		}
-	}
-
-	&.toggle-menu {
-		position: fixed;
-		background-color: rgba($background-color, 0.95);
-		border-bottom: 1px solid $brand-color3;
-
-		.hamburger {
-			opacity: 1;
-			background-size: 8px 28px;
-			-webkit-transform: rotate(90deg);
-			transform: rotate(90deg);
-		}
-	}
 }
 
 /* #FOOTER */
+footer.outerpage {
+	background-color: $background-color;
+}
+
 .page-footer {
 	background-color: $brand-color3;
 	position: relative;
@@ -1662,6 +1707,7 @@
 			.question-wrapper {
 				position: absolute;
 				left: 20px;
+				right: 20px;
 				bottom: 15px;
 
 				.project-question {
@@ -1677,33 +1723,75 @@
 		}
 	}
 
-	&.outerpage {
-		@include project-sizer;
-		margin-top: 0;
-		background-color: $background-color;
-	}
-
 	.social-links {
-		max-width: 30em;
-		margin-left: auto;
-	  margin-right: auto;
-		-webkit-box-pack: justify;
-	  -moz-box-pack: justify;
-	  -ms-flex-pack: justify;
-	  -webkit-justify-content: space-between;
-	  justify-content: space-between;
+	  -webkit-justify-content: center;
+	  justify-content: center;
 
 		.contact-button {
+			position: relative;
+    	display: inline-block;
+
       &::before {
-        margin-right: 4px;
-        width: 20px;
-        height: 20px;
+        margin-left: 10px;
+        width: 24px;
+        height: 24px;
       }
       &.email:before { background-image: url('/assets/images/icons/email.svg'); }
       &.linkedin::before { background-image: url('/assets/images/icons/linkedin.svg'); }
       &.twitter::before { background-image: url('/assets/images/icons/twitter.svg'); }
 			&.instagram::before { background-image: url('/assets/images/icons/instagram.svg'); }
+			&.location {
+        &::before {
+					background-image: url('/assets/images/icons/location.svg');
+					background-repeat: no-repeat;
+					margin-left: 0;
+					width: 18px;
+					opacity: 0.6;
+				}
+        &::after {
+					content: "Accra, Ghana (GMT)"; font-size: 0.9em;
+					color: $brand-color4;
+					margin-right: 2em;
+				}
+			}
+
+			.tooltip {
+				visibility: hidden;
+		    background-color: rgba($brand-color4, 0.65);
+		    color: #fff;
+		    text-align: center;
+		    padding: 3px 10px;
+		    border-radius: 2px;
+
+		    position: absolute;
+		    z-index: 1;
+		    bottom: 100%;
+		    left: 50%;
+		    transform: translateX(calc(-50% + 5px));
+
+				&::before {
+					content: "";
+			    position: absolute;
+			    bottom:-6px;
+			    left: 50%;
+			    transform: translateX(-50%);
+			    border-width: 6px 6px 0 6px;
+			    border-style: solid;
+			    border-color: rgba($brand-color4, 0.65) transparent transparent transparent;
+			    z-index: 100;
+				}
+			}
+
+			&:hover .tooltip {
+		    visibility: visible;
+			}
     }
+	}
+
+	.outerpage & {
+		@include project-sizer;
+		margin-top: 0;
+		background-color: $background-color;
 	}
 }
 

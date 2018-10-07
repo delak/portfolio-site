@@ -8,19 +8,28 @@
     {% include header.html %}
 
     <main class="outerpage">
-      <section class="hello-section">
-        <div class="hello-intro-bio">
-          <div class="hello-intro">
-            Product <span class="grey-out">&amp;</span> Service Designer
-          </div>
-          <div class="hello-bio">
-            <p>10+ years of experience creating digital products, services and communication by marrying human-centered design with business strategy and an ability to make things well-behaved. I live, work and teach out of <mark>Accra, Ghana</mark>.</p>
+      <section class="hello-section-container">
+        <div class="hello-section">
+          <div class="hello-intro-bio">
+            <div class="hello-intro">
+              Product <span class="grey-out">&amp;</span> Service Designer
+            </div>
+            <div class="hello-bio">
+              <ol>
+                <li>A person in the business of understanding what people want, and making it real through coherent customer experiences, services and digital products</li>
+                <li>Alchemist</li>
+              </ol>
+            </div>
           </div>
         </div>
       </section>
-      <section class="project-section">
-        <div class="project-thumbnails">
-          {% include project-grid.html %}
+      <div class="hello-drop-shadow"></div>
+      <section class="project-section-container">
+        <div class="project-section">
+          <h2 class="case-study-heading">Case Studies</h2>
+          <div class="project-thumbnails">
+            {% include project-grid.html %}
+          </div>
         </div>
       </section>
     </main>

@@ -11,6 +11,8 @@ $(document).ready(function() {
   var hb = $('.hamburger');
   var nl = $('.nav-left');
   var nr = $('.nav-right');
+  var hds = $('.hello-drop-shadow');
+
 
   show_btn.click(function() {
     $(this).showLabel();
@@ -64,6 +66,8 @@ $(document).ready(function() {
     var thisSnippet = $(this).closest('.snippet');
     thisSnippet.addClass('active-snippet');
     snippet.not(thisSnippet).removeClass('active-snippet');
+
+    sbx.adjustHeight();
   });
 
   plpi.hover(function() {
@@ -91,12 +95,16 @@ $(document).ready(function() {
   };
 
   $.fn.adjustHeight = function() {
-    var minHeight = Math.max.apply(null, sb.map(function () {
-      return $(this).height();
-    }).get());
+    var minHeight = $('.active-snippet .snippet-body').innerHeight();
 
     $(this).css('min-height', minHeight+'px');
   };
+
+  $.fn.setDropShadow = function() {
+    var hello_pos = $('.hello-section').innerHeight() - $(this).height();
+
+    $(this).css('margin-top', hello_pos+'px');
+  }
 
   $.fn.hideLabel = function() {
     var thisSnippet = $(this);
@@ -123,5 +131,13 @@ $(document).ready(function() {
 
   $(window).on("load resize", function(e) {
     sbx.adjustHeight();
+    hds.setDropShadow();
+  });
+
+  $(window).on("load resize scroll", function(e) {
+
+    if(sh.hasClass('toggle-menu')) {
+      sh.removeClass('toggle-menu');
+    }
   });
 });

@@ -16,18 +16,16 @@
       <div class="{{ p.shortcode }} project card-only" style="order: {{ p.order }}">
         <div class="title-wrapper">
           <a class="title-card-outline" href="{{ p.url }}">
-            <span class="project-question">{{ p.question }}</span>
-            <div class="case-study-tag">Case Study</div>
+            <span class="project-question">{{ p.question }} <strong>»</strong></span>
+            </br>
             <div class="project-meta">
-              <div class="project-title">{{ p.projectname }}</div>
-              <!--  <div><strong>Client:</strong> {{ p.client }}</div>-->
+              <div><strong>Client:</strong> {{ p.client }}</div>
               <div><strong>Role:</strong> {{ p.role }}</div>
           </div>
           </a>
         </div>
         <a class="project-link" href="{{ p.url }}">
           <div class="project-image">
-            <span class="case-study-tag">Case Study</span>
             <div class="question-wrapper">
               <span class="project-question">
                 {{ p.question }}
@@ -42,6 +40,7 @@
 {% endfor %}
     </div>
 
+    <h2>More Projects</h2>
     <div class="snippet-box">
       {% for x in site.pages %}
         {% if printable == true and x.card == 'snippet' %}
