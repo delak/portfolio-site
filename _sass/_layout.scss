@@ -503,7 +503,7 @@
 				width: 2em;
 				height: 2em;
 				margin-right: 0.5em;
-				background-color: rgba($background-color, 0.95);
+				background-color: rgba($brand-color, 0.95);
 				border: 1px solid $project-border;
 				border-radius: 20%;
 
@@ -516,7 +516,7 @@
 					&:before, &:after {
 						content: "";
 						position: absolute;
-						background-color: $brand-color;
+						background-color: $background-color;
 						width: 4px;
 						height: 11px;
 					}
@@ -573,7 +573,7 @@
 				&.disabled-btn {
 					cursor: default;
 					opacity: 0.5;
-					background-color: $background-color;
+					background-color: $brand-color;
 					border-color: transparent;
 				}
 			}
