@@ -103,7 +103,7 @@ $(document).ready(function() {
   $.fn.setDropShadow = function() {
     var hello_pos = $('.hello-section').innerHeight() - $(this).height();
 
-    $(this).css('margin-top', hello_pos+'px');
+    $(this).animate({ marginTop: hello_pos+'px'}, 700);
   }
 
   $.fn.hideLabel = function() {
