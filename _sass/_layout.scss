@@ -272,7 +272,7 @@
 					box-shadow: 0.347em 0 0 $question-color, -0.308em 0 0 $question-color;
 					box-decoration-break: clone;
 					background-color: $question-color;
-					padding: 0.12em 0;
+					padding: 0.12em 1em 0.12em 0;
 					line-height: 1.5em;
 					@include all-transition($transition-time);
 					@include media-query($on-680) {
