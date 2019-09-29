@@ -107,7 +107,6 @@
 .hello-drop-shadow {
 	height: 30px;
 	width: 100%;
-	margin-top: 550px;
 	background-image: linear-gradient(transparent 50%, darken($brand-color3, 15%));
 	opacity: 0.5;
 	@include media-query($on-680) {
