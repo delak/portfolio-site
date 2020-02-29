@@ -1739,7 +1739,7 @@ footer.outerpage {
       &.email:before { background-image: url('/assets/images/icons/email.svg'); }
       &.linkedin::before { background-image: url('/assets/images/icons/linkedin.svg'); }
       &.twitter::before { background-image: url('/assets/images/icons/twitter.svg'); }
-			&.five-oha-px::before { background-image: url('/assets/images/icons/500px.svg'); }
+			&.five-oha-px::before { background-image: url('/assets/images/icons/500px.svg'); width: 48px; }
 			&.instagram::before { background-image: url('/assets/images/icons/instagram.svg'); }
 			&.location {
         &::before {
