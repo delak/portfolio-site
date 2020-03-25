@@ -920,11 +920,13 @@
 	clear: both;
 
 	.image-grid {
-		@include makeflex(column);
-		-ms-flex-flow: column wrap;
-		-webkit-flex-flow: column wrap;
-		flex-flow: column wrap;
-		max-height: 800px;
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+		-webkit-column-gap: 1em;
+		-moz-column-gap: 1em;
+		column-gap: 1em;
+
 		margin: 0 -8px;
 		overflow: hidden;
 		@include media-query($content-width) {
