@@ -924,7 +924,6 @@
 		-ms-flex-flow: column wrap;
 		-webkit-flex-flow: column wrap;
 		flex-flow: column wrap;
-		max-height: 1000px;
 		margin: 0 -8px;
 		overflow: hidden;
 		@include media-query($content-width) {
