@@ -926,29 +926,20 @@
 		-webkit-column-gap: 1em;
 		-moz-column-gap: 1em;
 		column-gap: 1em;
-
-		margin: 0 -8px;
-		overflow: hidden;
-		@include media-query($content-width) {
-			max-height: 400px;
-		}
-		@include media-query($on-780) {
-			max-height: 500px;
-		}
-		@include media-query($on-680) {
-			max-height: 400px;
-		}
+		margin-bottom: 3em;
 		@include media-query($on-540) {
-			max-height: 720px;
+			-webkit-column-count: 1;
+			-moz-column-count: 1;
+			column-count: 1;
 		}
-		@include media-query($on-376) {
-			max-height: 540px;
+
+		&:last-of-type {
+			margin-bottom: 0;
 		}
 
 		.image-box {
 			position: relative;
 			margin: 8px;
-			width: calc(50% - (2 * 8px));
 			border: 2px solid $brand-color3;
 			box-sizing: border-box;
 
