@@ -924,7 +924,7 @@
 		-ms-flex-flow: column wrap;
 		-webkit-flex-flow: column wrap;
 		flex-flow: column wrap;
-		max-height: 550px;
+		max-height: 1000px;
 		margin: 0 -8px;
 		overflow: hidden;
 		@include media-query($content-width) {
@@ -946,12 +946,9 @@
 		.image-box {
 			position: relative;
 			margin: 8px;
-			width: calc(33.33333333333333333% - (2 * 8px));
+			width: calc(50% - (2 * 8px));
 			border: 2px solid $brand-color3;
 			box-sizing: border-box;
-			@include media-query($on-540) {
-				width: calc(50% - (2 * 8px));
-			}
 
 			a {
 				position: absolute;
