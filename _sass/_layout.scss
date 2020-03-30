@@ -926,7 +926,7 @@
 		column-count: 2;
 		-webkit-column-gap: 1em;
 		-moz-column-gap: 1em;
-		column-gap: 1em;
+		column-gap: 2em;
 		margin-bottom: 3em;
 		@include media-query($on-540) {
 			-webkit-column-count: 1;
@@ -941,8 +941,11 @@
 		.image-box {
 			position: relative;
 			margin-bottom: 1em;
-			border: 2px solid $brand-color3;
 			box-sizing: border-box;
+
+			img {
+				border: 2px solid $brand-color3;
+			}
 
 			a {
 				position: absolute;
@@ -951,6 +954,10 @@
 				width: 100%;
 				height: 100%;
 				border: none;
+			}
+
+			p {
+				font-size: 0.9em;
 			}
 		}
 	}
