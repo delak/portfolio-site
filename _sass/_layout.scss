@@ -699,6 +699,7 @@
 		width: calc(33.33333333333% - (2 * 20px));
 		padding-right: 10px;
 		box-sizing: border-box;
+		text-align: right;
 		@include media-query($on-780) {
 			display: none;
 		}
