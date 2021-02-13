@@ -889,6 +889,9 @@
 
 	.resume-block {
 		margin-bottom: 1em;
+		-webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
 
 		h5, h6 {
 			font-size: 0.8em;
