@@ -315,7 +315,7 @@
      	-moz-column-gap: 25px;
 			column-gap: 25px;
 			-moz-column-fill: auto;
-       column-fill: auto;
+	   column-fill: balance;
 			 z-index: -1;
 			@include all-transition($transition-time);
 			@include media-query($content-width) {
