@@ -946,6 +946,10 @@
 			position: relative;
 			margin-bottom: 1em;
 			box-sizing: border-box;
+			break-inside: avoid;
+			page-break-inside: avoid; /* For print media */
+			-webkit-column-break-inside: avoid; /* For WebKit browsers */
+		  
 
 			img {
 				border: 2px solid $brand-color3;
