@@ -1,0 +1,20 @@
+current directory: /Users/dela/portfolio-site/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+/Users/dela/.rbenv/versions/3.2.4/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/dela/portfolio-site/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20251007-77585-s5787s sitelibdir\=./.gem.20251007-77585-s5787s clean
+
+current directory: /Users/dela/portfolio-site/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20251007-77585-s5787s sitelibdir\=./.gem.20251007-77585-s5787s
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.bundle
+ld: warning: ignoring duplicate libraries: '-lruby.3.2'
+
+current directory: /Users/dela/portfolio-site/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20251007-77585-s5787s sitelibdir\=./.gem.20251007-77585-s5787s install
+/usr/bin/install -c -m 0755 ruby_http_parser.bundle ./.gem.20251007-77585-s5787s
+
+current directory: /Users/dela/portfolio-site/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20251007-77585-s5787s sitelibdir\=./.gem.20251007-77585-s5787s clean
