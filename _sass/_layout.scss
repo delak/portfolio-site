@@ -114,6 +114,22 @@
 	}
 }
 
+.alert-banner {
+	background-color: lighten($brand-color, 10%);
+	color: $brand-color3;
+	text-align: center;
+	padding: 10px 0;
+	font: {
+		size: 1em;
+	}
+	border-bottom: 1px solid darken($brand-color3, 10%);
+
+	a {
+		color: $brand-color3;
+		border-bottom: 1px dotted rgba($brand-color3, 0.3) ;
+	}
+}
+
 .project-section {
 	padding: 150px 0 100px;
 	@include project-sizer;
