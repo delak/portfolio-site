@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     base64 (0.3.0)
@@ -61,6 +63,9 @@ GEM
     mercenary (0.4.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
+    public_suffix (5.0.0)
+    rb-fsevent (0.10.4)
+    rb-inotify (0.10.1)
     public_suffix (6.0.2)
     rake (13.3.0)
     rb-fsevent (0.11.2)
